@@ -175,7 +175,7 @@ export default function ArticlesPage() {
                     setSearchQuery("");
                     setSelectedTag(null);
                   }}
-                  className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                  className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 cursor-pointer"
                 >
                   Clear Filters
                 </Button>
@@ -185,7 +185,7 @@ export default function ArticlesPage() {
               <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                 <button
                   onClick={() => setSelectedTag(null)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                     selectedTag === null
                       ? "bg-black dark:bg-white text-white dark:text-black"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -197,7 +197,7 @@ export default function ArticlesPage() {
                   <button
                     key={tag}
                     onClick={() => setSelectedTag(tag)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                       selectedTag === tag
                         ? "bg-black dark:bg-white text-white dark:text-black"
                         : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -247,7 +247,7 @@ export default function ArticlesPage() {
                       ))}
                     </div>
                     <Link href={getArticleUrl(featuredArticle.slug)}>
-                      <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                      <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors cursor-pointer">
                         Read More
                       </button>
                     </Link>
@@ -260,7 +260,7 @@ export default function ArticlesPage() {
                 {otherArticles.map((article, index) => (
                   <div
                     key={article.id}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
                   >
                     <Link href={getArticleUrl(article.slug)}>
                       <div className="p-6">
@@ -320,7 +320,7 @@ export default function ArticlesPage() {
                       setSearchQuery("");
                       setSelectedTag(null);
                     }}
-                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                   >
                     Clear Filters
                   </button>
