@@ -58,6 +58,7 @@ export default function Modal({
             maxWidthClasses[maxWidth],
             className
           )}
+          data-modal="true"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}

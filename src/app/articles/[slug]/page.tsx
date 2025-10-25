@@ -119,176 +119,203 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               className="mb-8"
             >
               <Link href="/articles">
-                <Button variant="outline" className="flex items-center gap-2 cursor-pointer">
+                <Button
+                  variant="outline"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <ArrowLeft className="w-4 h-4" />
                   Back to Articles
                 </Button>
               </Link>
             </motion.div>
 
-          {/* Article Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8"
-          >
-            <div className="flex items-center gap-2 mb-4">
-              {article.featured && <Badge variant="secondary">Featured</Badge>}
-              <span className="text-sm text-zinc-500">{article.readTime}</span>
-            </div>
-
-            <h1 className="text-4xl font-bold text-black dark:text-white mb-4">
-              {article.title}
-            </h1>
-
-            <p className="text-xl text-zinc-600 dark:text-zinc-200 mb-6">
-              {article.description}
-            </p>
-
-            <div className="flex items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400 mb-6">
-              <div className="flex items-center gap-2">
-                <User className="w-4 h-4" />
-                {article.author}
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {formatArticleDate(article.publishedAt)}
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                {article.readTime}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mb-6">
-              {article.tags.map((tag) => (
-                <Badge key={tag} variant="outline">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Button
-                onClick={handleShare}
-                variant="outline"
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <Share2 className="w-4 h-4" />
-                Share
-              </Button>
-              {showShare && (
-                <span className="text-sm text-green-600">
-                  Link copied to clipboard!
-                </span>
-              )}
-            </div>
-          </motion.div>
-
-          {/* Featured Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
-              <Image
-                src={article.featuredImage}
-                alt={article.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
-
-          {/* Article Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div
-              className="article-content"
-              dangerouslySetInnerHTML={{
-                __html: article.content
-                  .replace(/\n/g, "<br>")
-                  .replace(
-                    /^### (.*?)$/gm,
-                    '<h3 class="text-xl font-semibold mt-6 mb-3">$1</h3>'
-                  )
-                  .replace(
-                    /^## (.*?)$/gm,
-                    '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>'
-                  )
-                  .replace(
-                    /^# (.*?)$/gm,
-                    '<h1 class="text-3xl font-bold mt-8 mb-6">$1</h1>'
-                  )
-                  .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                  .replace(/\*(.*?)\*/g, "<em>$1</em>")
-                  .replace(
-                    /\[([^\]]+)\]\(([^)]+)\)/g,
-                    '<a href="$2" class="text-purple-600 hover:text-purple-700 underline">$1</a>'
-                  )
-                  .replace(
-                    /^---$/gm,
-                    '<hr class="my-8 border-zinc-300 dark:border-zinc-700">'
-                  )
-                  .replace(
-                    /^- (.*?)$/gm,
-                    '<li class="ml-4">$1</li>'
-                  ),
-              }}
-            />
-          </motion.div>
-
-          {/* Related Articles */}
-          {relatedArticles.length > 0 && (
+            {/* Article Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8"
             >
-              <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
-                Related Articles
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedArticles.map((relatedArticle) => (
-                  <Link
-                    key={relatedArticle.id}
-                    href={getArticleUrl(relatedArticle.slug)}
-                  >
-                    <div className="group cursor-pointer">
-                      <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                        <Image
-                          src={relatedArticle.featuredImage}
-                          alt={relatedArticle.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-black dark:text-white mb-2 group-hover:text-purple-600 transition-colors">
-                        {relatedArticle.title}
-                      </h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-300 line-clamp-2">
-                        {relatedArticle.excerpt}
-                      </p>
-                      <div className="flex items-center gap-2 mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-                        <span>{relatedArticle.readTime}</span>
-                        <span>•</span>
-                        <span>
-                          {formatArticleDate(relatedArticle.publishedAt)}
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
+              <div className="flex items-center gap-2 mb-4">
+                {article.featured && (
+                  <Badge variant="secondary">Featured</Badge>
+                )}
+                <span className="text-sm text-zinc-500">
+                  {article.readTime}
+                </span>
+              </div>
+
+              <h1 className="text-4xl font-bold text-black dark:text-white mb-4">
+                {article.title}
+              </h1>
+
+              <p className="text-xl text-zinc-600 dark:text-zinc-200 mb-6">
+                {article.description}
+              </p>
+
+              <div className="flex items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400 mb-6">
+                <div className="flex items-center gap-2">
+                  <User className="w-4 h-4" />
+                  {article.author}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  {formatArticleDate(article.publishedAt)}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  {article.readTime}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {article.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
                 ))}
               </div>
+
+              <div className="flex items-center gap-4">
+                <Button
+                  onClick={handleShare}
+                  variant="outline"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <Share2 className="w-4 h-4" />
+                  Share
+                </Button>
+                {showShare && (
+                  <span className="text-sm text-green-600">
+                    Link copied to clipboard!
+                  </span>
+                )}
+              </div>
             </motion.div>
-          )}
+
+            {/* Featured Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8"
+            >
+              <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
+                <Image
+                  src={article.featuredImage}
+                  alt={article.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+
+            {/* Article Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div
+                className="article-content prose prose-lg dark:prose-invert max-w-none"
+                dangerouslySetInnerHTML={{
+                  __html: article.content
+                    .split("\n")
+                    .map((line) => {
+                      // Handle headers
+                      if (line.startsWith("### ")) {
+                        return `<h3 class="text-xl font-semibold mb-3">${line.slice(
+                          4
+                        )}</h3>`;
+                      } else if (line.startsWith("## ")) {
+                        return `<h2 class="text-2xl font-bold mb-4">${line.slice(
+                          3
+                        )}</h2>`;
+                      } else if (line.startsWith("# ")) {
+                        return `<h1 class="text-3xl font-bold mb-6">${line.slice(
+                          2
+                        )}</h1>`;
+                      }
+                      // Handle horizontal rule
+                      else if (line.trim() === "---") {
+                        return '<hr class="my-8 border-zinc-300 dark:border-zinc-700">';
+                      }
+                      // Handle list items
+                      else if (line.startsWith("- ")) {
+                        return `<li class="ml-4 mb-2">${line.slice(2)}</li>`;
+                      }
+                      // Handle numbered lists
+                      else if (/^\d+\. /.test(line)) {
+                        return `<li class="ml-4 mb-2">${line.replace(
+                          /^\d+\. /,
+                          ""
+                        )}</li>`;
+                      }
+                      // Handle empty lines
+                      else if (line.trim() === "") {
+                        return "<br>";
+                      }
+                      // Handle regular paragraphs
+                      else {
+                        return `<p class="mb-4">${line}</p>`;
+                      }
+                    })
+                    .join("")
+                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+                    .replace(
+                      /\[([^\]]+)\]\(([^)]+)\)/g,
+                      '<a href="$2" class="text-purple-600 hover:text-purple-700 underline">$1</a>'
+                    ),
+                }}
+              />
+            </motion.div>
+
+            {/* Related Articles */}
+            {relatedArticles.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
+              >
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
+                  Related Articles
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {relatedArticles.map((relatedArticle) => (
+                    <Link
+                      key={relatedArticle.id}
+                      href={getArticleUrl(relatedArticle.slug)}
+                    >
+                      <div className="group cursor-pointer">
+                        <div className="relative h-48 rounded-lg overflow-hidden mb-4">
+                          <Image
+                            src={relatedArticle.featuredImage}
+                            alt={relatedArticle.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <h3 className="text-lg font-semibold text-black dark:text-white mb-2 group-hover:text-purple-600 transition-colors">
+                          {relatedArticle.title}
+                        </h3>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-300 line-clamp-2">
+                          {relatedArticle.excerpt}
+                        </p>
+                        <div className="flex items-center gap-2 mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+                          <span>{relatedArticle.readTime}</span>
+                          <span>•</span>
+                          <span>
+                            {formatArticleDate(relatedArticle.publishedAt)}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </main>
         <Footer />

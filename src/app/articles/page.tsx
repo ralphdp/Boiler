@@ -5,9 +5,7 @@ import Head from "next/head";
 import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User, Tag, Search } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Calendar, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useMemo } from "react";
@@ -16,7 +14,6 @@ import {
   getAllTags,
   formatArticleDate,
   getArticleUrl,
-  getTagUrl,
 } from "@/lib/articles";
 import Link from "next/link";
 import Image from "next/image";
@@ -71,6 +68,12 @@ export default function ArticlesPage() {
 
   const featuredArticle = allArticles.find((article) => article.featured);
   const otherArticles = filteredArticles.filter((article) => !article.featured);
+
+  // When filtering by tag or search, include featured article in the list if it matches the filter
+  const shouldShowFeaturedInList = selectedTag || searchQuery;
+  const articlesToShow = shouldShowFeaturedInList
+    ? filteredArticles
+    : otherArticles;
 
   return (
     <>
@@ -171,7 +174,7 @@ export default function ArticlesPage() {
               </p>
 
               {/* Search and Filters */}
-              <div className="flex flex-col md:flex-row gap-4 mt-4">
+              <div className="flex flex-col md:flex-row gap-4 mt-4 items-center">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
@@ -222,83 +225,49 @@ export default function ArticlesPage() {
 
               {/* Featured Article */}
               {featuredArticle && !selectedTag && !searchQuery && (
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg mb-6">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg mb-6 bg-gray-50 dark:bg-gray-800">
                   <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded-full">
-                        {t("articles.featured")}
-                      </span>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {featuredArticle.readTime}
-                      </span>
-                    </div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {featuredArticle.title}
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      {featuredArticle.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                      <div className="flex items-center gap-1">
-                        <User className="w-4 h-4" />
-                        {featuredArticle.author}
+                    <div className="flex flex-col sm:flex-row gap-6">
+                      {/* Featured Article Image */}
+                      <div className="flex-shrink-0 w-full sm:w-auto">
+                        <div className="relative w-full h-48 sm:w-32 sm:h-24 rounded-lg overflow-hidden">
+                          <Image
+                            src={featuredArticle.featuredImage}
+                            alt={featuredArticle.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {formatArticleDate(featuredArticle.publishedAt)}
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {featuredArticle.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <Link href={getArticleUrl(featuredArticle.slug)}>
-                      <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors cursor-pointer">
-                        {t("articles.readMore")}
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              )}
 
-              {/* Articles List */}
-              <div className="w-full space-y-4">
-                {otherArticles.map((article, index) => (
-                  <div
-                    key={article.id}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-                  >
-                    <Link href={getArticleUrl(article.slug)}>
-                      <div className="p-6">
+                      {/* Featured Article Content */}
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-2">
+                          <span className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded-full">
+                            {t("articles.featured")}
+                          </span>
                           <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {article.readTime}
+                            {featuredArticle.readTime}
                           </span>
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-                          {article.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-                          {article.excerpt}
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                          {featuredArticle.title}
+                        </h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                          {featuredArticle.excerpt}
                         </p>
                         <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
                           <div className="flex items-center gap-1">
                             <User className="w-4 h-4" />
-                            {article.author}
+                            {featuredArticle.author}
                           </div>
                           <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
-                            {formatArticleDate(article.publishedAt)}
+                            {formatArticleDate(featuredArticle.publishedAt)}
                           </div>
                         </div>
-                        <div className="flex flex-wrap gap-2">
-                          {article.tags.slice(0, 3).map((tag) => (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {featuredArticle.tags.map((tag) => (
                             <span
                               key={tag}
                               className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
@@ -306,11 +275,79 @@ export default function ArticlesPage() {
                               {tag}
                             </span>
                           ))}
-                          {article.tags.length > 3 && (
-                            <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full">
-                              +{article.tags.length - 3}
-                            </span>
-                          )}
+                        </div>
+                        <Link href={getArticleUrl(featuredArticle.slug)}>
+                          <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors cursor-pointer">
+                            {t("articles.readMore")}
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Articles List */}
+              <div className="w-full space-y-4">
+                {articlesToShow.map((article) => (
+                  <div
+                    key={article.id}
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                  >
+                    <Link href={getArticleUrl(article.slug)}>
+                      <div className="p-6">
+                        <div className="flex flex-col sm:flex-row gap-6">
+                          {/* Article Image */}
+                          <div className="flex-shrink-0 w-full sm:w-auto">
+                            <div className="relative w-full h-48 sm:w-32 sm:h-24 rounded-lg overflow-hidden">
+                              <Image
+                                src={article.featuredImage}
+                                alt={article.title}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Article Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                {article.readTime}
+                              </span>
+                            </div>
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+                              {article.title}
+                            </h3>
+                            <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                              {article.excerpt}
+                            </p>
+                            <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                              <div className="flex items-center gap-1">
+                                <User className="w-4 h-4" />
+                                {article.author}
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" />
+                                {formatArticleDate(article.publishedAt)}
+                              </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {article.tags.slice(0, 3).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {article.tags.length > 3 && (
+                                <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full">
+                                  +{article.tags.length - 3}
+                                </span>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </Link>
@@ -319,7 +356,7 @@ export default function ArticlesPage() {
               </div>
 
               {/* No Results */}
-              {filteredArticles.length === 0 && (
+              {articlesToShow.length === 0 && (
                 <div className="text-center py-12">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {t("articles.noResults")}

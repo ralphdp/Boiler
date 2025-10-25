@@ -6,8 +6,9 @@ import Footer from "@/components/Footer";
 import QuickStart from "@/components/QuickStart";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, FileText } from "lucide-react";
 import { getGitHubUrl } from "@/lib/github";
+import Link from "next/link";
 
 export default function DocumentationPage() {
   const { t } = useLanguage();
@@ -631,6 +632,34 @@ export default function DocumentationPage() {
                       <Github className="h-4 w-4" />
                       {t("documentation.github.button")}
                     </a>
+                  </Button>
+                </div>
+              </section>
+
+              {/* Changelog Link */}
+              <section aria-labelledby="changelog">
+                <h2
+                  id="changelog"
+                  className="text-3xl font-bold text-black dark:text-white mb-6"
+                >
+                  Changelog
+                </h2>
+
+                <div className="space-y-4">
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Track all the features, improvements, and fixes in
+                    Boiler.click development. Stay updated with the latest
+                    changes and version history.
+                  </p>
+                  <Button asChild>
+                    <Link
+                      href="/documentation/change-log"
+                      className="inline-flex items-center"
+                      aria-label="View changelog"
+                    >
+                      <FileText className="h-4 w-4" />
+                      View Changelog
+                    </Link>
                   </Button>
                 </div>
               </section>
