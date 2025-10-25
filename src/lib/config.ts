@@ -94,5 +94,4 @@ export const features = {
   email: isConfigured("email"),
 };
 
-// Export both config and features together
-export { config, features };
+// Features are already exported above

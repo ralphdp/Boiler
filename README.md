@@ -368,16 +368,16 @@ Boiler.click is optimized for Vercel deployment with zero configuration required
    ```bash
    # Initialize git (if not already done)
    git init
-   
+
    # Add all files
    git add .
-   
+
    # Commit changes
    git commit -m "Initial commit"
-   
+
    # Add remote origin (replace with your GitHub repo)
    git remote add origin https://github.com/your-username/boiler-click.git
-   
+
    # Push to GitHub
    git push -u origin main
    ```
@@ -413,7 +413,7 @@ Boiler.click is optimized for Vercel deployment with zero configuration required
    ```bash
    # Deploy to preview
    vercel
-   
+
    # Deploy to production
    vercel --prod
    ```
@@ -528,16 +528,19 @@ Boiler.click includes comprehensive setup guides for analytics and advertising p
 See `ADMIN_PANEL_SETUP.md` for detailed instructions on:
 
 1. **Google Analytics Setup**
+
    - GA4 property creation
    - API key generation
    - Event tracking configuration
 
 2. **Google Ads Integration**
+
    - API credentials setup
    - Campaign data retrieval
    - Performance metrics
 
 3. **Bing Ads Integration**
+
    - Microsoft Advertising API setup
    - Campaign management
    - Cross-platform analytics

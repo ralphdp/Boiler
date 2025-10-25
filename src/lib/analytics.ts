@@ -54,8 +54,8 @@ export function reportWebVitals(metric: WebVitalMetric) {
     }
 
     // Send to Google Analytics if configured
-    if (isAnalyticsEnabled() && typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", metric.name, {
+    if (isAnalyticsEnabled() && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", metric.name, {
         event_category: "Web Vitals",
         event_label: metric.id,
         value: Math.round(
@@ -83,8 +83,8 @@ export function reportWebVitals(metric: WebVitalMetric) {
 // Page view tracking
 export function trackPageView(url: string, title?: string) {
   try {
-    if (isAnalyticsEnabled() && typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", config.analytics.gaId, {
+    if (isAnalyticsEnabled() && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("config", config.analytics.gaId, {
         page_title: title,
         page_location: url,
       });
@@ -102,8 +102,8 @@ export function trackEvent(
   value?: number
 ) {
   try {
-    if (isAnalyticsEnabled() && typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", action, {
+    if (isAnalyticsEnabled() && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", action, {
         event_category: category,
         event_label: label,
         value: value,
@@ -271,10 +271,11 @@ export function monitorCoreWebVitals() {
         const fidObserver = new PerformanceObserver((list) => {
           try {
             for (const entry of list.getEntries()) {
+              const fidEntry = entry as any;
               reportWebVitals({
                 name: "FID",
-                value: entry.processingStart - entry.startTime,
-                delta: entry.processingStart - entry.startTime,
+                value: fidEntry.processingStart - fidEntry.startTime,
+                delta: fidEntry.processingStart - fidEntry.startTime,
                 id: "fid",
                 navigationType: "navigate",
               });

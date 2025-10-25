@@ -27,7 +27,9 @@ setInterval(() => {
 export function createRateLimit(config: RateLimitConfig) {
   return function rateLimitMiddleware(request: NextRequest) {
     const ip =
-      request.ip ?? request.headers.get("x-forwarded-for") ?? "127.0.0.1";
+      request.headers.get("x-forwarded-for") ?? 
+      request.headers.get("x-real-ip") ?? 
+      "127.0.0.1";
     const key = `${ip}:${request.nextUrl.pathname}`;
 
     const now = Date.now();

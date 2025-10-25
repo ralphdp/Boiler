@@ -32,9 +32,9 @@ export default function AboutPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
-              {t("navigation.title").split(".")[0]}
+              {String(t("navigation.title")).split(".")[0]}
               <span className="text-lg">
-                .{t("navigation.title").split(".")[1]}
+                .{String(t("navigation.title")).split(".")[1]}
               </span>
             </h1>
           </motion.div>

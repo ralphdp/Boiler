@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 interface ScrollPosition {
@@ -12,13 +12,13 @@ interface ScrollRestorationProps {
   children: React.ReactNode;
 }
 
-export function ScrollRestoration({ children }: ScrollRestorationProps) {
+function ScrollRestorationInner({ children }: ScrollRestorationProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const scrollPositions = useRef<Map<string, ScrollPosition>>(new Map());
   const isInitialLoad = useRef(true);
   const isNavigating = useRef(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Create a unique key for the current page
   const currentPageKey = `${pathname}${searchParams.toString()}`;
@@ -157,4 +157,12 @@ export function ScrollRestoration({ children }: ScrollRestorationProps) {
   }, []);
 
   return <>{children}</>;
+}
+
+export function ScrollRestoration({ children }: ScrollRestorationProps) {
+  return (
+    <Suspense fallback={<>{children}</>}>
+      <ScrollRestorationInner>{children}</ScrollRestorationInner>
+    </Suspense>
+  );
 }
