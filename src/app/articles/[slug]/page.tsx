@@ -215,12 +215,16 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 __html: article.content
                   .replace(/\n/g, "<br>")
                   .replace(
-                    /## (.*?)(<br>|$)/g,
+                    /^### (.*?)$/gm,
+                    '<h3 class="text-xl font-semibold mt-6 mb-3">$1</h3>'
+                  )
+                  .replace(
+                    /^## (.*?)$/gm,
                     '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>'
                   )
                   .replace(
-                    /### (.*?)(<br>|$)/g,
-                    '<h3 class="text-xl font-semibold mt-6 mb-3">$1</h3>'
+                    /^# (.*?)$/gm,
+                    '<h1 class="text-3xl font-bold mt-8 mb-6">$1</h1>'
                   )
                   .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
                   .replace(/\*(.*?)\*/g, "<em>$1</em>")
@@ -229,8 +233,12 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                     '<a href="$2" class="text-purple-600 hover:text-purple-700 underline">$1</a>'
                   )
                   .replace(
-                    /---/g,
+                    /^---$/gm,
                     '<hr class="my-8 border-zinc-300 dark:border-zinc-700">'
+                  )
+                  .replace(
+                    /^- (.*?)$/gm,
+                    '<li class="ml-4">$1</li>'
                   ),
               }}
             />
