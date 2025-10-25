@@ -1,0 +1,384 @@
+{
+  "navigation": {
+    "title": "Boiler.click",
+    "mission": "Misión",
+    "support": "Soporte",
+    "about": "Acerca de",
+    "documentation": "Documentación"
+  },
+  "quickStart": {
+    "title": "Inicio Rápido",
+    "copyButton": "Copiar",
+    "copiedButton": "¡Copiado!",
+    "codeComments": {
+      "clone": "Clonar el repositorio",
+      "install": "Instalar dependencias",
+      "env": "Configurar variables de entorno",
+      "dev": "Iniciar servidor de desarrollo",
+      "build": "Construir para producción"
+    }
+  },
+  "githubButton": "Github",
+  "tooltips": {
+    "themeToggle": "Cambiar tema",
+    "languageSwitcher": "Cambiar idioma"
+  },
+  "documentation": {
+    "title": "Documentación",
+    "lastUpdated": "Última actualización: Diciembre 2024",
+    "quickStart": {
+      "title": "Inicio Rápido",
+      "description": "Ponte en marcha con Boiler.click en minutos. Sigue estos simples pasos para configurar tu entorno de desarrollo."
+    },
+    "gettingStarted": {
+      "title": "Comenzando",
+      "description": "Aprende los conceptos básicos de Boiler.click y cómo configurar tu entorno de desarrollo.",
+      "prerequisites": {
+        "title": "Prerrequisitos",
+        "nodejs": "Node.js 18+ instalado en tu sistema",
+        "npm": "npm o yarn como gestor de paquetes",
+        "git": "Git para control de versiones",
+        "database": "Base de datos PostgreSQL (local o en la nube)"
+      },
+      "installation": {
+        "title": "Instalación",
+        "description": "Clona el repositorio e instala las dependencias para comenzar con tu entorno de desarrollo."
+      }
+    },
+    "configuration": {
+      "title": "Configuración",
+      "description": "Configura tus variables de entorno y conexión de base de datos para comenzar.",
+      "environment": {
+        "title": "Variables de Entorno",
+        "description": "Copia el archivo .env.example a .env.local y configura tus variables de entorno incluyendo URL de base de datos, secretos de autenticación y claves API."
+      },
+      "database": {
+        "title": "Configuración de Base de Datos",
+        "description": "Configura tu base de datos PostgreSQL y ejecuta las migraciones para crear las tablas y relaciones necesarias."
+      }
+    },
+    "development": {
+      "title": "Desarrollo",
+      "description": "Aprende sobre el flujo de trabajo de desarrollo y los scripts disponibles para construir tu aplicación.",
+      "scripts": {
+        "title": "Scripts Disponibles",
+        "dev": "Iniciar el servidor de desarrollo con recarga automática",
+        "build": "Construir la aplicación para producción",
+        "start": "Iniciar el servidor de producción",
+        "lint": "Ejecutar ESLint para verificar la calidad del código"
+      }
+    },
+    "shadcnComponents": {
+      "title": "Componentes Shadcn/UI",
+      "description": "Aprende a usar los componentes más comunes de shadcn/ui con ejemplos de código prácticos.",
+      "visitWebsite": "Visita el sitio web oficial de shadcn/ui:",
+      "button": {
+        "title": "Componente Button",
+        "description": "Componente de botón versátil con múltiples variantes para diferentes casos de uso."
+      },
+      "card": {
+        "title": "Componente Card",
+        "description": "Componente de tarjeta flexible para mostrar contenido en un diseño estructurado."
+      },
+      "badge": {
+        "title": "Componente Badge",
+        "description": "Indicadores de estado pequeños y etiquetas con diferentes variantes."
+      }
+    },
+    "installationCommands": {
+      "title": "Comandos de Instalación",
+      "description": "Comandos esenciales para configurar componentes shadcn/ui y dependencias requeridas.",
+      "shadcn": {
+        "title": "Configuración Shadcn/UI",
+        "description": "Inicializa shadcn/ui y agrega los componentes más comúnmente utilizados.",
+        "comments": {
+          "init": "Instalar CLI de shadcn/ui",
+          "addComponents": "Agregar componentes"
+        }
+      },
+      "dependencies": {
+        "title": "Dependencias Requeridas",
+        "description": "Instala los paquetes necesarios para que los componentes shadcn/ui funcionen correctamente.",
+        "comment": "Instalar dependencias requeridas"
+      }
+    },
+    "codeExamples": {
+      "button": {
+        "clickMe": "Haz clic",
+        "outline": "Contorno",
+        "ghost": "Fantasma",
+        "delete": "Eliminar"
+      },
+      "card": {
+        "title": "Título de Tarjeta",
+        "content": "El contenido de la tarjeta va aquí"
+      },
+      "badge": {
+        "default": "Predeterminado",
+        "secondary": "Secundario",
+        "outline": "Contorno",
+        "destructive": "Destructivo"
+      }
+    },
+    "github": {
+      "title": "Repositorio GitHub",
+      "description": "Accede al código fuente completo, contribuye al proyecto o reporta problemas en nuestro repositorio de GitHub.",
+      "button": "Ver en GitHub"
+    }
+  },
+  "homepage": {
+    "subtitle": "Plantilla SaaS Full-Stack",
+    "description": "Potenciado con Next.js, Prisma, Shadcn y otras tecnologías",
+    "aboutButton": "Acerca de Boiler",
+    "githubButton": "Github",
+    "showcase": {
+      "title": "Construido con",
+      "footer": "Tecnologías que impulsan este boilerplate",
+      "nextjs": {
+        "description": "El framework de React para producción con renderizado híbrido estático y del servidor"
+      },
+      "prisma": {
+        "description": "ORM de nueva generación para Node.js y TypeScript para gestión de bases de datos"
+      },
+      "shadcn": {
+        "description": "Componentes bellamente diseñados construidos con Radix UI y Tailwind CSS"
+      },
+      "tailwind": {
+        "description": "Framework CSS utility-first para construir rápidamente interfaces de usuario personalizadas"
+      },
+      "typescript": {
+        "description": "JavaScript tipado a cualquier escala para una mejor experiencia de desarrollador"
+      },
+      "framer": {
+        "description": "Biblioteca de movimiento lista para producción para React con animaciones declarativas"
+      },
+      "lucide": {
+        "description": "Kit de herramientas de iconos hermoso y consistente con más de 1000 iconos para React"
+      }
+    },
+    "quickStart": {
+      "title": "Inicio Rápido",
+      "copyButton": "Copiar",
+      "copiedButton": "¡Copiado!",
+      "codeComments": {
+        "clone": "Clonar el repositorio",
+        "install": "Instalar dependencias",
+        "env": "Configurar variables de entorno",
+        "dev": "Iniciar servidor de desarrollo",
+        "build": "Construir para producción"
+      }
+    }
+  },
+  "about": {
+    "title": "Acerca de Boiler.click",
+    "description": "Una plantilla completa y lista para producción construida con tecnologías modernas. Perfecta para lanzar tu próxima aplicación SaaS con autenticación, gestión de base de datos y componentes de UI hermosos desde el primer momento.",
+    "coreFeatures": {
+      "title": "Características Principales",
+      "points": [
+        "Autenticación Passport.js",
+        "ORM Prisma con PostgreSQL",
+        "Componentes Shadcn/ui",
+        "Estilos Tailwind CSS"
+      ]
+    },
+    "devExperience": {
+      "title": "Experiencia de Desarrollador",
+      "points": [
+        "Soporte Completo TypeScript",
+        "Configuración ESLint",
+        "Formateo de Código Prettier",
+        "Configuración de Pruebas Lista"
+      ]
+    },
+    "githubButton": "Ver en GitHub",
+    "userExperience": {
+      "title": "Experiencia de Usuario",
+      "points": [
+        "Diseño responsivo que funciona en todos los dispositivos",
+        "Tiempos de carga rápidos con rendimiento optimizado",
+        "Navegación intuitiva e interfaz fácil de usar",
+        "Características de accesibilidad para diseño inclusivo"
+      ]
+    },
+    "securitySeo": {
+      "title": "Destacados de Seguridad y SEO",
+      "security": {
+        "title": "Características de Seguridad",
+        "features": [
+          "Headers de Política de Seguridad de Contenido",
+          "Limitación de velocidad con bloqueo de IP",
+          "Validación de entrada con Zod",
+          "Flujo de autenticación seguro",
+          "Protección XSS",
+          "Protección CSRF"
+        ]
+      },
+      "seo": {
+        "title": "Optimización SEO",
+        "features": [
+          "Optimización de meta tags",
+          "Tarjetas Open Graph y Twitter",
+          "Generación de sitemap",
+          "Configuración de robots.txt",
+          "Marcado de datos estructurados",
+          "Optimización de rendimiento"
+        ]
+      }
+    },
+    "performance": {
+      "title": "Métricas de Rendimiento",
+      "bundleSize": {
+        "title": "Tamaño del Bundle",
+        "value": "~2.1MB",
+        "description": "Build de producción optimizado"
+      },
+      "lighthouse": {
+        "title": "Puntuación Lighthouse",
+        "value": "98/100",
+        "description": "Rendimiento optimizado"
+      },
+      "buildTime": {
+        "title": "Tiempo de Build",
+        "value": "~45s",
+        "description": "Builds de desarrollo rápidos"
+      }
+    }
+  },
+  "mission": {
+    "title": "Nuestra Misión",
+    "description": "En Boiler.click, creemos que cada desarrollador debería tener acceso a herramientas de alta calidad y listas para producción que aceleren su proceso de desarrollo. Nuestra misión es eliminar el trabajo de configuración repetitivo que a menudo retrasa el lanzamiento de aplicaciones SaaS innovadoras.",
+    "goal": "Proporcionamos una plantilla completa y moderna que incluye todo lo que necesitas para construir y desplegar una aplicación SaaS full-stack. Desde autenticación y gestión de base de datos hasta hermosos componentes de UI y configuraciones de despliegue, te tenemos cubierto.",
+    "githubButton": "Ver en GitHub"
+  },
+  "support": {
+    "title": "Soporte",
+    "description": "¿Necesitas ayuda con Boiler.click? Estamos aquí para asistirte con cualquier pregunta o problema que puedas tener.",
+    "github": {
+      "title": "Repositorio de GitHub",
+      "description": "Encuentra documentación, problemas y contribuye al proyecto en GitHub.",
+      "button": "Visitar GitHub"
+    },
+    "email": {
+      "title": "Soporte por Email",
+      "description": "Para asistencia directa, contáctanos por email.",
+      "button": "Contactar Soporte"
+    }
+  },
+  "legal": {
+    "title": "Información Legal",
+    "lastUpdated": "Última Actualización: Diciembre 2024",
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "introduction": "Esta Política de Privacidad describe cómo Boiler.click recopila, usa y protege tu información cuando utilizas nuestro servicio.",
+      "informationCollection": {
+        "title": "Información que Recopilamos",
+        "personalInfo": "Podemos recopilar información personal como tu nombre, dirección de correo electrónico y datos de contacto cuando te registras en nuestro servicio o nos contactas.",
+        "usageData": "Recopilamos automáticamente información sobre cómo usas nuestro servicio, incluyendo páginas visitadas, tiempo invertido e información del dispositivo.",
+        "cookies": "Utilizamos cookies y tecnologías similares para mejorar tu experiencia y analizar el rendimiento del sitio."
+      },
+      "informationUse": {
+        "title": "Cómo Utilizamos tu Información",
+        "service": "Para proporcionar, mantener y mejorar nuestros servicios",
+        "communication": "Para comunicarnos contigo sobre actualizaciones, soporte y avisos importantes",
+        "analytics": "Para analizar patrones de uso y mejorar nuestra plataforma",
+        "security": "Para proteger contra fraudes y asegurar la seguridad de la plataforma"
+      },
+      "informationSharing": {
+        "title": "Compartir Información",
+        "content": "No vendemos, intercambiamos o alquilamos tu información personal a terceros. Podemos compartir información solo con proveedores de servicios de confianza que nos ayudan a operar nuestra plataforma, y solo bajo estrictos acuerdos de confidencialidad."
+      },
+      "dataSecurity": {
+        "title": "Seguridad de Datos",
+        "content": "Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Sin embargo, ningún método de transmisión por internet es 100% seguro."
+      },
+      "yourRights": {
+        "title": "Tus Derechos",
+        "access": "Tienes derecho a acceder a tu información personal",
+        "correction": "Puedes solicitar la corrección de información inexacta",
+        "deletion": "Puedes solicitar la eliminación de tu información personal",
+        "portability": "Tienes derecho a la portabilidad de datos"
+      }
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "introduction": "Estos Términos de Servicio rigen tu uso de Boiler.click y nuestros servicios. Al usar nuestra plataforma, aceptas estos términos.",
+      "acceptance": {
+        "title": "Aceptación de Términos",
+        "content": "Al acceder o usar nuestro servicio, aceptas estar sujeto a estos Términos de Servicio y todas las leyes y regulaciones aplicables."
+      },
+      "useLicense": {
+        "title": "Licencia de Uso",
+        "permission": "Se otorga permiso para descargar temporalmente una copia de Boiler.click solo para visualización personal y no comercial.",
+        "restrictions": "No puedes modificar, copiar, distribuir, transmitir, mostrar, realizar, reproducir, publicar, licenciar, crear trabajos derivados, transferir o vender cualquier información, software, productos o servicios obtenidos de este sitio."
+      },
+      "userAccounts": {
+        "title": "Cuentas de Usuario",
+        "responsibility": "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña.",
+        "security": "Aceptas asumir la responsabilidad de todas las actividades que ocurran bajo tu cuenta.",
+        "termination": "Nos reservamos el derecho de terminar cuentas que violen estos términos."
+      },
+      "prohibitedUses": {
+        "title": "Usos Prohibidos",
+        "content": "No puedes usar nuestro servicio para ningún propósito ilegal o para solicitar a otros que realicen actos ilegales, violar cualquier regla internacional, federal, provincial o estatal, leyes u ordenanzas locales, o infringir o violar nuestros derechos de propiedad intelectual o los derechos de propiedad intelectual de otros."
+      },
+      "disclaimer": {
+        "title": "Descargo de Responsabilidad",
+        "content": "La información en este sitio web se proporciona 'tal como está'. En la medida máxima permitida por la ley, Boiler.click excluye todas las representaciones, garantías, condiciones y términos relacionados con nuestro sitio web y el uso de este sitio web."
+      },
+      "limitation": {
+        "title": "Limitación de Responsabilidad",
+        "content": "En ningún caso Boiler.click, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables de daños indirectos, incidentales, especiales, consecuenciales o punitivos, incluyendo sin limitación, pérdida de ganancias, datos, uso, buena voluntad u otras pérdidas intangibles."
+      }
+    },
+    "cookiePolicy": {
+      "title": "Política de Cookies",
+      "introduction": "Esta Política de Cookies explica cómo Boiler.click utiliza cookies y tecnologías similares cuando visitas nuestro sitio web.",
+      "whatAreCookies": {
+        "title": "Qué Son las Cookies",
+        "content": "Las cookies son pequeños archivos de texto que se colocan en tu computadora o dispositivo móvil cuando visitas un sitio web. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente y proporcionar información a los propietarios de sitios web."
+      },
+      "howWeUseCookies": {
+        "title": "Cómo Utilizamos las Cookies",
+        "essential": "Las cookies esenciales son necesarias para que el sitio web funcione correctamente y no pueden ser deshabilitadas.",
+        "analytics": "Las cookies de análisis nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando e informando información de forma anónima.",
+        "preferences": "Las cookies de preferencias recuerdan tus elecciones y configuraciones para proporcionar una experiencia más personalizada.",
+        "marketing": "Las cookies de marketing se utilizan para rastrear visitantes a través de sitios web para mostrar anuncios relevantes y atractivos."
+      },
+      "cookieTypes": {
+        "title": "Tipos de Cookies que Utilizamos",
+        "session": "Las cookies de sesión son temporales y se eliminan cuando cierras tu navegador",
+        "persistent": "Las cookies persistentes permanecen en tu dispositivo por un período determinado o hasta que las elimines",
+        "firstParty": "Las cookies de primera parte son establecidas por nuestro sitio web",
+        "thirdParty": "Las cookies de terceros son establecidas por otros sitios web cuyo contenido aparece en nuestro sitio"
+      },
+      "managingCookies": {
+        "title": "Gestionar Cookies",
+        "browserSettings": "Puedes controlar y eliminar cookies a través de la configuración de tu navegador.",
+        "optOut": "Puedes optar por no recibir ciertas cookies ajustando la configuración de tu navegador o usando herramientas de exclusión proporcionadas por servicios de terceros.",
+        "impact": "Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad de nuestro sitio web."
+      }
+    },
+    "contact": {
+      "title": "Información de Contacto",
+      "content": "Si tienes alguna pregunta sobre estos documentos legales, por favor contáctanos en:",
+      "emailLabel": "Email",
+      "addressLabel": "Dirección"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Boiler.click. Todos los derechos reservados.",
+    "legal": "Legal"
+  },
+  "language": {
+    "switch": "Cambiar Idioma",
+    "current": "Idioma Actual"
+  },
+  "social": {
+    "tooltips": {
+      "twitter": "Compartir en Twitter",
+      "facebook": "Compartir en Facebook",
+      "linkedin": "Compartir en LinkedIn",
+      "github": "Ver en GitHub"
+    }
+  }
+}
