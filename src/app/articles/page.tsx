@@ -34,16 +34,25 @@ export default function ArticlesPage() {
 
     // Filter by search query
     if (searchQuery) {
+      const query = searchQuery.toLowerCase().trim();
+      console.log('Searching for:', query);
+      console.log('Available articles:', allArticles.map(a => a.title));
+      
       filtered = filtered.filter(
-        (article) =>
-          article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          article.description
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase()) ||
-          article.tags.some((tag) =>
-            tag.toLowerCase().includes(searchQuery.toLowerCase())
-          )
+        (article) => {
+          const matches = 
+            article.title.toLowerCase().includes(query) ||
+            article.description.toLowerCase().includes(query) ||
+            article.excerpt.toLowerCase().includes(query) ||
+            article.content.toLowerCase().includes(query) ||
+            article.tags.some((tag) => tag.toLowerCase().includes(query));
+          
+          console.log(`Article "${article.title}" matches:`, matches);
+          return matches;
+        }
       );
+      
+      console.log('Filtered results:', filtered.map(a => a.title));
     }
 
     // Filter by tag
@@ -159,7 +168,7 @@ export default function ArticlesPage() {
               </p>
 
               {/* Search and Filters */}
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex flex-col md:flex-row gap-4 mt-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
@@ -182,7 +191,7 @@ export default function ArticlesPage() {
               </div>
 
               {/* Tags Filter */}
-              <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+              <div className="flex flex-wrap gap-2 justify-center sm:justify-start mb-2">
                 <button
                   onClick={() => setSelectedTag(null)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
