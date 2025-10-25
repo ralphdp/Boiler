@@ -279,12 +279,12 @@
       "title": "パフォーマンス指標",
       "bundleSize": {
         "title": "バンドルサイズ",
-        "value": "~2.1MB",
-        "description": "最適化されたプロダクションビルド"
+        "value": "~420KB",
+        "description": "G-Zip圧縮された本番ビルド"
       },
       "lighthouse": {
         "title": "Lighthouseスコア",
-        "value": "98/100",
+        "value": "90+/100",
         "description": "パフォーマンス最適化済み"
       },
       "buildTime": {

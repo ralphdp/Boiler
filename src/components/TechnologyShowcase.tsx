@@ -138,7 +138,7 @@ export default function TechnologyShowcase() {
       animate="visible"
       variants={panelVariants}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed bottom-8 left-8 z-10 hidden lg:block"
+      className="fixed bottom-8 left-8 z-40 hidden lg:block"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -170,7 +170,11 @@ export default function TechnologyShowcase() {
                   {currentTech.name}
                 </h4>
                 <p className="text-base text-gray-500 dark:text-gray-400 capitalize font-medium">
-                  {currentTech.category}
+                  {
+                    t(
+                      `homepage.showcase.categories.${currentTech.category}`
+                    ) as string
+                  }
                 </p>
               </div>
             </div>

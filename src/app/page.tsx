@@ -126,7 +126,7 @@ export default function Home() {
 
           {/* Coming soon section */}
           <div className="w-full mb-4">
-            <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
               <Badge
                 variant="outline"
                 className="bg-purple-100 dark:bg-purple-800 text-purple-700 dark:text-purple-400 px-4 py-2 text-sm"

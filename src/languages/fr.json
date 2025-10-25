@@ -279,12 +279,12 @@
       "title": "Métriques de Performance",
       "bundleSize": {
         "title": "Taille du Bundle",
-        "value": "~2.1MB",
-        "description": "Build de production optimisé"
+        "value": "~420KB",
+        "description": "Build de production G-Zipped"
       },
       "lighthouse": {
         "title": "Score Lighthouse",
-        "value": "98/100",
+        "value": "90+/100",
         "description": "Performance optimisée"
       },
       "buildTime": {

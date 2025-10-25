@@ -86,6 +86,15 @@
       },
       "lucide": {
         "description": "مجموعة أدوات الأيقونات الجميلة والمتسقة مع أكثر من 1000 أيقونة لـ React"
+      },
+      "categories": {
+        "framework": "إطار العمل",
+        "database": "قاعدة البيانات",
+        "ui": "مكتبة واجهة المستخدم",
+        "styling": "التصميم",
+        "language": "اللغة",
+        "animation": "الرسوم المتحركة",
+        "icons": "الأيقونات"
       }
     },
     "quickStart": {
@@ -161,12 +170,12 @@
       "title": "مقاييس الأداء",
       "bundleSize": {
         "title": "حجم الحزمة",
-        "value": "~2.1 ميجابايت",
-        "description": "بناء إنتاج محسن"
+        "value": "~420KB",
+        "description": "بناء إنتاج G-Zipped"
       },
       "lighthouse": {
         "title": "درجة Lighthouse",
-        "value": "98/100",
+        "value": "90+/100",
         "description": "محسن للأداء"
       },
       "buildTime": {

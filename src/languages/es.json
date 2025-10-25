@@ -204,6 +204,15 @@
       },
       "lucide": {
         "description": "Kit de herramientas de iconos hermoso y consistente con más de 1000 iconos para React"
+      },
+      "categories": {
+        "framework": "Framework",
+        "database": "Base de Datos",
+        "ui": "Librería UI",
+        "styling": "Estilos",
+        "language": "Lenguaje",
+        "animation": "Animación",
+        "icons": "Iconos"
       }
     },
     "quickStart": {
@@ -279,12 +288,12 @@
       "title": "Métricas de Rendimiento",
       "bundleSize": {
         "title": "Tamaño del Bundle",
-        "value": "~2.1MB",
-        "description": "Build de producción optimizado"
+        "value": "~420KB",
+        "description": "Build de producción G-Zipped"
       },
       "lighthouse": {
         "title": "Puntuación Lighthouse",
-        "value": "98/100",
+        "value": "90+/100",
         "description": "Rendimiento optimizado"
       },
       "buildTime": {

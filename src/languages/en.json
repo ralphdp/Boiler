@@ -204,6 +204,15 @@
       },
       "lucide": {
         "description": "Beautiful & consistent icon toolkit with 1000+ icons for React"
+      },
+      "categories": {
+        "framework": "Framework",
+        "database": "Database",
+        "ui": "UI Library",
+        "styling": "Styling",
+        "language": "Language",
+        "animation": "Animation",
+        "icons": "Icons"
       }
     },
     "quickStart": {
@@ -279,12 +288,12 @@
       "title": "Performance Metrics",
       "bundleSize": {
         "title": "Bundle Size",
-        "value": "~2.1MB",
-        "description": "Optimized production build"
+        "value": "~420KB",
+        "description": "G-Zipped production build"
       },
       "lighthouse": {
         "title": "Lighthouse Score",
-        "value": "98/100",
+        "value": "90+/100",
         "description": "Performance optimized"
       },
       "buildTime": {
