@@ -53,6 +53,10 @@ src/
 │   │   ├── separator.tsx
 │   │   ├── sheet.tsx
 │   │   └── tooltip.tsx
+│   ├── CookieBanner.tsx         # Cookie consent banner
+│   ├── CookieManager.tsx         # Cookie management orchestrator
+│   ├── CookieSettings.tsx        # Cookie preferences modal
+│   ├── CookieToggle.tsx          # Cookie status toggle
 │   ├── DocumentationSidebar.tsx # Documentation navigation
 │   ├── FloatingSocialIcons.tsx  # Social media icons
 │   ├── Footer.tsx               # Site footer
@@ -60,12 +64,15 @@ src/
 │   ├── Navigation.tsx           # Site navigation
 │   ├── OptimizedImage.tsx       # Image optimization
 │   ├── QuickStart.tsx           # Quick start component
+│   ├── Recaptcha.tsx            # reCAPTCHA component
+│   ├── RecaptchaExample.tsx     # reCAPTCHA usage example
 │   ├── ScrollRestoration.tsx   # Scroll position restoration
 │   ├── SimpleLanguageSwitcher.tsx # Language switcher
 │   ├── SocialShare.tsx          # Social sharing
 │   ├── TechnologyShowcase.tsx   # Technology display
 │   └── theme-toggle.tsx         # Dark/light mode toggle
 ├── contexts/                    # React contexts
+│   ├── CookieContext.tsx       # Cookie consent context
 │   └── LanguageContext.tsx     # Internationalization context
 ├── data/                        # Data files
 │   └── articles.json            # Articles content
@@ -81,6 +88,8 @@ src/
 │   ├── articles.ts             # Articles management
 │   ├── config.ts               # Configuration management
 │   ├── documentation-steps.ts  # Documentation content
+│   ├── github.ts               # GitHub URL utilities
+│   ├── recaptcha.ts            # reCAPTCHA utilities
 │   ├── rate-limit.ts           # Rate limiting utilities
 │   ├── utils.ts                # General utilities
 │   └── validation.ts           # Validation schemas
@@ -100,6 +109,10 @@ src/
 - **Articles System** with JSON-based content management
 - **Documentation System** with step-by-step guides
 - **Admin Panel Setup** for analytics integration
+- **Google Analytics 4** integration with development controls
+- **Google reCAPTCHA** with environment-aware configuration
+- **Cookie Consent System** with granular preferences
+- **GitHub Integration** with dynamic repository links
 
 ### Internationalization
 
@@ -115,6 +128,9 @@ src/
 - **Error tracking** and reporting
 - **Resource loading monitoring**
 - **Rate limiting** for API endpoints
+- **Google Analytics 4** with cookie consent integration
+- **Development environment controls** (disabled in dev, enabled in production)
+- **Cookie preference management** with localStorage persistence
 
 ### SEO & Accessibility
 
@@ -143,6 +159,9 @@ src/
 - **Rate limiting** with IP blocking
 - **Input validation** with Zod
 - **Secure headers** configuration
+- **Google reCAPTCHA** integration for form protection
+- **Cookie consent system** with GDPR compliance
+- **Environment-aware security** (disabled in development)
 
 ## 🛠️ Configuration
 
@@ -158,7 +177,15 @@ NEXT_PUBLIC_SITE_EMAIL_SUPPORT="hi@boiler.click"
 NEXT_PUBLIC_SITE_PHYSICAL_ADDRESS="123 Oak St."
 
 # Analytics
-NEXT_PUBLIC_GA_ID="your-google-analytics-id"
+NEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"
+
+# Google reCAPTCHA
+NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY="your_site_key"
+GOOGLE_RECAPTCHA_SECRET_KEY="your_secret_key"
+
+# GitHub Repository
+NEXT_PUBLIC_GITHUB_USER="ralphdp"
+NEXT_PUBLIC_GITHUB_REPO="boiler"
 
 # Social Media
 NEXT_PUBLIC_SOCIAL_GITHUB="https://github.com/your-org"
@@ -258,6 +285,10 @@ SMTP_PASS="your-app-password"
 - `POST /api/analytics/performance` - Performance metrics
 - `POST /api/analytics/slow-resources` - Slow resource tracking
 
+### reCAPTCHA API
+
+- `POST /api/recaptcha/verify` - reCAPTCHA token verification
+
 All endpoints include:
 
 - Rate limiting (100 requests per 15 minutes)
@@ -321,10 +352,32 @@ All endpoints include:
 
 ### Analytics Integration
 
-- **Google Analytics** support
+- **Google Analytics 4** with environment controls
 - **Custom analytics** endpoints
 - **Performance reporting**
 - **Error logging**
+- **Cookie consent integration** with GDPR compliance
+- **Development environment controls** (disabled in dev)
+
+### Cookie Consent System
+
+- **Granular cookie preferences** (necessary, analytics, marketing)
+- **GDPR-compliant** consent management
+- **localStorage persistence** for user preferences
+- **Multi-language support** for all cookie-related text
+- **Footer toggle** for easy access to settings
+- **Modal-based settings** with fixed header/footer
+- **Development-friendly** with clear status indicators
+
+### reCAPTCHA Integration
+
+- **Environment-aware configuration** (disabled in development)
+- **Multiple reCAPTCHA types** (v2 checkbox, v2 invisible, v3)
+- **Server-side verification** with API endpoint
+- **Development bypass** for testing
+- **Customizable themes** (light/dark)
+- **Size variants** (compact, normal, invisible)
+- **Error handling** and user feedback
 
 ## 🔒 Security Features
 

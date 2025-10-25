@@ -112,13 +112,13 @@ export function Navigation() {
                 href="/articles"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
-                Articles
+                {t("navigation.articles")}
               </Link>
               <Link
                 href="/faq"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
-                FAQ
+                {t("navigation.faq")}
               </Link>
               <Link
                 href="/support"
@@ -206,7 +206,7 @@ export function Navigation() {
                       role="menuitem"
                       tabIndex={0}
                     >
-                      Articles
+                      {t("navigation.articles")}
                     </Link>
                     <Link
                       href="/faq"
@@ -214,7 +214,7 @@ export function Navigation() {
                       role="menuitem"
                       tabIndex={0}
                     >
-                      FAQ
+                      {t("navigation.faq")}
                     </Link>
                   </div>
 

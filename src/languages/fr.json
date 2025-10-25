@@ -4,7 +4,9 @@
     "mission": "Notre Mission",
     "support": "Assistance",
     "about": "À propos",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "articles": "Articles",
+    "faq": "FAQ"
   },
   "quickStart": {
     "title": "Démarrage Rapide",

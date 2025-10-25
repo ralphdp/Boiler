@@ -4,7 +4,9 @@
     "mission": "Misión",
     "support": "Soporte",
     "about": "Acerca de",
-    "documentation": "Documentación"
+    "documentation": "Documentación",
+    "articles": "Artículos",
+    "faq": "Preguntas Frecuentes"
   },
   "quickStart": {
     "title": "Inicio Rápido",

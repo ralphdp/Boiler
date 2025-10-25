@@ -4,7 +4,9 @@
     "mission": "Mission",
     "support": "Support",
     "about": "About",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "articles": "Articles",
+    "faq": "FAQ"
   },
   "quickStart": {
     "title": "Quick Start",

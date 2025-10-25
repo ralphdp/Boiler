@@ -4,7 +4,9 @@
     "mission": "ミッション",
     "support": "サポート",
     "about": "について",
-    "documentation": "ドキュメント"
+    "documentation": "ドキュメント",
+    "articles": "記事",
+    "faq": "よくある質問"
   },
   "quickStart": {
     "title": "クイックスタート",
