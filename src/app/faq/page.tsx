@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface FAQItem {
   id: string;
@@ -14,64 +14,7 @@ interface FAQItem {
   category: string;
 }
 
-const faqData: FAQItem[] = [
-  {
-    id: "1",
-    question: "What is Boiler.click?",
-    answer:
-      "Boiler.click is a next-generation full-stack SaaS boilerplate built with modern technologies like Next.js, Prisma, Shadcn/UI, TypeScript, and AI. It provides a complete foundation for building SaaS applications with authentication, database integration, and modern UI components.",
-    category: "general",
-  },
-  {
-    id: "2",
-    question: "What technologies are included?",
-    answer:
-      "The boilerplate includes Next.js 16, React 19, TypeScript, Prisma ORM, Shadcn/UI components, Tailwind CSS, Framer Motion for animations, NextAuth.js for authentication, and many other modern tools for building production-ready SaaS applications.",
-    category: "technical",
-  },
-  {
-    id: "3",
-    question: "How do I get started?",
-    answer:
-      "1. Clone the repository from GitHub\n2. Install dependencies with npm install\n3. Set up your environment variables\n4. Configure your database\n5. Run npm run dev to start development",
-    category: "getting-started",
-  },
-  {
-    id: "4",
-    question: "Is this boilerplate free?",
-    answer:
-      "Yes, Boiler.click is completely free and open-source. You can use it for personal and commercial projects without any restrictions.",
-    category: "general",
-  },
-  {
-    id: "5",
-    question: "How do I customize the theme?",
-    answer:
-      "The boilerplate uses Tailwind CSS with a custom design system. You can customize colors, fonts, and components by modifying the CSS variables in globals.css and the Tailwind configuration.",
-    category: "customization",
-  },
-  {
-    id: "6",
-    question: "Can I use this for production?",
-    answer:
-      "Absolutely! Boiler.click is designed for production use with proper error handling, performance optimizations, security headers, and best practices built-in.",
-    category: "production",
-  },
-  {
-    id: "7",
-    question: "How do I add new features?",
-    answer:
-      "The boilerplate is modular and extensible. You can add new pages, components, API routes, and database models following the established patterns and conventions.",
-    category: "development",
-  },
-  {
-    id: "8",
-    question: "What databases are supported?",
-    answer:
-      "Boiler.click uses Prisma ORM which supports PostgreSQL, MySQL, SQLite, MongoDB, and other databases. The default configuration is set up for PostgreSQL.",
-    category: "technical",
-  },
-];
+// FAQ data will be loaded from translations
 
 function FAQItem({
   item,
@@ -131,6 +74,7 @@ export default function FAQPage() {
   const { t } = useLanguage();
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isLoading, setIsLoading] = useState(true);
 
   const categories = [
     "all",
@@ -141,6 +85,23 @@ export default function FAQPage() {
     "production",
     "development",
   ];
+
+  // Get FAQ data from translations
+  const faqQuestions = t("faq.questions");
+  console.log("FAQ questions from translation:", faqQuestions);
+
+  // Ensure we have a valid array of FAQ items
+  const faqData: FAQItem[] = Array.isArray(faqQuestions)
+    ? (faqQuestions as FAQItem[])
+    : [];
+
+  // Update loading state when FAQ data is available
+  useEffect(() => {
+    if (Array.isArray(faqQuestions) && faqQuestions.length > 0) {
+      setIsLoading(false);
+    }
+  }, [faqQuestions]);
+
   const filteredFAQs =
     selectedCategory === "all"
       ? faqData
@@ -165,7 +126,7 @@ export default function FAQPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
-              Frequently Asked Questions
+              {t("faq.title")}
             </h1>
           </motion.div>
 
@@ -176,8 +137,7 @@ export default function FAQPage() {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
             <p className="text-lg text-zinc-600 dark:text-zinc-200 leading-relaxed">
-              Find answers to common questions about Boiler.click and get help
-              with setup, customization, and development.
+              {t("faq.description")}
             </p>
 
             {/* Category Filter */}
@@ -192,26 +152,37 @@ export default function FAQPage() {
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                   }`}
                 >
-                  {category === "all"
-                    ? "All"
-                    : category.charAt(0).toUpperCase() +
-                      category.slice(1).replace("-", " ")}
+                  {t(`faq.categories.${category}`)}
                 </button>
               ))}
             </div>
 
             {/* FAQ Items */}
             <div className="w-full space-y-4">
-              {filteredFAQs.map((item) => (
-                <FAQItem
-                  key={item.id}
-                  item={item}
-                  isOpen={openFAQ === item.id}
-                  onToggle={() =>
-                    setOpenFAQ(openFAQ === item.id ? null : item.id)
-                  }
-                />
-              ))}
+              {isLoading ? (
+                <div className="text-center py-8">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Loading FAQs...
+                  </p>
+                </div>
+              ) : Array.isArray(filteredFAQs) && filteredFAQs.length > 0 ? (
+                filteredFAQs.map((item) => (
+                  <FAQItem
+                    key={item.id}
+                    item={item}
+                    isOpen={openFAQ === item.id}
+                    onToggle={() =>
+                      setOpenFAQ(openFAQ === item.id ? null : item.id)
+                    }
+                  />
+                ))
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    {t("faq.noResults")}
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

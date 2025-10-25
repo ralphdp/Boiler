@@ -322,8 +322,11 @@
       "introduction": "Esta Política de Privacidad describe cómo Boiler.click recopila, usa y protege tu información cuando utilizas nuestro servicio.",
       "informationCollection": {
         "title": "Información que Recopilamos",
+        "personalInfoLabel": "Información Personal",
         "personalInfo": "Podemos recopilar información personal como tu nombre, dirección de correo electrónico y datos de contacto cuando te registras en nuestro servicio o nos contactas.",
+        "usageDataLabel": "Datos de Uso",
         "usageData": "Recopilamos automáticamente información sobre cómo usas nuestro servicio, incluyendo páginas visitadas, tiempo invertido e información del dispositivo.",
+        "cookiesLabel": "Cookies",
         "cookies": "Utilizamos cookies y tecnologías similares para mejorar tu experiencia y analizar el rendimiento del sitio."
       },
       "informationUse": {
@@ -389,16 +392,24 @@
       },
       "howWeUseCookies": {
         "title": "Cómo Utilizamos las Cookies",
+        "essentialLabel": "Esenciales",
         "essential": "Las cookies esenciales son necesarias para que el sitio web funcione correctamente y no pueden ser deshabilitadas.",
+        "analyticsLabel": "Análisis",
         "analytics": "Las cookies de análisis nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando e informando información de forma anónima.",
+        "preferencesLabel": "Preferencias",
         "preferences": "Las cookies de preferencias recuerdan tus elecciones y configuraciones para proporcionar una experiencia más personalizada.",
+        "marketingLabel": "Marketing",
         "marketing": "Las cookies de marketing se utilizan para rastrear visitantes a través de sitios web para mostrar anuncios relevantes y atractivos."
       },
       "cookieTypes": {
         "title": "Tipos de Cookies que Utilizamos",
+        "sessionLabel": "Sesión",
         "session": "Las cookies de sesión son temporales y se eliminan cuando cierras tu navegador",
+        "persistentLabel": "Persistentes",
         "persistent": "Las cookies persistentes permanecen en tu dispositivo por un período determinado o hasta que las elimines",
+        "firstPartyLabel": "Primera parte",
         "firstParty": "Las cookies de primera parte son establecidas por nuestro sitio web",
+        "thirdPartyLabel": "Terceros",
         "thirdParty": "Las cookies de terceros son establecidas por otros sitios web cuyo contenido aparece en nuestro sitio"
       },
       "managingCookies": {
@@ -414,6 +425,89 @@
       "emailLabel": "Email",
       "addressLabel": "Dirección"
     }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respuestas a las preguntas más comunes",
+    "searchPlaceholder": "Buscar preguntas...",
+    "clearFilters": "Limpiar filtros",
+    "noResults": "No se encontraron resultados",
+    "description": "Encuentra respuestas a preguntas comunes sobre Boiler.click y obtén ayuda con la configuración, personalización y desarrollo.",
+    "categories": {
+      "all": "Todas",
+      "general": "General",
+      "technical": "Técnico",
+      "getting-started": "Comenzar",
+      "customization": "Personalización",
+      "production": "Producción",
+      "development": "Desarrollo"
+    },
+    "questions": [
+      {
+        "id": "what-is-boiler-click",
+        "question": "¿Qué es Boiler.click?",
+        "answer": "Boiler.click es un boilerplate SaaS full-stack de próxima generación construido con tecnologías modernas como Next.js, Prisma, Shadcn/UI, TypeScript y AI. Proporciona una base completa para construir aplicaciones SaaS con autenticación, integración de base de datos y componentes de UI modernos.",
+        "category": "general"
+      },
+      {
+        "id": "technologies-included",
+        "question": "¿Qué tecnologías están incluidas?",
+        "answer": "El boilerplate incluye Next.js 16, React 19, TypeScript, Prisma ORM, componentes Shadcn/UI, Tailwind CSS, Framer Motion para animaciones, NextAuth.js para autenticación, y muchas otras herramientas modernas para construir aplicaciones SaaS listas para producción.",
+        "category": "technical"
+      },
+      {
+        "id": "how-to-get-started",
+        "question": "¿Cómo empiezo?",
+        "answer": "1. Clona el repositorio desde GitHub\n2. Instala las dependencias con npm install\n3. Configura tus variables de entorno\n4. Configura tu base de datos\n5. Ejecuta npm run dev para comenzar el desarrollo",
+        "category": "getting-started"
+      },
+      {
+        "id": "is-boilerplate-free",
+        "question": "¿Este boilerplate es gratuito?",
+        "answer": "Sí, Boiler.click es completamente gratuito y de código abierto. Puedes usarlo para proyectos personales y comerciales sin restricciones.",
+        "category": "general"
+      },
+      {
+        "id": "how-to-customize-theme",
+        "question": "¿Cómo personalizo el tema?",
+        "answer": "El boilerplate usa Tailwind CSS con un sistema de diseño personalizado. Puedes personalizar colores, fuentes y componentes modificando las variables CSS en globals.css y la configuración de Tailwind.",
+        "category": "customization"
+      },
+      {
+        "id": "can-use-for-production",
+        "question": "¿Puedo usar esto en producción?",
+        "answer": "¡Absolutamente! Boiler.click está diseñado para uso en producción con manejo adecuado de errores, optimizaciones de rendimiento, headers de seguridad y mejores prácticas integradas.",
+        "category": "production"
+      },
+      {
+        "id": "how-to-add-features",
+        "question": "¿Cómo agrego nuevas características?",
+        "answer": "El boilerplate es modular y extensible. Puedes agregar nuevas páginas, componentes, rutas API y modelos de base de datos siguiendo los patrones y convenciones establecidos.",
+        "category": "development"
+      },
+      {
+        "id": "supported-databases",
+        "question": "¿Qué bases de datos son compatibles?",
+        "answer": "Boiler.click usa Prisma ORM que soporta PostgreSQL, MySQL, SQLite, MongoDB y otras bases de datos. La configuración por defecto está configurada para PostgreSQL.",
+        "category": "technical"
+      }
+    ]
+  },
+  "articles": {
+    "title": "Artículos",
+    "subtitle": "Tutoriales y guías útiles",
+    "description": "Descubre artículos y tutoriales útiles sobre desarrollo SaaS.",
+    "searchPlaceholder": "Buscar artículos...",
+    "clearFilters": "Limpiar filtros",
+    "noResults": "No se encontraron resultados",
+    "readMore": "Leer Más",
+    "relatedArticles": "Artículos Relacionados",
+    "tags": "Etiquetas",
+    "publishedOn": "Publicado el",
+    "readTime": "min de lectura",
+    "all": "Todos",
+    "featured": "Destacado",
+    "tryAdjusting": "Intenta ajustar tu búsqueda o filtros"
   },
   "footer": {
     "copyright": "© {year} Boiler.click. Todos los derechos reservados.",

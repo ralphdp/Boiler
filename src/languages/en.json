@@ -322,8 +322,11 @@
       "introduction": "This Privacy Policy describes how Boiler.click collects, uses, and protects your information when you use our service.",
       "informationCollection": {
         "title": "Information We Collect",
+        "personalInfoLabel": "Personal Information",
         "personalInfo": "We may collect personal information such as your name, email address, and contact details when you register for our service or contact us.",
+        "usageDataLabel": "Usage Data",
         "usageData": "We automatically collect information about how you use our service, including pages visited, time spent, and device information.",
+        "cookiesLabel": "Cookies",
         "cookies": "We use cookies and similar technologies to enhance your experience and analyze site performance."
       },
       "informationUse": {
@@ -389,16 +392,24 @@
       },
       "howWeUseCookies": {
         "title": "How We Use Cookies",
+        "essentialLabel": "Essential",
         "essential": "Essential cookies are necessary for the website to function properly and cannot be disabled.",
+        "analyticsLabel": "Analytics",
         "analytics": "Analytics cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.",
+        "preferencesLabel": "Preferences",
         "preferences": "Preference cookies remember your choices and settings to provide a more personalized experience.",
+        "marketingLabel": "Marketing",
         "marketing": "Marketing cookies are used to track visitors across websites to display relevant and engaging advertisements."
       },
       "cookieTypes": {
         "title": "Types of Cookies We Use",
+        "sessionLabel": "Session",
         "session": "Session cookies are temporary and deleted when you close your browser",
+        "persistentLabel": "Persistent",
         "persistent": "Persistent cookies remain on your device for a set period or until you delete them",
+        "firstPartyLabel": "First-party",
         "firstParty": "First-party cookies are set by our website",
+        "thirdPartyLabel": "Third-party",
         "thirdParty": "Third-party cookies are set by other websites whose content appears on our site"
       },
       "managingCookies": {
@@ -414,6 +425,89 @@
       "emailLabel": "Email",
       "addressLabel": "Address"
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most common questions",
+    "searchPlaceholder": "Search questions...",
+    "clearFilters": "Clear filters",
+    "noResults": "No results found",
+    "description": "Find answers to common questions about Boiler.click and get help with setup, customization, and development.",
+    "categories": {
+      "all": "All",
+      "general": "General",
+      "technical": "Technical",
+      "getting-started": "Getting Started",
+      "customization": "Customization",
+      "production": "Production",
+      "development": "Development"
+    },
+    "questions": [
+      {
+        "id": "what-is-boiler-click",
+        "question": "What is Boiler.click?",
+        "answer": "Boiler.click is a next-generation full-stack SaaS boilerplate built with modern technologies like Next.js, Prisma, Shadcn/UI, TypeScript, and AI. It provides a complete foundation for building SaaS applications with authentication, database integration, and modern UI components.",
+        "category": "general"
+      },
+      {
+        "id": "technologies-included",
+        "question": "What technologies are included?",
+        "answer": "The boilerplate includes Next.js 16, React 19, TypeScript, Prisma ORM, Shadcn/UI components, Tailwind CSS, Framer Motion for animations, NextAuth.js for authentication, and many other modern tools for building production-ready SaaS applications.",
+        "category": "technical"
+      },
+      {
+        "id": "how-to-get-started",
+        "question": "How do I get started?",
+        "answer": "1. Clone the repository from GitHub\n2. Install dependencies with npm install\n3. Set up your environment variables\n4. Configure your database\n5. Run npm run dev to start development",
+        "category": "getting-started"
+      },
+      {
+        "id": "is-boilerplate-free",
+        "question": "Is this boilerplate free?",
+        "answer": "Yes, Boiler.click is completely free and open-source. You can use it for personal and commercial projects without any restrictions.",
+        "category": "general"
+      },
+      {
+        "id": "how-to-customize-theme",
+        "question": "How do I customize the theme?",
+        "answer": "The boilerplate uses Tailwind CSS with a custom design system. You can customize colors, fonts, and components by modifying the CSS variables in globals.css and the Tailwind configuration.",
+        "category": "customization"
+      },
+      {
+        "id": "can-use-for-production",
+        "question": "Can I use this for production?",
+        "answer": "Absolutely! Boiler.click is designed for production use with proper error handling, performance optimizations, security headers, and best practices built-in.",
+        "category": "production"
+      },
+      {
+        "id": "how-to-add-features",
+        "question": "How do I add new features?",
+        "answer": "The boilerplate is modular and extensible. You can add new pages, components, API routes, and database models following the established patterns and conventions.",
+        "category": "development"
+      },
+      {
+        "id": "supported-databases",
+        "question": "What databases are supported?",
+        "answer": "Boiler.click uses Prisma ORM which supports PostgreSQL, MySQL, SQLite, MongoDB, and other databases. The default configuration is set up for PostgreSQL.",
+        "category": "technical"
+      }
+    ]
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Helpful tutorials and guides",
+    "description": "Discover helpful articles and tutorials about SaaS development.",
+    "searchPlaceholder": "Search articles...",
+    "clearFilters": "Clear filters",
+    "noResults": "No results found",
+    "readMore": "Read More",
+    "relatedArticles": "Related Articles",
+    "tags": "Tags",
+    "publishedOn": "Published on",
+    "readTime": "min read",
+    "all": "All",
+    "featured": "Featured",
+    "tryAdjusting": "Try adjusting your search or filters"
   },
   "footer": {
     "copyright": "© {year} Boiler.click. All rights reserved.",

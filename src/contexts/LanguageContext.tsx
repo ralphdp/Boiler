@@ -7,7 +7,7 @@ type Language = "en" | "es" | "fr" | "ja" | "ar";
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string | string[];
+  t: (key: string) => any;
   isRTL: boolean;
 }
 
@@ -91,7 +91,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [language]);
 
   // Translation function
-  const t = (key: string): string | string[] => {
+  const t = (key: string): any => {
     if (!mounted || isLoading || Object.keys(messages).length === 0) {
       // Return empty string or loading indicator instead of the key
       return "";

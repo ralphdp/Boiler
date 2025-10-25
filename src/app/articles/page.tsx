@@ -156,7 +156,7 @@ export default function ArticlesPage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
-                Articles & Updates
+                {t("articles.title")}
               </h1>
             </motion.div>
 
@@ -167,8 +167,7 @@ export default function ArticlesPage() {
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
               <p className="text-lg text-zinc-600 dark:text-zinc-200 leading-relaxed">
-                Stay updated with the latest developments, tutorials, and
-                insights from the Boiler.click team.
+                {t("articles.description")}
               </p>
 
               {/* Search and Filters */}
@@ -176,7 +175,7 @@ export default function ArticlesPage() {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
-                    placeholder="Search articles..."
+                    placeholder={t("articles.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
@@ -190,7 +189,7 @@ export default function ArticlesPage() {
                   }}
                   className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 cursor-pointer"
                 >
-                  Clear Filters
+                  {t("articles.clearFilters")}
                 </Button>
               </div>
 
@@ -204,7 +203,7 @@ export default function ArticlesPage() {
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                   }`}
                 >
-                  All
+                  {t("articles.all")}
                 </button>
                 {allTags.map((tag) => (
                   <button
@@ -227,7 +226,7 @@ export default function ArticlesPage() {
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded-full">
-                        Featured
+                        {t("articles.featured")}
                       </span>
                       <span className="text-sm text-gray-500 dark:text-gray-400">
                         {featuredArticle.readTime}
@@ -261,7 +260,7 @@ export default function ArticlesPage() {
                     </div>
                     <Link href={getArticleUrl(featuredArticle.slug)}>
                       <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors cursor-pointer">
-                        Read More
+                        {t("articles.readMore")}
                       </button>
                     </Link>
                   </div>
@@ -323,10 +322,10 @@ export default function ArticlesPage() {
               {filteredArticles.length === 0 && (
                 <div className="text-center py-12">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    No articles found
+                    {t("articles.noResults")}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    Try adjusting your search or filters
+                    {t("articles.tryAdjusting")}
                   </p>
                   <button
                     onClick={() => {
@@ -335,7 +334,7 @@ export default function ArticlesPage() {
                     }}
                     className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                   >
-                    Clear Filters
+                    {t("articles.clearFilters")}
                   </button>
                 </div>
               )}

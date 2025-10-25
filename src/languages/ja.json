@@ -322,8 +322,11 @@
       "introduction": "このプライバシーポリシーは、Boiler.clickがお客様のサービス利用時に情報をどのように収集、使用、保護するかを説明しています。",
       "informationCollection": {
         "title": "収集する情報",
+        "personalInfoLabel": "個人情報",
         "personalInfo": "サービス登録時やお問い合わせ時に、お名前、メールアドレス、連絡先などの個人情報を収集する場合があります。",
+        "usageDataLabel": "使用データ",
         "usageData": "訪問ページ、滞在時間、デバイス情報など、サービス利用方法に関する情報を自動的に収集します。",
+        "cookiesLabel": "クッキー",
         "cookies": "お客様の体験向上とサイトパフォーマンス分析のため、クッキーや類似技術を使用しています。"
       },
       "informationUse": {
@@ -392,14 +395,22 @@
         "essential": "必須クッキーはウェブサイトが適切に機能するために必要であり、無効にすることはできません。",
         "analytics": "分析クッキーは、訪問者が当社ウェブサイトとどのように相互作用するかを理解するのに役立ち、情報を匿名で収集・報告します。",
         "preferences": "設定クッキーはお客様の選択と設定を記憶し、よりパーソナライズされた体験を提供します。",
-        "marketing": "マーケティングクッキーは、関連性があり魅力的な広告を表示するために、ウェブサイト間で訪問者を追跡するために使用されます。"
+        "marketing": "マーケティングクッキーは、関連性があり魅力的な広告を表示するために、ウェブサイト間で訪問者を追跡するために使用されます。",
+        "essentialLabel": "必須",
+        "analyticsLabel": "分析",
+        "preferencesLabel": "設定",
+        "marketingLabel": "マーケティング"
       },
       "cookieTypes": {
         "title": "使用するクッキーの種類",
         "session": "セッションクッキーは一時的で、ブラウザを閉じると削除されます",
         "persistent": "永続クッキーは、設定された期間または削除するまでデバイスに残ります",
         "firstParty": "ファーストパーティクッキーは当社ウェブサイトによって設定されます",
-        "thirdParty": "サードパーティクッキーは、当社サイトにコンテンツが表示される他のウェブサイトによって設定されます"
+        "thirdParty": "サードパーティクッキーは、当社サイトにコンテンツが表示される他のウェブサイトによって設定されます",
+        "sessionLabel": "セッション",
+        "persistentLabel": "永続",
+        "firstPartyLabel": "ファーストパーティ",
+        "thirdPartyLabel": "サードパーティ"
       },
       "managingCookies": {
         "title": "クッキーの管理",
@@ -414,6 +425,81 @@
       "emailLabel": "メール",
       "addressLabel": "住所"
     }
+  },
+  "faq": {
+    "title": "よくある質問",
+    "subtitle": "最もよくある質問への回答",
+    "searchPlaceholder": "質問を検索...",
+    "clearFilters": "フィルターをクリア",
+    "noResults": "結果が見つかりません",
+    "description": "Boiler.clickに関する一般的な質問の回答を見つけ、セットアップ、カスタマイズ、開発のヘルプを得てください。",
+    "categories": {
+      "all": "すべて",
+      "general": "一般",
+      "technical": "技術",
+      "getting-started": "開始",
+      "customization": "カスタマイズ",
+      "production": "本番",
+      "development": "開発"
+    },
+    "questions": [
+      {
+        "id": "what-is-boiler-click",
+        "question": "Boiler.clickとは何ですか？",
+        "answer": "Boiler.clickは、Next.js、Prisma、Shadcn/UI、TypeScript、AIなどの最新技術で構築された次世代フルスタックSaaSボイラープレートです。認証、データベース統合、モダンなUIコンポーネントを備えたSaaSアプリケーション構築のための完全な基盤を提供します。"
+      },
+      {
+        "id": "technologies-included",
+        "question": "含まれる技術は何ですか？",
+        "answer": "このボイラープレートには、Next.js 16、React 19、TypeScript、Prisma ORM、Shadcn/UIコンポーネント、Tailwind CSS、アニメーション用のFramer Motion、認証用のNextAuth.js、本番対応SaaSアプリケーション構築のための多くのその他のモダンツールが含まれています。"
+      },
+      {
+        "id": "how-to-get-started",
+        "question": "どのように始めますか？",
+        "answer": "1. GitHubからリポジトリをクローン\n2. npm installで依存関係をインストール\n3. 環境変数を設定\n4. データベースを設定\n5. npm run devで開発を開始"
+      },
+      {
+        "id": "is-boilerplate-free",
+        "question": "このボイラープレートは無料ですか？",
+        "answer": "はい、Boiler.clickは完全に無料でオープンソースです。制限なしで個人および商用プロジェクトに使用できます。"
+      },
+      {
+        "id": "how-to-customize-theme",
+        "question": "テーマをカスタマイズするには？",
+        "answer": "このボイラープレートは、カスタムデザインシステムを使用したTailwind CSSを使用しています。globals.cssのCSS変数とTailwind設定を変更することで、色、フォント、コンポーネントをカスタマイズできます。"
+      },
+      {
+        "id": "can-use-for-production",
+        "question": "本番環境で使用できますか？",
+        "answer": "もちろんです！Boiler.clickは、適切なエラーハンドリング、パフォーマンス最適化、セキュリティヘッダー、組み込みのベストプラクティスで本番使用向けに設計されています。"
+      },
+      {
+        "id": "how-to-add-features",
+        "question": "新機能を追加するには？",
+        "answer": "このボイラープレートはモジュラーで拡張可能です。確立されたパターンと規則に従って、新しいページ、コンポーネント、APIルート、データベースモデルを追加できます。"
+      },
+      {
+        "id": "supported-databases",
+        "question": "サポートされているデータベースは？",
+        "answer": "Boiler.clickは、PostgreSQL、MySQL、SQLite、MongoDB、その他のデータベースをサポートするPrisma ORMを使用しています。デフォルト設定はPostgreSQL用に設定されています。"
+      }
+    ]
+  },
+  "articles": {
+    "title": "記事",
+    "subtitle": "有用なチュートリアルとガイド",
+    "description": "SaaS開発に関する有用な記事とチュートリアルを発見してください。",
+    "searchPlaceholder": "記事を検索...",
+    "clearFilters": "フィルターをクリア",
+    "noResults": "結果が見つかりません",
+    "readMore": "続きを読む",
+    "relatedArticles": "関連記事",
+    "tags": "タグ",
+    "publishedOn": "公開日",
+    "readTime": "分で読める",
+    "all": "すべて",
+    "featured": "注目",
+    "tryAdjusting": "検索またはフィルターを調整してみてください"
   },
   "footer": {
     "copyright": "© {year} Boiler.click. 全著作権所有。",

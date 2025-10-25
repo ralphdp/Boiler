@@ -73,7 +73,10 @@ export default function LegalPage() {
                     <ul className="space-y-3">
                       <li className="text-gray-600 dark:text-gray-400">
                         <strong className="text-black dark:text-white">
-                          Personal Information:
+                          {t(
+                            "legal.privacyPolicy.informationCollection.personalInfoLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t(
                           "legal.privacyPolicy.informationCollection.personalInfo"
@@ -81,7 +84,10 @@ export default function LegalPage() {
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         <strong className="text-black dark:text-white">
-                          Usage Data:
+                          {t(
+                            "legal.privacyPolicy.informationCollection.usageDataLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t(
                           "legal.privacyPolicy.informationCollection.usageData"
@@ -89,7 +95,10 @@ export default function LegalPage() {
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         <strong className="text-black dark:text-white">
-                          Cookies:
+                          {t(
+                            "legal.privacyPolicy.informationCollection.cookiesLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t("legal.privacyPolicy.informationCollection.cookies")}
                       </li>
@@ -270,28 +279,40 @@ export default function LegalPage() {
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Essential:
+                          {t(
+                            "legal.cookiePolicy.howWeUseCookies.essentialLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t("legal.cookiePolicy.howWeUseCookies.essential")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Analytics:
+                          {t(
+                            "legal.cookiePolicy.howWeUseCookies.analyticsLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t("legal.cookiePolicy.howWeUseCookies.analytics")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Preferences:
+                          {t(
+                            "legal.cookiePolicy.howWeUseCookies.preferencesLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t("legal.cookiePolicy.howWeUseCookies.preferences")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Marketing:
+                          {t(
+                            "legal.cookiePolicy.howWeUseCookies.marketingLabel"
+                          )}
+                          :
                         </strong>{" "}
                         {t("legal.cookiePolicy.howWeUseCookies.marketing")}
                       </li>
@@ -306,28 +327,28 @@ export default function LegalPage() {
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Session:
+                          {t("legal.cookiePolicy.cookieTypes.sessionLabel")}:
                         </strong>{" "}
                         {t("legal.cookiePolicy.cookieTypes.session")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Persistent:
+                          {t("legal.cookiePolicy.cookieTypes.persistentLabel")}:
                         </strong>{" "}
                         {t("legal.cookiePolicy.cookieTypes.persistent")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          First-party:
+                          {t("legal.cookiePolicy.cookieTypes.firstPartyLabel")}:
                         </strong>{" "}
                         {t("legal.cookiePolicy.cookieTypes.firstParty")}
                       </li>
                       <li className="text-gray-600 dark:text-gray-400">
                         •{" "}
                         <strong className="text-black dark:text-white">
-                          Third-party:
+                          {t("legal.cookiePolicy.cookieTypes.thirdPartyLabel")}:
                         </strong>{" "}
                         {t("legal.cookiePolicy.cookieTypes.thirdParty")}
                       </li>
