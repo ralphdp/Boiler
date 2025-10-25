@@ -35,24 +35,28 @@ export default function ArticlesPage() {
     // Filter by search query
     if (searchQuery) {
       const query = searchQuery.toLowerCase().trim();
-      console.log('Searching for:', query);
-      console.log('Available articles:', allArticles.map(a => a.title));
-      
-      filtered = filtered.filter(
-        (article) => {
-          const matches = 
-            article.title.toLowerCase().includes(query) ||
-            article.description.toLowerCase().includes(query) ||
-            article.excerpt.toLowerCase().includes(query) ||
-            article.content.toLowerCase().includes(query) ||
-            article.tags.some((tag) => tag.toLowerCase().includes(query));
-          
-          console.log(`Article "${article.title}" matches:`, matches);
-          return matches;
-        }
+      console.log("Searching for:", query);
+      console.log(
+        "Available articles:",
+        allArticles.map((a) => a.title)
       );
-      
-      console.log('Filtered results:', filtered.map(a => a.title));
+
+      filtered = filtered.filter((article) => {
+        const matches =
+          article.title.toLowerCase().includes(query) ||
+          article.description.toLowerCase().includes(query) ||
+          article.excerpt.toLowerCase().includes(query) ||
+          article.content.toLowerCase().includes(query) ||
+          article.tags.some((tag) => tag.toLowerCase().includes(query));
+
+        console.log(`Article "${article.title}" matches:`, matches);
+        return matches;
+      });
+
+      console.log(
+        "Filtered results:",
+        filtered.map((a) => a.title)
+      );
     }
 
     // Filter by tag
