@@ -357,7 +357,7 @@ export default function ArticlesPage() {
 
               {/* No Results */}
               {articlesToShow.length === 0 && (
-                <div className="text-center py-12">
+                <div className="flex flex-col w-full items-center justify-center py-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {t("articles.noResults")}
                   </h3>

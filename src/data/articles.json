@@ -13,34 +13,6 @@
       "featured": true,
       "readTime": "5 min read",
       "excerpt": "Learn about our development process, mission, and why we're building the next generation of SaaS boilerplates."
-    },
-    {
-      "id": "being-developed",
-      "slug": "being-developed",
-      "title": "Being Developed",
-      "description": "Learn about our development process, mission, and why we're building the next generation of SaaS boilerplates.",
-      "content": "## Why We're Building Boiler\nBoiler represents our vision for the future of SaaS development. We believe that launching a successful SaaS application shouldn't require months of setup, configuration, and boilerplate code.\n### Our Mission\nOur mission is to provide developers with a **production-ready, full-stack SaaS boilerplate** that includes everything needed to launch a modern web application. We're eliminating the repetitive setup work so you can focus on what matters most: building your product.\n### What Makes Us Different\n- **Next.js 16**: Latest App Router with server components\n- **TypeScript**: Full type safety throughout the stack\n- **Modern UI**: Shadcn/ui components with Tailwind CSS\n- **Authentication**: Built-in NextAuth.js integration\n- **Database**: Prisma ORM with PostgreSQL\n- **Performance**: Optimized for speed and SEO\n- **Developer Experience**: Hot reload, linting, and best practices\n### Our Development Process\nWe follow a rigorous development process to ensure quality:\n1. **Research**: We study the latest trends and technologies\n2. **Architecture**: We design scalable, maintainable solutions\n3. **Implementation**: We build with best practices in mind\n4. **Testing**: We thoroughly test every feature\n5. **Documentation**: We provide comprehensive guides\n6. **Community**: We listen to feedback and iterate\n### What's Coming Next\n- **Admin Panel**: Analytics and management dashboard\n- **More Integrations**: Payment processors, email services\n- **Templates**: Industry-specific starter templates\n- **Deployment**: One-click deployment options\n- **Monitoring**: Built-in performance monitoring\n### Stay Updated\nTo follow our progress and get notified of new releases, keep up with the latest Boiler.click articles in our [Articles section](/articles).\n---\n*This article will be updated as we continue developing Boiler.click. Check back regularly for the latest updates and features.*",
-      "featuredImage": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress",
-      "tags": ["development", "process", "updates"],
-      "publishedAt": "2025-01-20",
-      "author": "Boiler.click Team",
-      "featured": false,
-      "readTime": "4 min read",
-      "excerpt": "Learn about our development process, mission, and why we're building the next generation of SaaS boilerplates."
-    },
-    {
-      "id": "next-js-16-features",
-      "slug": "next-js-16-features",
-      "title": "Next.js 16 New Features",
-      "description": "Explore the latest features and improvements in Next.js 16 that make development faster and more efficient.",
-      "content": "## Next.js 16 Overview\nNext.js 16 brings significant improvements to performance, developer experience, and new features that make building React applications even better.\n### Key Features\n- **Turbopack**: Faster bundling and development server\n- **Server Components**: Enhanced server-side rendering\n- **App Router**: Improved routing and layouts\n- **Performance**: Better optimization and caching\n### Getting Started\nLearn how to upgrade your existing Next.js projects and take advantage of these new features.",
-      "featuredImage": "https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress",
-      "tags": ["nextjs", "react", "javascript", "tutorial"],
-      "publishedAt": "2025-01-18",
-      "author": "Boiler.click Team",
-      "featured": false,
-      "readTime": "3 min read",
-      "excerpt": "Explore the latest features and improvements in Next.js 16 that make development faster and more efficient."
     }
   ]
 }

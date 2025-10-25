@@ -11,6 +11,7 @@ import {
   Layers,
   Globe,
   Type,
+  X,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,21 @@ export default function TechnologyShowcase() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Load visibility state from localStorage on component mount
+  useEffect(() => {
+    const savedVisibility = localStorage.getItem("technologyShowcaseVisible");
+    if (savedVisibility !== null) {
+      setIsVisible(JSON.parse(savedVisibility));
+    }
+  }, []);
+
+  // Save visibility state to localStorage when it changes
+  const handleClose = () => {
+    setIsVisible(false);
+    localStorage.setItem("technologyShowcaseVisible", "false");
+  };
 
   const technologies: TechnologyItem[] = [
     {
@@ -132,6 +148,8 @@ export default function TechnologyShowcase() {
     },
   };
 
+  if (!isVisible) return null;
+
   return (
     <motion.div
       initial="hidden"
@@ -142,7 +160,15 @@ export default function TechnologyShowcase() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-2xl p-8 px-8 w-86 max-w-md">
+      <div className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-2xl p-8 px-8 w-86 max-w-md relative">
+        {/* Close Button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Close technology showcase"
+        >
+          <X className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+        </button>
         {/* <<div className="flex items-center justify-between mb-6">
           h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {t("homepage.showcase.title")}
