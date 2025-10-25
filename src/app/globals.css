@@ -10,6 +10,120 @@ body {
   scroll-padding-top: 0;
 }
 
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* RTL-specific utilities */
+.rtl\:text-right {
+  text-align: right;
+}
+
+.rtl\:text-left {
+  text-align: left;
+}
+
+.rtl\:ml-auto {
+  margin-left: auto;
+}
+
+.rtl\:mr-auto {
+  margin-right: auto;
+}
+
+.rtl\:pl-4 {
+  padding-left: 1rem;
+}
+
+.rtl\:pr-4 {
+  padding-right: 1rem;
+}
+
+.rtl\:border-l {
+  border-left: 1px solid;
+}
+
+.rtl\:border-r {
+  border-right: 1px solid;
+}
+
+/* RTL flex utilities */
+.rtl\:flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* RTL grid utilities */
+.rtl\:grid-cols-reverse {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+/* RTL transform utilities */
+.rtl\:scale-x-[-1] {
+  transform: scaleX(-1);
+}
+
+/* RTL margin utilities */
+.rtl\:ml-0 {
+  margin-left: 0;
+}
+
+.rtl\:mr-0 {
+  margin-right: 0;
+}
+
+.rtl\:ml-4 {
+  margin-left: 1rem;
+}
+
+.rtl\:mr-4 {
+  margin-right: 1rem;
+}
+
+/* RTL padding utilities */
+.rtl\:pl-0 {
+  padding-left: 0;
+}
+
+.rtl\:pr-0 {
+  padding-right: 0;
+}
+
+/* RTL border utilities */
+.rtl\:border-l-0 {
+  border-left: 0;
+}
+
+.rtl\:border-r-0 {
+  border-right: 0;
+}
+
+/* RTL position utilities */
+.rtl\:left-0 {
+  left: 0;
+}
+
+.rtl\:right-0 {
+  right: 0;
+}
+
+/* RTL text alignment */
+.rtl\:text-start {
+  text-align: start;
+}
+
+.rtl\:text-end {
+  text-align: end;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

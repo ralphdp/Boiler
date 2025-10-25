@@ -22,6 +22,7 @@ const languages = [
   { code: "es", name: "Español", flag: "🇪🇸" },
   { code: "fr", name: "Français", flag: "🇫🇷" },
   { code: "ja", name: "日本語", flag: "🇯🇵" },
+  { code: "ar", name: "العربية", flag: "🇸🇦" },
 ];
 
 export function SimpleLanguageSwitcher() {

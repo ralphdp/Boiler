@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sheet";
 
 export function Navigation() {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -85,7 +85,9 @@ export function Navigation() {
           <div className="flex items-center gap-6">
             {/* Desktop Navigation */}
             <motion.div
-              className="hidden md:flex items-center gap-6"
+              className={`hidden md:flex items-center gap-6 ${
+                isRTL ? "rtl:flex-row-reverse" : ""
+              }`}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -150,12 +152,14 @@ export function Navigation() {
                 </button>
               </SheetTrigger>
               <SheetContent
-                side="right"
+                side={isRTL ? "left" : "right"}
                 className="w-[300px] sm:w-[400px]"
                 onOpenAutoFocus={handleMobileMenuOpen}
               >
                 <SheetHeader>
-                  <SheetTitle className="text-left">Navigation</SheetTitle>
+                  <SheetTitle className={isRTL ? "text-right" : "text-left"}>
+                    Navigation
+                  </SheetTitle>
                 </SheetHeader>
                 <div
                   ref={mobileMenuRef}

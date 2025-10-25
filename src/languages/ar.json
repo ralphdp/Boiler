@@ -1,0 +1,238 @@
+{
+  "navigation": {
+    "title": "Boiler.click",
+    "mission": "المهمة",
+    "support": "الدعم",
+    "about": "حول",
+    "documentation": "الوثائق",
+    "articles": "المقالات",
+    "faq": "الأسئلة الشائعة"
+  },
+  "quickStart": {
+    "title": "البدء السريع",
+    "copyButton": "نسخ",
+    "copiedButton": "تم النسخ!",
+    "codeComments": {
+      "clone": "استنساخ المستودع",
+      "install": "تثبيت التبعيات",
+      "env": "إعداد متغيرات البيئة",
+      "dev": "بدء خادم التطوير",
+      "build": "بناء للإنتاج"
+    }
+  },
+  "githubButton": "جيثب",
+  "tooltips": {
+    "themeToggle": "تبديل المظهر",
+    "languageSwitcher": "تغيير اللغة"
+  },
+  "cookies": {
+    "title": "نحن نستخدم ملفات تعريف الارتباط",
+    "description": "نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة الموقع وتخصيص المحتوى. يمكنك إدارة تفضيلاتك في أي وقت.",
+    "accept": "قبول الكل",
+    "decline": "رفض",
+    "settings": "الإعدادات",
+    "settingsTitle": "تفضيلات ملفات تعريف الارتباط",
+    "savePreferences": "حفظ التفضيلات",
+    "acceptAll": "قبول الكل",
+    "rejectAll": "رفض الكل",
+    "alwaysActive": "نشط دائماً",
+    "openSettings": "فتح إعدادات ملفات تعريف الارتباط",
+    "status": {
+      "accepted": "مقبول",
+      "declined": "مرفوض",
+      "custom": "مخصص",
+      "notSet": "غير محدد"
+    },
+    "necessary": {
+      "title": "ملفات تعريف الارتباط الضرورية",
+      "description": "هذه ملفات تعريف الارتباط ضرورية لعمل الموقع بشكل صحيح. لا يمكن تعطيلها."
+    },
+    "analytics": {
+      "title": "ملفات تعريف الارتباط التحليلية",
+      "description": "تساعدنا هذه ملفات تعريف الارتباط على فهم كيفية تفاعل الزوار مع موقعنا من خلال جمع المعلومات والإبلاغ عنها بشكل مجهول."
+    },
+    "marketing": {
+      "title": "ملفات تعريف الارتباط التسويقية",
+      "description": "تُستخدم ملفات تعريف الارتباط هذه لتتبع الزوار عبر المواقع لعرض الإعلانات ذات الصلة والجذابة."
+    }
+  },
+  "homepage": {
+    "title": "Boiler.click - قالب SaaS شامل",
+    "subtitle": "قالب Next.js جاهز للإنتاج لبناء تطبيقات SaaS حديثة مع الترجمة والتحليلات ومراقبة الأداء.",
+    "description": "ابدأ مشروعك التالي بسرعة مع قالب شامل يتضمن كل ما تحتاجه لبناء تطبيق SaaS ناجح.",
+    "getStarted": "ابدأ الآن",
+    "learnMore": "تعلم المزيد",
+    "githubButton": "عرض على جيثب",
+    "comingSoon": "قريباً...",
+    "quickStart": {
+      "title": "البدء السريع",
+      "description": "ابدأ مشروعك في دقائق",
+      "codeComments": {
+        "clone": "استنساخ المستودع",
+        "install": "تثبيت التبعيات",
+        "env": "إعداد متغيرات البيئة",
+        "dev": "بدء خادم التطوير",
+        "build": "بناء للإنتاج"
+      }
+    }
+  },
+  "about": {
+    "title": "حول Boiler.click",
+    "subtitle": "قالب شامل وجاهز للإنتاج لتطبيقات SaaS",
+    "description": "Boiler.click هو قالب Next.js شامل مصمم لتسريع تطوير تطبيقات SaaS الحديثة. يتضمن كل ما تحتاجه للبدء بسرعة.",
+    "features": {
+      "title": "الميزات الرئيسية",
+      "nextjs": "Next.js 16 مع App Router",
+      "typescript": "TypeScript مع فحص صارم للأنواع",
+      "tailwind": "Tailwind CSS 4 للتصميم",
+      "i18n": "دعم متعدد اللغات",
+      "analytics": "تحليلات ومراقبة الأداء",
+      "seo": "تحسين محركات البحث",
+      "security": "ميزات الأمان المتقدمة"
+    },
+    "techStack": {
+      "title": "التقنيات المستخدمة",
+      "description": "مبني بأحدث التقنيات والأدوات"
+    },
+    "githubButton": "عرض على جيثب"
+  },
+  "mission": {
+    "title": "مهمتنا",
+    "subtitle": "تسريع تطوير تطبيقات SaaS",
+    "description": "نهدف إلى توفير قالب شامل وجاهز للإنتاج يساعد المطورين على بناء تطبيقات SaaS عالية الجودة بسرعة وكفاءة.",
+    "goals": {
+      "title": "أهدافنا",
+      "speed": "تسريع عملية التطوير",
+      "quality": "ضمان الجودة العالية",
+      "bestPractices": "اتباع أفضل الممارسات",
+      "community": "بناء مجتمع قوي"
+    },
+    "githubButton": "عرض على جيثب"
+  },
+  "support": {
+    "title": "الدعم",
+    "subtitle": "كيف يمكننا مساعدتك",
+    "description": "نحن هنا لمساعدتك في استخدام Boiler.click بفعالية. تواصل معنا عبر القنوات التالية:",
+    "github": {
+      "title": "جيثب",
+      "description": "اطلع على الكود المصدري وقدم المساهمة",
+      "button": "زيارة المستودع"
+    },
+    "email": {
+      "title": "البريد الإلكتروني",
+      "description": "تواصل معنا مباشرة",
+      "button": "إرسال بريد إلكتروني"
+    }
+  },
+  "legal": {
+    "title": "المعلومات القانونية",
+    "subtitle": "السياسات والشروط",
+    "privacyPolicy": {
+      "title": "سياسة الخصوصية",
+      "content": "نحن نحترم خصوصيتك ونلتزم بحماية معلوماتك الشخصية."
+    },
+    "termsOfService": {
+      "title": "شروط الخدمة",
+      "content": "باستخدام هذا الموقع، فإنك توافق على شروط الخدمة الخاصة بنا."
+    },
+    "cookiePolicy": {
+      "title": "سياسة ملفات تعريف الارتباط",
+      "content": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا."
+    },
+    "contact": {
+      "title": "معلومات الاتصال",
+      "email": "البريد الإلكتروني",
+      "address": "العنوان"
+    }
+  },
+  "faq": {
+    "title": "الأسئلة الشائعة",
+    "subtitle": "إجابات على الأسئلة الأكثر شيوعاً",
+    "searchPlaceholder": "البحث في الأسئلة...",
+    "clearFilters": "مسح المرشحات",
+    "noResults": "لم يتم العثور على نتائج",
+    "questions": [
+      {
+        "id": "what-is-boiler-click",
+        "question": "ما هو Boiler.click؟",
+        "answer": "Boiler.click هو قالب Next.js شامل وجاهز للإنتاج لبناء تطبيقات SaaS حديثة. يتضمن كل ما تحتاجه للبدء بسرعة."
+      },
+      {
+        "id": "how-to-use",
+        "question": "كيف أستخدم Boiler.click؟",
+        "answer": "يمكنك استنساخ المستودع وتثبيت التبعيات وبدء التطوير. اتبع دليل البدء السريع للحصول على تعليمات مفصلة."
+      },
+      {
+        "id": "features-included",
+        "question": "ما هي الميزات المضمنة؟",
+        "answer": "يتضمن القالب Next.js 16، TypeScript، Tailwind CSS، دعم متعدد اللغات، التحليلات، تحسين محركات البحث، والمزيد."
+      },
+      {
+        "id": "customization",
+        "question": "هل يمكنني تخصيص القالب؟",
+        "answer": "نعم، القالب قابل للتخصيص بالكامل. يمكنك تعديل الألوان والخطوط والتخطيطات والميزات حسب احتياجاتك."
+      },
+      {
+        "id": "support",
+        "question": "هل يوجد دعم متاح؟",
+        "answer": "نعم، يمكنك الحصول على الدعم عبر جيثب أو البريد الإلكتروني. نحن هنا لمساعدتك."
+      }
+    ]
+  },
+  "documentation": {
+    "title": "الوثائق",
+    "subtitle": "دليل شامل لاستخدام Boiler.click",
+    "description": "تعلم كيفية استخدام جميع ميزات Boiler.click بفعالية.",
+    "steps": {
+      "welcome": "مرحباً",
+      "install": "التثبيت",
+      "setup": "الإعداد"
+    },
+    "github": {
+      "button": "عرض على جيثب"
+    }
+  },
+  "articles": {
+    "title": "المقالات",
+    "subtitle": "دروس وإرشادات مفيدة",
+    "description": "اكتشف المقالات والدروس المفيدة حول تطوير تطبيقات SaaS.",
+    "searchPlaceholder": "البحث في المقالات...",
+    "clearFilters": "مسح المرشحات",
+    "noResults": "لم يتم العثور على نتائج",
+    "readMore": "اقرأ المزيد",
+    "relatedArticles": "مقالات ذات صلة",
+    "tags": "العلامات",
+    "publishedOn": "نُشر في",
+    "readTime": "دقائق قراءة"
+  },
+  "footer": {
+    "copyright": "جميع الحقوق محفوظة © {year} Boiler.click",
+    "legal": "معلومات قانونية",
+    "showcase": {
+      "title": "مبني بـ",
+      "footer": "التقنيات التي تدعم Boiler"
+    }
+  },
+  "showcase": {
+    "title": "مبني بـ",
+    "footer": "التقنيات التي تدعم Boiler",
+    "technologies": [
+      {
+        "name": "Next.js",
+        "description": "إطار عمل React للإنتاج"
+      },
+      {
+        "name": "TypeScript",
+        "description": "JavaScript مع أنواع ثابتة"
+      },
+      {
+        "name": "Tailwind CSS",
+        "description": "إطار عمل CSS للفائدة أولاً"
+      },
+      {
+        "name": "Framer Motion",
+        "description": "مكتبة الرسوم المتحركة"
+      }
+    ]
+  }
+}

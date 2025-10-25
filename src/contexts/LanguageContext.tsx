@@ -2,12 +2,13 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Language = "en" | "es" | "fr" | "ja";
+type Language = "en" | "es" | "fr" | "ja" | "ar";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string | string[];
+  isRTL: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -20,6 +21,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
+  // RTL detection
+  const isRTL = language === "ar";
+
   // Load language from localStorage on mount
   useEffect(() => {
     setMounted(true);
@@ -27,12 +31,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const savedLanguage = localStorage.getItem(
       "boiler-click-language"
     ) as Language;
-    if (savedLanguage && ["en", "es", "fr", "ja"].includes(savedLanguage)) {
+    if (
+      savedLanguage &&
+      ["en", "es", "fr", "ja", "ar"].includes(savedLanguage)
+    ) {
       setLanguage(savedLanguage);
     } else {
       // Try to detect browser language
       const browserLang = navigator.language.split("-")[0];
-      if (["en", "es", "fr", "ja"].includes(browserLang)) {
+      if (["en", "es", "fr", "ja", "ar"].includes(browserLang)) {
         setLanguage(browserLang as Language);
         localStorage.setItem("boiler-click-language", browserLang);
       }
@@ -62,6 +69,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
             break;
           case "ja":
             messages = (await import("../languages/ja.json")).default;
+            break;
+          case "ar":
+            messages = (await import("../languages/ar.json")).default;
             break;
           default:
             messages = (await import("../languages/en.json")).default;
@@ -104,7 +114,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <LanguageContext.Provider
-      value={{ language, setLanguage: handleLanguageChange, t }}
+      value={{ language, setLanguage: handleLanguageChange, t, isRTL }}
     >
       {children}
     </LanguageContext.Provider>
