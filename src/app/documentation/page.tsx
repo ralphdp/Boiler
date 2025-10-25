@@ -547,14 +547,12 @@ export default function DocumentationPage() {
                   id="step-guide"
                   className="text-3xl font-bold text-black dark:text-white mb-6"
                 >
-                  Step-by-Step Guide
+                  {t("documentation.stepGuide.title")}
                 </h2>
 
                 <div className="space-y-4">
                   <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Follow our comprehensive step-by-step guide to get started
-                    with Boiler.click. Each step includes detailed instructions,
-                    code examples, and best practices.
+                    {t("documentation.stepGuide.description")}
                   </p>
                   <div className="grid gap-4 md:grid-cols-3">
                     <a
@@ -566,12 +564,11 @@ export default function DocumentationPage() {
                           1
                         </div>
                         <h3 className="font-semibold text-gray-900 dark:text-white">
-                          Welcome
+                          {t("documentation.stepGuide.welcome.title")}
                         </h3>
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Get started with Boiler.click and understand what you're
-                        building
+                        {t("documentation.stepGuide.welcome.description")}
                       </p>
                     </a>
                     <a
@@ -583,12 +580,11 @@ export default function DocumentationPage() {
                           2
                         </div>
                         <h3 className="font-semibold text-gray-900 dark:text-white">
-                          Install
+                          {t("documentation.stepGuide.install.title")}
                         </h3>
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Install dependencies and set up your development
-                        environment
+                        {t("documentation.stepGuide.install.description")}
                       </p>
                     </a>
                     <a
@@ -600,12 +596,11 @@ export default function DocumentationPage() {
                           3
                         </div>
                         <h3 className="font-semibold text-gray-900 dark:text-white">
-                          Setup
+                          {t("documentation.stepGuide.setup.title")}
                         </h3>
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Configure your database, authentication, and customize
-                        your application
+                        {t("documentation.stepGuide.setup.description")}
                       </p>
                     </a>
                   </div>

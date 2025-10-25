@@ -153,6 +153,22 @@
         "destructive": "破壊的"
       }
     },
+    "stepGuide": {
+      "title": "ステップバイステップガイド",
+      "description": "Boiler.clickを始めるための包括的なステップバイステップガイドに従ってください。各ステップには詳細な説明、コード例、ベストプラクティスが含まれています。",
+      "welcome": {
+        "title": "ようこそ",
+        "description": "Boiler.clickを始めて、何を構築しているかを理解してください"
+      },
+      "install": {
+        "title": "インストール",
+        "description": "依存関係をインストールし、開発環境をセットアップしてください"
+      },
+      "setup": {
+        "title": "セットアップ",
+        "description": "データベース、認証を設定し、アプリケーションをカスタマイズしてください"
+      }
+    },
     "github": {
       "title": "GitHubリポジトリ",
       "description": "完全なソースコードにアクセスし、プロジェクトに貢献したり、GitHubリポジトリで問題を報告したりできます。",

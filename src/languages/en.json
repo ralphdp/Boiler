@@ -153,6 +153,22 @@
         "destructive": "Destructive"
       }
     },
+    "stepGuide": {
+      "title": "Step-by-Step Guide",
+      "description": "Follow our comprehensive step-by-step guide to get started with Boiler.click. Each step includes detailed instructions, code examples, and best practices.",
+      "welcome": {
+        "title": "Welcome",
+        "description": "Get started with Boiler.click and understand what you're building"
+      },
+      "install": {
+        "title": "Install",
+        "description": "Install dependencies and set up your development environment"
+      },
+      "setup": {
+        "title": "Setup",
+        "description": "Configure your database, authentication, and customize your application"
+      }
+    },
     "github": {
       "title": "GitHub Repository",
       "description": "Access the complete source code, contribute to the project, or report issues on our GitHub repository.",
