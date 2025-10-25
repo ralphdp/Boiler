@@ -7,6 +7,7 @@ import QuickStart from "@/components/QuickStart";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { getGitHubUrl } from "@/lib/github";
 
 export default function DocumentationPage() {
   const { t } = useLanguage();
@@ -626,7 +627,7 @@ export default function DocumentationPage() {
                   </p>
                   <Button asChild>
                     <a
-                      href="https://github.com"
+                      href={getGitHubUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center"

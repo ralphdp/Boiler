@@ -23,6 +23,37 @@
     "themeToggle": "Changer de thème",
     "languageSwitcher": "Changer de langue"
   },
+  "cookies": {
+    "title": "Nous utilisons des cookies",
+    "description": "Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic du site et personnaliser le contenu. Vous pouvez gérer vos préférences à tout moment.",
+    "accept": "Tout Accepter",
+    "decline": "Refuser",
+    "settings": "Paramètres",
+    "settingsTitle": "Préférences des Cookies",
+    "savePreferences": "Sauvegarder les Préférences",
+    "acceptAll": "Tout Accepter",
+    "rejectAll": "Tout Refuser",
+    "alwaysActive": "Toujours Actif",
+    "openSettings": "Ouvrir les paramètres de cookies",
+    "status": {
+      "accepted": "Accepté",
+      "declined": "Refusé",
+      "custom": "Personnalisé",
+      "notSet": "Non Défini"
+    },
+    "necessary": {
+      "title": "Cookies Nécessaires",
+      "description": "Ces cookies sont essentiels au bon fonctionnement du site web. Ils ne peuvent pas être désactivés."
+    },
+    "analytics": {
+      "title": "Cookies d'Analyse",
+      "description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site web en collectant et rapportant des informations de manière anonyme."
+    },
+    "marketing": {
+      "title": "Cookies Marketing",
+      "description": "Ces cookies sont utilisés pour suivre les visiteurs à travers les sites web afin d'afficher des publicités pertinentes et engageantes."
+    }
+  },
   "documentation": {
     "title": "Documentation",
     "lastUpdated": "Dernière mise à jour : Décembre 2024",
@@ -131,9 +162,10 @@
     "description": "Alimenté par Next.js, Prisma, Shadcn et d'autres technologies",
     "aboutButton": "À propos de Boiler",
     "githubButton": "Github",
+    "comingSoon": "Bientôt disponible...",
     "showcase": {
       "title": "Construit avec",
-      "footer": "Technologies alimentant ce boilerplate",
+      "footer": "Technologies alimentant Boiler",
       "nextjs": {
         "description": "Le framework React pour la production avec rendu hybride statique et serveur"
       },

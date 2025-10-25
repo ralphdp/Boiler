@@ -1,3 +1,5 @@
+import { getGitHubCloneCommand } from "./github";
+
 export interface DocumentationStep {
   id: number;
   slug: string;
@@ -37,7 +39,7 @@ export const documentationSteps: DocumentationStep[] = [
           codeBlocks: [
             {
               language: "bash",
-              code: "# Clone the repository\ngit clone https://github.com/your-username/boiler-click.git\ncd boiler-click",
+              code: `# Clone the repository\n${getGitHubCloneCommand()}\ncd boiler`,
               description:
                 "Start by cloning the repository to your local machine",
             },
@@ -84,7 +86,7 @@ export const documentationSteps: DocumentationStep[] = [
           codeBlocks: [
             {
               language: "bash",
-              code: "# 1. Clone the repository\ngit clone https://github.com/your-username/boiler-click.git\ncd boiler-click\n\n# 2. Install dependencies\nnpm install\n\n# 3. Set up environment variables\ncp .env.example .env.local\n\n# 4. Start the development server\nnpm run dev",
+              code: `# 1. Clone the repository\n${getGitHubCloneCommand()}\ncd boiler\n\n# 2. Install dependencies\nnpm install\n\n# 3. Set up environment variables\ncp .env.example .env.local\n\n# 4. Start the development server\nnpm run dev`,
               description: "Complete installation process",
             },
           ],

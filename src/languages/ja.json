@@ -23,6 +23,37 @@
     "themeToggle": "テーマを切り替え",
     "languageSwitcher": "言語を変更"
   },
+  "cookies": {
+    "title": "クッキーを使用しています",
+    "description": "クッキーを使用して、お客様の体験を向上させ、サイトトラフィックを分析し、コンテンツをパーソナライズしています。いつでも設定を管理できます。",
+    "accept": "すべて受け入れる",
+    "decline": "拒否",
+    "settings": "設定",
+    "settingsTitle": "クッキー設定",
+    "savePreferences": "設定を保存",
+    "acceptAll": "すべて受け入れる",
+    "rejectAll": "すべて拒否",
+    "alwaysActive": "常にアクティブ",
+    "openSettings": "クッキー設定を開く",
+    "status": {
+      "accepted": "受け入れ済み",
+      "declined": "拒否済み",
+      "custom": "カスタム",
+      "notSet": "未設定"
+    },
+    "necessary": {
+      "title": "必要クッキー",
+      "description": "これらのクッキーは、ウェブサイトが正常に機能するために必要です。無効にすることはできません。"
+    },
+    "analytics": {
+      "title": "分析クッキー",
+      "description": "これらのクッキーは、訪問者がウェブサイトとどのように相互作用するかを理解するのに役立ち、匿名で情報を収集・報告します。"
+    },
+    "marketing": {
+      "title": "マーケティングクッキー",
+      "description": "これらのクッキーは、関連性の高い魅力的な広告を表示するために、ウェブサイト間で訪問者を追跡するために使用されます。"
+    }
+  },
   "documentation": {
     "title": "ドキュメント",
     "lastUpdated": "最終更新: 2024年12月",
@@ -131,9 +162,10 @@
     "description": "Next.js、Prisma、Shadcn、その他のテクノロジーで構築",
     "aboutButton": "Boilerについて",
     "githubButton": "Github",
+    "comingSoon": "近日公開...",
     "showcase": {
       "title": "構築技術",
-      "footer": "このボイラープレートを支えるテクノロジー",
+      "footer": "Boilerを支えるテクノロジー",
       "nextjs": {
         "description": "ハイブリッド静的・サーバーレンダリングを備えた本番用Reactフレームワーク"
       },

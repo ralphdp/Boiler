@@ -11,6 +11,7 @@ import { Navigation } from "@/components/Navigation";
 import TechnologyShowcase from "@/components/TechnologyShowcase";
 import QuickStart from "@/components/QuickStart";
 import { Github } from "lucide-react";
+import { getGitHubUrl } from "@/lib/github";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -123,6 +124,18 @@ export default function Home() {
             <QuickStart />
           </div> */}
 
+          {/* Coming soon section */}
+          <div className="w-full mb-4">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              <Badge
+                variant="outline"
+                className="bg-purple-100 dark:bg-purple-800 text-purple-700 dark:text-purple-400 px-4 py-2 text-sm"
+              >
+                {t("homepage.comingSoon")}
+              </Badge>
+            </p>
+          </div>
+
           <div
             className="flex flex-col sm:flex-row gap-4 w-full"
             role="group"
@@ -135,7 +148,7 @@ export default function Home() {
             </Button>
             <Button asChild variant="outline" className="w-full sm:w-auto">
               <a
-                href="https://github.com"
+                href={getGitHubUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Boiler.click on GitHub (opens in new tab)"

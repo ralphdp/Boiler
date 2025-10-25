@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Github, Mail } from "lucide-react";
+import { getGitHubUrl } from "@/lib/github";
 
 export default function SupportPage() {
   const { t } = useLanguage();
@@ -57,7 +58,7 @@ export default function SupportPage() {
                 </p>
                 <Button asChild>
                   <a
-                    href="https://github.com"
+                    href={getGitHubUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center"

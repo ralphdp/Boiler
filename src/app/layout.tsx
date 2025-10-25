@@ -1,8 +1,10 @@
 import { Cabin, PT_Sans } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CookieProvider } from "@/contexts/CookieContext";
 import { ScrollRestoration } from "@/components/ScrollRestoration";
 import { FloatingSocialIcons } from "@/components/FloatingSocialIcons";
+import CookieManager from "@/components/CookieManager";
 
 const cabin = Cabin({
   subsets: ["latin"],
@@ -132,6 +134,25 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DH9HJEP4VV"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DH9HJEP4VV', {
+                'anonymize_ip': true,
+                'cookie_flags': 'SameSite=None;Secure'
+              });
+            `,
+          }}
+        />
+
         {/* Analytics and Performance Monitoring */}
         <script
           dangerouslySetInnerHTML={{
@@ -150,8 +171,6 @@ export default function RootLayout({
                       });
                   });
                 }
-                
-                // Analytics initialization removed
               })();
             `,
           }}
@@ -198,8 +217,11 @@ export default function RootLayout({
         </a>
 
         <LanguageProvider>
-          <ScrollRestoration>{children}</ScrollRestoration>
-          <FloatingSocialIcons />
+          <CookieProvider>
+            <ScrollRestoration>{children}</ScrollRestoration>
+            <FloatingSocialIcons />
+            <CookieManager />
+          </CookieProvider>
         </LanguageProvider>
       </body>
     </html>

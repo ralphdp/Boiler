@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Search, Package, Gauge, Clock, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import { getGitHubUrl } from "@/lib/github";
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -380,7 +381,7 @@ export default function AboutPage() {
             <div role="group" aria-label="GitHub link">
               <Button asChild>
                 <a
-                  href="https://github.com"
+                  href={getGitHubUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center"

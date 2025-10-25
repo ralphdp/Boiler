@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getGitHubUrl } from "@/lib/github";
 
 interface FloatingSocialIconsProps {
   url?: string;
@@ -60,7 +61,7 @@ export function FloatingSocialIcons({
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
       shareData.url
     )}`,
-    github: "https://github.com",
+    github: getGitHubUrl(),
   };
 
   const socialIcons = [
@@ -103,7 +104,7 @@ export function FloatingSocialIcons({
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.8 }}
-      className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-40 ${className}`}
+      className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-10 ${className}`}
       role="complementary"
       aria-label="Social sharing links"
     >
@@ -181,7 +182,7 @@ export function MobileSocialIcons({
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
       shareData.url
     )}`,
-    github: "https://github.com",
+    github: getGitHubUrl(),
   };
 
   const socialIcons = [

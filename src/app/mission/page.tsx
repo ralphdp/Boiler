@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { getGitHubUrl } from "@/lib/github";
 
 export default function MissionPage() {
   const { t } = useLanguage();
@@ -50,7 +51,7 @@ export default function MissionPage() {
             <div role="group" aria-label="GitHub link">
               <Button asChild>
                 <a
-                  href="https://github.com"
+                  href={getGitHubUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center"

@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
+import CookieToggle from "@/components/CookieToggle";
+import CookieSettings, { CookiePreferences } from "@/components/CookieSettings";
 import {
   Tooltip,
   TooltipContent,
@@ -15,6 +18,7 @@ import {
 export default function Footer() {
   const { t } = useLanguage();
   const pathname = usePathname();
+  const [showCookieSettings, setShowCookieSettings] = useState(false);
 
   return (
     <footer
@@ -82,11 +86,25 @@ export default function Footer() {
               </TooltipProvider>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
+            <CookieToggle onOpenSettings={() => setShowCookieSettings(true)} />
             <ThemeToggle />
           </div>
         </div>
       </div>
+
+      <CookieSettings
+        isOpen={showCookieSettings}
+        onClose={() => setShowCookieSettings(false)}
+        onSave={(preferences: CookiePreferences) => {
+          localStorage.setItem(
+            "boiler-click-cookie-preferences",
+            JSON.stringify(preferences)
+          );
+          // Don't override the status here - let CookieSettings handle it
+          setShowCookieSettings(false);
+        }}
+      />
     </footer>
   );
 }

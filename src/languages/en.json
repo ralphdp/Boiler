@@ -23,6 +23,37 @@
     "themeToggle": "Toggle theme",
     "languageSwitcher": "Change language"
   },
+  "cookies": {
+    "title": "We use cookies",
+    "description": "We use cookies to enhance your experience, analyze site traffic, and personalize content. You can manage your preferences at any time.",
+    "accept": "Accept All",
+    "decline": "Decline",
+    "settings": "Settings",
+    "settingsTitle": "Cookie Preferences",
+    "savePreferences": "Save Preferences",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "alwaysActive": "Always Active",
+    "openSettings": "Open cookie settings",
+    "status": {
+      "accepted": "Accepted",
+      "declined": "Declined",
+      "custom": "Custom",
+      "notSet": "Not Set"
+    },
+    "necessary": {
+      "title": "Necessary Cookies",
+      "description": "These cookies are essential for the website to function properly. They cannot be disabled."
+    },
+    "analytics": {
+      "title": "Analytics Cookies",
+      "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+    },
+    "marketing": {
+      "title": "Marketing Cookies",
+      "description": "These cookies are used to track visitors across websites to display relevant and engaging advertisements."
+    }
+  },
   "documentation": {
     "title": "Documentation",
     "lastUpdated": "Last updated: December 2024",
@@ -131,9 +162,10 @@
     "description": "Powered by Next.js, Prisma, Shadcn, A.I., and other technologies",
     "aboutButton": "About Boiler",
     "githubButton": "Github",
+    "comingSoon": "Coming soon...",
     "showcase": {
       "title": "Built with",
-      "footer": "Technologies powering this boilerplate",
+      "footer": "Technologies powering Boiler",
       "nextjs": {
         "description": "The React framework for production with hybrid static & server rendering"
       },

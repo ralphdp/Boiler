@@ -138,30 +138,16 @@ export default function TechnologyShowcase() {
       animate="visible"
       variants={panelVariants}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed bottom-8 left-8 z-40 hidden lg:block"
+      className="fixed bottom-8 left-8 z-10 hidden lg:block"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="bg-white dark:bg-gray-900/60 rounded-xl shadow-2xl p-8 px-8 w-96 max-w-md">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+      <div className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-2xl p-8 px-8 w-86 max-w-md">
+        {/* <<div className="flex items-center justify-between mb-6">
+          h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {t("homepage.showcase.title")}
-          </h3>
-          <div className="flex space-x-2">
-            {technologies.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentIndex
-                    ? "bg-purple-500 dark:bg-purple-400 shadow-lg shadow-purple-500/50 dark:shadow-purple-400/50"
-                    : "bg-gray-300 dark:bg-gray-600"
-                }`}
-                aria-label={`Go to ${technologies[index].name}`}
-              />
-            ))}
-          </div>
-        </div>
+          </h3> 
+        </div> */}
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -195,6 +181,21 @@ export default function TechnologyShowcase() {
           </motion.div>
         </AnimatePresence>
 
+        <div className="flex space-x-2 mt-6 text-center justify-center">
+          {technologies.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                index === currentIndex
+                  ? "bg-purple-500 dark:bg-purple-400 shadow-lg shadow-purple-500/50 dark:shadow-purple-400/50"
+                  : "bg-gray-300 dark:bg-gray-600"
+              }`}
+              aria-label={`Go to ${technologies[index].name}`}
+            />
+          ))}
+        </div>
+
         {/* Action Buttons */}
         <div className="flex gap-2 mt-6">
           <Button asChild size="sm" variant="outline" className="flex-1">
@@ -211,7 +212,7 @@ export default function TechnologyShowcase() {
         </div>
 
         <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-500 dark:text-gray-400 text-center font-medium">
+          <p className="text-xs text-gray-500 dark:text-gray-400 text-center font-small">
             {t("homepage.showcase.footer")}
           </p>
         </div>

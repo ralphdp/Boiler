@@ -3,6 +3,35 @@ import { config, features } from "./config";
 // Safe feature check function
 const isAnalyticsEnabled = () => {
   try {
+    // Check cookie preferences first
+    const cookieStatus = localStorage.getItem("boiler-click-cookies");
+    const cookiePreferences = localStorage.getItem(
+      "boiler-click-cookie-preferences"
+    );
+
+    // If user has declined cookies, disable analytics
+    if (cookieStatus === "declined") {
+      return false;
+    }
+
+    // If user has custom preferences, check analytics setting
+    if (cookieStatus === "custom" && cookiePreferences) {
+      try {
+        const preferences = JSON.parse(cookiePreferences);
+        if (!preferences.analytics) {
+          return false;
+        }
+      } catch (e) {
+        console.warn("Failed to parse cookie preferences:", e);
+        return false;
+      }
+    }
+
+    // If no cookie choice made yet, disable analytics by default
+    if (!cookieStatus) {
+      return false;
+    }
+
     // Check if features object exists and has analytics property
     if (!features || typeof features !== "object") {
       return false;

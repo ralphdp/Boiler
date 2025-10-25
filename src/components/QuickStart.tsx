@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Check, Copy, Github } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getGitHubCloneCommand } from "@/lib/github";
 
 export default function QuickStart() {
   const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const codeBlock = `# ${t("homepage.quickStart.codeComments.clone")}
-git clone https://github.com/your-org/boiler.click.git
+${getGitHubCloneCommand()}
 
 # ${t("homepage.quickStart.codeComments.install")}
 npm install
@@ -69,7 +70,7 @@ npm run build`;
               </span>
               <br />
               <span className="text-zinc-100">
-                git clone https://github.com/your-org/boiler.click.git
+                {getGitHubCloneCommand()}
               </span>
               <br />
               <br />

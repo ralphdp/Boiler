@@ -23,6 +23,37 @@
     "themeToggle": "Cambiar tema",
     "languageSwitcher": "Cambiar idioma"
   },
+  "cookies": {
+    "title": "Usamos cookies",
+    "description": "Utilizamos cookies para mejorar tu experiencia, analizar el tráfico del sitio y personalizar el contenido. Puedes gestionar tus preferencias en cualquier momento.",
+    "accept": "Aceptar Todo",
+    "decline": "Rechazar",
+    "settings": "Configuración",
+    "settingsTitle": "Preferencias de Cookies",
+    "savePreferences": "Guardar Preferencias",
+    "acceptAll": "Aceptar Todo",
+    "rejectAll": "Rechazar Todo",
+    "alwaysActive": "Siempre Activo",
+    "openSettings": "Abrir configuración de cookies",
+    "status": {
+      "accepted": "Aceptado",
+      "declined": "Rechazado",
+      "custom": "Personalizado",
+      "notSet": "No Establecido"
+    },
+    "necessary": {
+      "title": "Cookies Necesarias",
+      "description": "Estas cookies son esenciales para que el sitio web funcione correctamente. No se pueden desactivar."
+    },
+    "analytics": {
+      "title": "Cookies de Análisis",
+      "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando y reportando información de forma anónima."
+    },
+    "marketing": {
+      "title": "Cookies de Marketing",
+      "description": "Estas cookies se utilizan para rastrear visitantes a través de sitios web para mostrar anuncios relevantes y atractivos."
+    }
+  },
   "documentation": {
     "title": "Documentación",
     "lastUpdated": "Última actualización: Diciembre 2024",
@@ -131,9 +162,10 @@
     "description": "Potenciado con Next.js, Prisma, Shadcn y otras tecnologías",
     "aboutButton": "Acerca de Boiler",
     "githubButton": "Github",
+    "comingSoon": "Próximamente...",
     "showcase": {
       "title": "Construido con",
-      "footer": "Tecnologías que impulsan este boilerplate",
+      "footer": "Tecnologías que impulsan Boiler",
       "nextjs": {
         "description": "El framework de React para producción con renderizado híbrido estático y del servidor"
       },
