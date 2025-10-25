@@ -100,24 +100,31 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           }}
         />
       </Head>
-      <div className="min-h-screen bg-zinc-50 dark:bg-black">
+      <div
+        className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
+        role="main"
+      >
         <Navigation />
-
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
-            <Link href="/articles">
-              <Button variant="outline" className="flex items-center gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Back to Articles
-              </Button>
-            </Link>
-          </motion.div>
+        <main
+          className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
+          role="main"
+          aria-label="Article page content"
+        >
+          <div className="prose prose-lg dark:prose-invert max-w-none">
+            {/* Back Button */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
+            >
+              <Link href="/articles">
+                <Button variant="outline" className="flex items-center gap-2 cursor-pointer">
+                  <ArrowLeft className="w-4 h-4" />
+                  Back to Articles
+                </Button>
+              </Link>
+            </motion.div>
 
           {/* Article Header */}
           <motion.div
@@ -131,15 +138,15 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               <span className="text-sm text-zinc-500">{article.readTime}</span>
             </div>
 
-            <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+            <h1 className="text-4xl font-bold text-black dark:text-white mb-4">
               {article.title}
             </h1>
 
-            <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-6">
+            <p className="text-xl text-zinc-600 dark:text-zinc-200 mb-6">
               {article.description}
             </p>
 
-            <div className="flex items-center gap-6 text-sm text-zinc-500 mb-6">
+            <div className="flex items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400 mb-6">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 {article.author}
@@ -166,7 +173,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               <Button
                 onClick={handleShare}
                 variant="outline"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 cursor-pointer"
               >
                 <Share2 className="w-4 h-4" />
                 Share
@@ -201,7 +208,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="prose prose-lg max-w-none dark:prose-invert"
           >
             <div
               className="article-content"
@@ -238,7 +244,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
             >
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+              <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
                 Related Articles
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -256,13 +262,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-2 group-hover:text-purple-600 transition-colors">
+                      <h3 className="text-lg font-semibold text-black dark:text-white mb-2 group-hover:text-purple-600 transition-colors">
                         {relatedArticle.title}
                       </h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">
+                      <p className="text-sm text-zinc-600 dark:text-zinc-300 line-clamp-2">
                         {relatedArticle.excerpt}
                       </p>
-                      <div className="flex items-center gap-2 mt-2 text-xs text-zinc-500">
+                      <div className="flex items-center gap-2 mt-2 text-xs text-zinc-500 dark:text-zinc-400">
                         <span>{relatedArticle.readTime}</span>
                         <span>•</span>
                         <span>
@@ -275,8 +281,8 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               </div>
             </motion.div>
           )}
+          </div>
         </main>
-
         <Footer />
       </div>
     </>
