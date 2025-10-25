@@ -125,109 +125,108 @@ export default function ArticlesPage() {
           }}
         />
       </Head>
-      <div className="min-h-screen bg-zinc-50 dark:bg-black">
+      <div
+        className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
+        role="main"
+      >
         <Navigation />
-
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
-              Articles & Updates
-            </h1>
-            <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
-              Stay updated with the latest developments, tutorials, and insights
-              from the Boiler.click team.
-            </p>
-          </motion.div>
-
-          {/* Search and Filters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8"
-          >
-            <div className="flex flex-col md:flex-row gap-4 mb-6">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400 w-4 h-4" />
-                <Input
-                  placeholder="Search articles..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSearchQuery("");
-                  setSelectedTag(null);
-                }}
-              >
-                Clear Filters
-              </Button>
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              <Button
-                variant={selectedTag === null ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedTag(null)}
-              >
-                All
-              </Button>
-              {allTags.map((tag) => (
-                <Button
-                  key={tag}
-                  variant={selectedTag === tag ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedTag(tag)}
-                >
-                  {tag}
-                </Button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Featured Article */}
-          {featuredArticle && !selectedTag && !searchQuery && (
+        <main
+          className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
+          role="main"
+          aria-label="Articles page content"
+        >
+          <div className="prose prose-lg dark:prose-invert max-w-none">
             <motion.div
+              className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 20 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
+                Articles & Updates
+              </h1>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-12"
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
-              <Card className="overflow-hidden">
-                <div className="md:flex">
-                  <div className="md:w-1/2">
-                    <Image
-                      src={featuredArticle.featuredImage}
-                      alt={featuredArticle.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-64 md:h-full object-cover"
-                    />
-                  </div>
-                  <div className="md:w-1/2 p-6">
+              <p className="text-lg text-zinc-600 dark:text-zinc-200 leading-relaxed">
+                Stay updated with the latest developments, tutorials, and
+                insights from the Boiler.click team.
+              </p>
+
+              {/* Search and Filters */}
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Input
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedTag(null);
+                  }}
+                  className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                >
+                  Clear Filters
+                </Button>
+              </div>
+
+              {/* Tags Filter */}
+              <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                <button
+                  onClick={() => setSelectedTag(null)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    selectedTag === null
+                      ? "bg-black dark:bg-white text-white dark:text-black"
+                      : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  All
+                </button>
+                {allTags.map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => setSelectedTag(tag)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      selectedTag === tag
+                        ? "bg-black dark:bg-white text-white dark:text-black"
+                        : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+
+              {/* Featured Article */}
+              {featuredArticle && !selectedTag && !searchQuery && (
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg mb-6">
+                  <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="secondary">Featured</Badge>
-                      <span className="text-sm text-zinc-500">
+                      <span className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded-full">
+                        Featured
+                      </span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
                         {featuredArticle.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                       {featuredArticle.title}
                     </h2>
-                    <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
                       {featuredArticle.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-zinc-500 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
                       <div className="flex items-center gap-1">
                         <User className="w-4 h-4" />
                         {featuredArticle.author}
@@ -239,117 +238,97 @@ export default function ArticlesPage() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {featuredArticle.tags.map((tag) => (
-                        <Badge key={tag} variant="outline" className="text-xs">
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                        >
                           {tag}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
                     <Link href={getArticleUrl(featuredArticle.slug)}>
-                      <Button>Read More</Button>
+                      <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                        Read More
+                      </button>
                     </Link>
                   </div>
                 </div>
-              </Card>
-            </motion.div>
-          )}
+              )}
 
-          {/* Articles Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {otherArticles.map((article, index) => (
-              <motion.div
-                key={article.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-              >
-                <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative h-48">
-                    <Image
-                      src={article.featuredImage}
-                      alt={article.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-sm text-zinc-500">
-                        {article.readTime}
-                      </span>
-                    </div>
-                    <CardTitle className="text-xl line-clamp-2">
-                      {article.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-600 dark:text-zinc-400 mb-4 line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-zinc-500 mb-4">
-                      <div className="flex items-center gap-1">
-                        <User className="w-4 h-4" />
-                        {article.author}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {formatArticleDate(article.publishedAt)}
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {article.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {article.tags.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{article.tags.length - 3}
-                        </Badge>
-                      )}
-                    </div>
+              {/* Articles List */}
+              <div className="w-full space-y-4">
+                {otherArticles.map((article, index) => (
+                  <div
+                    key={article.id}
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
                     <Link href={getArticleUrl(article.slug)}>
-                      <Button variant="outline" className="w-full">
-                        Read More
-                      </Button>
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {article.readTime}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                          {article.excerpt}
+                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                          <div className="flex items-center gap-1">
+                            <User className="w-4 h-4" />
+                            {article.author}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {formatArticleDate(article.publishedAt)}
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {article.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {article.tags.length > 3 && (
+                            <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full">
+                              +{article.tags.length - 3}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+                  </div>
+                ))}
+              </div>
 
-          {/* No Results */}
-          {filteredArticles.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center py-12"
-            >
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-2">
-                No articles found
-              </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                Try adjusting your search or filters
-              </p>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSearchQuery("");
-                  setSelectedTag(null);
-                }}
-              >
-                Clear Filters
-              </Button>
+              {/* No Results */}
+              {filteredArticles.length === 0 && (
+                <div className="text-center py-12">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    No articles found
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    Try adjusting your search or filters
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSearchQuery("");
+                      setSelectedTag(null);
+                    }}
+                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              )}
             </motion.div>
-          )}
+          </div>
         </main>
-
         <Footer />
       </div>
     </>
