@@ -49,7 +49,7 @@ export default function DocumentationPage() {
               role="contentinfo"
               aria-label="Documentation sections"
             >
-              {/* Quick Start Section */}
+              {/* Quick Start Section
               <section aria-labelledby="quick-start">
                 <h2
                   id="quick-start"
@@ -61,7 +61,7 @@ export default function DocumentationPage() {
                   {t("documentation.quickStart.description")}
                 </p>
                 <QuickStart />
-              </section>
+              </section> */}
 
               {/* Getting Started */}
               <section aria-labelledby="getting-started">

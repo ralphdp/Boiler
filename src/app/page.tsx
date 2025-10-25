@@ -118,10 +118,10 @@ export default function Home() {
             {t("homepage.description")}
           </p>
 
-          {/* Quick Start Section */}
+          {/* Quick Start Section 
           <div className="w-full mb-4">
             <QuickStart />
-          </div>
+          </div> */}
 
           <div
             className="flex flex-col sm:flex-row gap-4 w-full"
