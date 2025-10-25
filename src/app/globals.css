@@ -67,7 +67,7 @@ body {
 }
 
 /* RTL transform utilities */
-.rtl\:scale-x-[-1] {
+.rtl\:scale-x-flip {
   transform: scaleX(-1);
 }
 
