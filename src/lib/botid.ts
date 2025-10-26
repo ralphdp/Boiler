@@ -32,10 +32,13 @@ export const verifyBotId = async (): Promise<BotIdResult> => {
     // Use official BotID server-side check
     const result = await checkBotId();
 
+    // Calculate score based on bot detection result
+    const score = result.isHuman ? 1.0 : result.isBot ? 0.0 : 0.5;
+
     return {
       isBot: result.isBot,
-      score: result.score,
-      riskLevel: getRiskLevel(result.score || 1.0),
+      score: score,
+      riskLevel: getRiskLevel(score),
     };
   } catch (error) {
     console.error("BotID verification failed:", error);
