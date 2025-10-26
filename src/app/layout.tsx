@@ -3,9 +3,11 @@ import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CookieProvider } from "@/contexts/CookieContext";
 import { ScrollRestoration } from "@/components/ScrollRestoration";
-import { FloatingSocialIcons } from "@/components/FloatingSocialIcons";
-import CookieManager from "@/components/CookieManager";
 import LanguageAttributes from "@/components/LanguageAttributes";
+import {
+  LazyFloatingSocialIcons,
+  LazyCookieManager,
+} from "@/components/LazyComponents";
 
 const cabin = Cabin({
   subsets: ["latin"],
@@ -119,17 +121,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.google.com" />
 
-        {/* Fonts */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-          as="style"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-          rel="stylesheet"
-        />
+        {/* DNS Prefetch for additional performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.google.com" />
+
+        {/* Fonts are handled by Next.js font optimization */}
 
         {/* Structured Data */}
         <script
@@ -150,7 +151,51 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics - Only in production */}
+        {/* Critical CSS for above-the-fold content */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            /* Critical above-the-fold styles */
+            body { 
+              font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              margin: 0;
+              padding: 0;
+              line-height: 1.6;
+              color: #1f2937;
+              background-color: #ffffff;
+            }
+            .dark body {
+              color: #f9fafb;
+              background-color: #111827;
+            }
+            * { box-sizing: border-box; }
+            html { scroll-behavior: smooth; }
+            .sr-only { 
+              position: absolute; 
+              width: 1px; 
+              height: 1px; 
+              padding: 0; 
+              margin: -1px; 
+              overflow: hidden; 
+              clip: rect(0, 0, 0, 0); 
+              white-space: nowrap; 
+              border: 0; 
+            }
+            .focus\\:not-sr-only:focus { 
+              position: static; 
+              width: auto; 
+              height: auto; 
+              padding: 0.5rem 1rem; 
+              margin: 0; 
+              overflow: visible; 
+              clip: auto; 
+              white-space: normal; 
+            }
+          `,
+          }}
+        />
+
+        {/* Google Analytics - Optimized loading */}
         {process.env.NODE_ENV === "production" &&
           process.env.NEXT_PUBLIC_GA_ID && (
             <>
@@ -166,7 +211,8 @@ export default function RootLayout({
                     gtag('js', new Date());
                     gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
                       'anonymize_ip': true,
-                      'cookie_flags': 'SameSite=None;Secure'
+                      'cookie_flags': 'SameSite=None;Secure',
+                      'send_page_view': false
                     });
                   `,
                 }}
@@ -227,8 +273,8 @@ export default function RootLayout({
           <LanguageAttributes />
           <CookieProvider>
             <ScrollRestoration>{children}</ScrollRestoration>
-            <FloatingSocialIcons />
-            <CookieManager />
+            <LazyFloatingSocialIcons />
+            <LazyCookieManager />
           </CookieProvider>
         </LanguageProvider>
       </body>

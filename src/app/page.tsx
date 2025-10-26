@@ -3,15 +3,38 @@
 import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Footer from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
-import TechnologyShowcase from "@/components/TechnologyShowcase";
-import QuickStart from "@/components/QuickStart";
 import { Github } from "lucide-react";
 import { getGitHubUrl } from "@/lib/github";
+
+// Lazy load non-critical components
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-32 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+  ),
+});
+
+const TechnologyShowcase = dynamic(
+  () => import("@/components/TechnologyShowcase"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="fixed bottom-8 left-8 w-80 h-64 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />
+    ),
+  }
+);
+
+const QuickStart = dynamic(() => import("@/components/QuickStart"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-32 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />
+  ),
+});
 
 export default function Home() {
   const { t } = useLanguage();

@@ -1,5 +1,10 @@
 import { config, features } from "./config";
 
+// Safety check for analytics config
+if (!config.analytics) {
+  console.warn("Analytics configuration is missing");
+}
+
 // Safe feature check function
 const isAnalyticsEnabled = () => {
   try {
@@ -86,7 +91,8 @@ export function reportWebVitals(metric: WebVitalMetric) {
     if (
       isAnalyticsEnabled() &&
       typeof window !== "undefined" &&
-      (window as any).gtag
+      (window as any).gtag &&
+      config.analytics?.gaId
     ) {
       (window as any).gtag("event", metric.name, {
         event_category: "Web Vitals",
@@ -375,6 +381,12 @@ export function monitorCoreWebVitals() {
 
 // Initialize analytics
 export function initializeAnalytics() {
+  // Safety check for analytics config
+  if (!config.analytics) {
+    console.warn("Analytics configuration is missing, skipping initialization");
+    return;
+  }
+
   // Completely disabled to prevent all analytics errors
   console.log("Analytics initialization disabled");
   return;

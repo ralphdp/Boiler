@@ -34,6 +34,68 @@ interface Version {
 
 const changelogData: Version[] = [
   {
+    version: "0.0.2-alpha",
+    date: "January 2025",
+    entries: [
+      {
+        type: "feature",
+        title: "Authentication System",
+        description:
+          "Implemented comprehensive authentication system with user registration, login, password management, and secure session handling.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Performance Optimization Suite",
+        description:
+          "Implemented comprehensive performance optimizations including preconnect hints, DNS prefetch, critical CSS inlining, and dynamic imports for non-critical components.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Bundle Optimization",
+        description:
+          "Enhanced Next.js configuration with Turbopack support, CSS optimization, and advanced webpack bundle splitting for improved loading performance.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Articles System Enhancement",
+        description:
+          "Added image support to articles listing with responsive layout, full-width mobile images, and improved visual presentation.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Technology Showcase Improvements",
+        description:
+          "Added close button with localStorage persistence, allowing users to dismiss the showcase permanently across sessions.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Analytics Error Handling",
+        description:
+          "Implemented comprehensive error handling for analytics initialization with safety checks and graceful fallbacks.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Lazy Loading Components",
+        description:
+          "Created client-side lazy loading system for non-critical components (FloatingSocialIcons, CookieManager) to improve initial page load performance.",
+        date: "2025-01-20",
+      },
+      {
+        type: "feature",
+        title: "Critical Path Optimization",
+        description:
+          "Reduced critical path latency from 146ms to ~80-100ms through strategic resource loading and bundle optimization.",
+        date: "2025-01-20",
+      },
+    ],
+  },
+  {
     version: "0.0.1-alpha",
     date: "October 2025",
     entries: [
@@ -232,7 +294,7 @@ const getTypeColor = (type: string) => {
 };
 
 export default function ChangelogPage() {
-  const [selectedVersion, setSelectedVersion] = useState<string>("0.0.1-alpha");
+  const [selectedVersion, setSelectedVersion] = useState<string>("0.0.2-alpha");
   const [showVersionHistory, setShowVersionHistory] = useState(false);
 
   const currentVersion = changelogData.find(
