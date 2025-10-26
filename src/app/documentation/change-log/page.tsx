@@ -248,19 +248,6 @@ const changelogData: Version[] = [
       },
     ],
   },
-  {
-    version: "0.0.2-alpha",
-    date: "October 2025",
-    entries: [
-      {
-        type: "feature",
-        title: "Authentication System",
-        description:
-          "Implemented comprehensive authentication system with user registration, login, password management, and secure session handling.",
-        date: "2025-01-20",
-      },
-    ],
-  },
 ];
 
 const getTypeIcon = (type: string) => {
