@@ -13,18 +13,18 @@ This document describes all the environment variables used in the Boiler.click p
 NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
 ```
 
-### Google reCAPTCHA
+### BotID (Bot Detection)
 
 ```bash
-# reCAPTCHA Site Key (Public)
-# Get this from: https://www.google.com/recaptcha/admin
+# BotID Site Key (Public)
+# Get this from: https://vercel.com/botid
 # This is safe to expose in client-side code
-NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY="your_site_key"
+NEXT_PUBLIC_BOTID_SITE_KEY="your_site_key"
 
-# reCAPTCHA Secret Key (Private)
-# Get this from: https://www.google.com/recaptcha/admin
+# BotID Secret Key (Private)
+# Get this from: https://vercel.com/botid
 # Keep this secret - only used server-side
-GOOGLE_RECAPTCHA_SECRET_KEY="your_secret_key"
+BOTID_SECRET_KEY="your_secret_key"
 ```
 
 ### GitHub Repository

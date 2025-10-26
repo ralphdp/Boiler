@@ -65,8 +65,8 @@ src/
 │   ├── Navigation.tsx           # Site navigation
 │   ├── OptimizedImage.tsx       # Image optimization
 │   ├── QuickStart.tsx           # Quick start component
-│   ├── Recaptcha.tsx            # reCAPTCHA component
-│   ├── RecaptchaExample.tsx     # reCAPTCHA usage example
+│   ├── BotId.tsx                # BotID component
+│   ├── BotIdExample.tsx         # BotID usage example
 │   ├── ScrollRestoration.tsx   # Scroll position restoration
 │   ├── SimpleLanguageSwitcher.tsx # Language switcher
 │   ├── SocialShare.tsx          # Social sharing
@@ -90,7 +90,7 @@ src/
 │   ├── config.ts               # Configuration management
 │   ├── documentation-steps.ts  # Documentation content
 │   ├── github.ts               # GitHub URL utilities
-│   ├── recaptcha.ts            # reCAPTCHA utilities
+│   ├── botid.ts                # BotID utilities
 │   ├── rate-limit.ts           # Rate limiting utilities
 │   ├── utils.ts                # General utilities
 │   └── validation.ts           # Validation schemas
@@ -111,7 +111,7 @@ src/
 - **Documentation System** with step-by-step guides and changelog
 - **Admin Panel Setup** for analytics integration
 - **Google Analytics 4** integration with development controls
-- **Google reCAPTCHA** with environment-aware configuration
+- **BotID** with advanced bot detection and environment-aware configuration
 - **Cookie Consent System** with granular preferences
 - **GitHub Integration** with dynamic repository links
 - **Performance Optimization Suite** with preconnect hints and critical CSS
@@ -185,7 +185,7 @@ src/
 - **Rate limiting** with IP blocking
 - **Input validation** with Zod
 - **Secure headers** configuration
-- **Google reCAPTCHA** integration for form protection
+- **BotID** integration for advanced bot protection
 - **Cookie consent system** with GDPR compliance
 - **Environment-aware security** (disabled in development)
 
@@ -205,9 +205,9 @@ NEXT_PUBLIC_SITE_PHYSICAL_ADDRESS="123 Oak St."
 # Analytics
 NEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"
 
-# Google reCAPTCHA
-NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY="your_site_key"
-GOOGLE_RECAPTCHA_SECRET_KEY="your_secret_key"
+# BotID (Bot Detection)
+NEXT_PUBLIC_BOTID_SITE_KEY="your_site_key"
+BOTID_SECRET_KEY="your_secret_key"
 
 # GitHub Repository
 NEXT_PUBLIC_GITHUB_USER="ralphdp"
@@ -311,9 +311,9 @@ SMTP_PASS="your-app-password"
 - `POST /api/analytics/performance` - Performance metrics
 - `POST /api/analytics/slow-resources` - Slow resource tracking
 
-### reCAPTCHA API
+### BotID API
 
-- `POST /api/recaptcha/verify` - reCAPTCHA token verification
+- `POST /api/botid/verify` - BotID token verification
 
 All endpoints include:
 
@@ -395,15 +395,16 @@ All endpoints include:
 - **Modal-based settings** with fixed header/footer
 - **Development-friendly** with clear status indicators
 
-### reCAPTCHA Integration
+### BotID Integration
 
 - **Environment-aware configuration** (disabled in development)
-- **Multiple reCAPTCHA types** (v2 checkbox, v2 invisible, v3)
+- **Advanced bot detection** with machine learning algorithms
 - **Server-side verification** with API endpoint
 - **Development bypass** for testing
-- **Customizable themes** (light/dark)
-- **Size variants** (compact, normal, invisible)
+- **Invisible protection** - no user interaction required
+- **Risk scoring** with low/medium/high levels
 - **Error handling** and user feedback
+- **Seamless user experience** - no CAPTCHA challenges
 
 ## 🔒 Security Features
 
