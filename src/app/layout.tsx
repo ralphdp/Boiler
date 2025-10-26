@@ -273,11 +273,11 @@ export default function RootLayout({
         <LanguageProvider>
           <LanguageAttributes />
           <CookieProvider>
-            <ScrollRestoration>{children}</ScrollRestoration>
-            <LazyFloatingSocialIcons />
-            <LazyCookieManager />
-            {/* BotID Client Component - automatically handles bot detection */}
-            <BotIdProvider />
+            <BotIdProvider>
+              <ScrollRestoration>{children}</ScrollRestoration>
+              <LazyFloatingSocialIcons />
+              <LazyCookieManager />
+            </BotIdProvider>
           </CookieProvider>
         </LanguageProvider>
       </body>
