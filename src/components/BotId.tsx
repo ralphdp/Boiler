@@ -45,7 +45,7 @@ export default function BotId({ className = "", children }: BotIdProps) {
       )}
       {children}
       {/* Official BotID Client Component - automatically handles bot detection */}
-      <BotIdClient protect />
+      <BotIdClient protect={[]} />
     </div>
   );
 }
@@ -64,7 +64,7 @@ export const BotIdProvider = ({ children }: { children: React.ReactNode }) => {
     <div data-botid-initialized={isInitialized} data-vercel={config.isVercel}>
       {children}
       {/* Official BotID Client Component */}
-      <BotIdClient protect />
+      <BotIdClient protect={[]} />
     </div>
   );
 };
