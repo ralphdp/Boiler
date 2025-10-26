@@ -101,6 +101,29 @@
         "lint": "Run ESLint to check code quality"
       }
     },
+    "vercel": {
+      "title": "Vercel Optimization",
+      "description": "This boilerplate is specifically optimized for Vercel deployment with built-in features and configurations.",
+      "features": {
+        "title": "Vercel-Specific Features",
+        "botid": "Built-in BotID bot detection (automatic in production)",
+        "edge": "Edge Runtime optimization for faster response times",
+        "analytics": "Vercel Analytics integration for performance monitoring",
+        "speed": "Automatic image optimization and CDN delivery",
+        "deployment": "Zero-config deployment with automatic builds",
+        "functions": "Serverless functions with optimal cold start performance",
+        "security": "Automatic HTTPS and security headers",
+        "scaling": "Automatic scaling based on traffic patterns"
+      },
+      "benefits": {
+        "title": "Why Vercel?",
+        "performance": "Lightning-fast global CDN and edge computing",
+        "developer": "Seamless developer experience with instant deployments",
+        "monitoring": "Built-in performance monitoring and error tracking",
+        "security": "Enterprise-grade security and compliance",
+        "cost": "Pay-as-you-scale pricing with generous free tier"
+      }
+    },
     "shadcnComponents": {
       "title": "Shadcn/UI Components",
       "description": "Learn how to use the most common shadcn/ui components with practical code examples.",

@@ -202,6 +202,77 @@ export default function DocumentationPage() {
                 </div>
               </section>
 
+              {/* Vercel Optimization */}
+              <section aria-labelledby="vercel-optimization">
+                <h2
+                  id="vercel-optimization"
+                  className="text-3xl font-bold text-black dark:text-white mb-6"
+                >
+                  {t("documentation.vercel.title")}
+                </h2>
+
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {t("documentation.vercel.description")}
+                  </p>
+
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-black dark:text-white">
+                      {t("documentation.vercel.features.title")}
+                    </h3>
+                    <ul className="space-y-2">
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.botid")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.edge")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.analytics")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.speed")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.deployment")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.functions")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.security")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.features.scaling")}
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-black dark:text-white">
+                      {t("documentation.vercel.benefits.title")}
+                    </h3>
+                    <ul className="space-y-2">
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.benefits.performance")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.benefits.developer")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.benefits.monitoring")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.benefits.security")}
+                      </li>
+                      <li className="text-gray-600 dark:text-gray-400">
+                        • {t("documentation.vercel.benefits.cost")}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
               {/* Shadcn/UI Components */}
               <section aria-labelledby="shadcn-components">
                 <h2

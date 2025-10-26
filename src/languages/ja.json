@@ -101,6 +101,29 @@
         "lint": "ESLintを実行してコード品質をチェック"
       }
     },
+    "vercel": {
+      "title": "Vercel最適化",
+      "description": "このボイラープレートは、統合された機能と設定でVercelデプロイメントに特化して最適化されています。",
+      "features": {
+        "title": "Vercel固有の機能",
+        "botid": "内蔵BotIDボット検出（本番環境で自動）",
+        "edge": "より高速な応答時間のためのEdge Runtime最適化",
+        "analytics": "パフォーマンス監視のためのVercel Analytics統合",
+        "speed": "自動画像最適化とCDN配信",
+        "deployment": "自動ビルドによるゼロ設定デプロイメント",
+        "functions": "最適なコールドスタートパフォーマンスのサーバーレス関数",
+        "security": "自動HTTPSとセキュリティヘッダー",
+        "scaling": "トラフィックパターンに基づく自動スケーリング"
+      },
+      "benefits": {
+        "title": "なぜVercelなのか？",
+        "performance": "超高速グローバルCDNとエッジコンピューティング",
+        "developer": "即座のデプロイメントによるシームレスな開発者体験",
+        "monitoring": "内蔵パフォーマンス監視とエラートラッキング",
+        "security": "エンタープライズグレードのセキュリティとコンプライアンス",
+        "cost": "寛大な無料ティアを備えた従量課金制価格"
+      }
+    },
     "shadcnComponents": {
       "title": "Shadcn/UIコンポーネント",
       "description": "実用的なコード例で最も一般的なshadcn/uiコンポーネントの使用方法を学びます。",
