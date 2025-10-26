@@ -415,12 +415,20 @@
         "description": "ابدأ مع Boiler.click وافهم ما تقوم ببنائه"
       },
       "install": {
-        "title": "التثبيت",
-        "description": "تثبيت التبعيات وإعداد بيئة التطوير الخاصة بك"
+        "title": "التثبيت والإعداد",
+        "description": "تثبيت التبعيات وتكوين بيئتك للبدء"
       },
-      "setup": {
-        "title": "الإعداد",
-        "description": "تكوين قاعدة البيانات والمصادقة وتخصيص تطبيقك"
+      "development": {
+        "title": "سير عمل التطوير",
+        "description": "تعلم سير عمل التطوير والبرامج النصية المتاحة لبناء تطبيقك"
+      },
+      "shadcnComponents": {
+        "title": "مكونات Shadcn/UI",
+        "description": "تعلم كيفية استخدام مكونات shadcn/ui الأكثر شيوعاً مع أمثلة عملية على الكود"
+      },
+      "vercelOptimization": {
+        "title": "تحسين Vercel",
+        "description": "هذا النموذج محسن خصيصاً لنشر Vercel مع ميزات وتكوينات مدمجة"
       }
     },
     "gettingStarted": {

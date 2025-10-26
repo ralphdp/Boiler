@@ -13,6 +13,7 @@ export interface Article {
   featured: boolean;
   readTime: string;
   excerpt: string;
+  status: "draft" | "review" | "live";
 }
 
 export interface ArticlesData {
@@ -21,37 +22,67 @@ export interface ArticlesData {
 
 // Get all articles
 export function getAllArticles(): Article[] {
-  return articlesData.articles;
+  return articlesData.articles as Article[];
+}
+
+// Get articles by status
+export function getArticlesByStatus(
+  status: "draft" | "review" | "live"
+): Article[] {
+  return (articlesData.articles as Article[]).filter(
+    (article) => article.status === status
+  );
+}
+
+// Get live articles only (for public display)
+export function getLiveArticles(): Article[] {
+  return getArticlesByStatus("live");
+}
+
+// Admin functions for managing articles by status
+export function getDraftArticles(): Article[] {
+  return getArticlesByStatus("draft");
+}
+
+export function getReviewArticles(): Article[] {
+  return getArticlesByStatus("review");
+}
+
+// Get all articles regardless of status (admin only)
+export function getAllArticlesAdmin(): Article[] {
+  return articlesData.articles as Article[];
 }
 
 // Get article by slug
 export function getArticleBySlug(slug: string): Article | undefined {
-  return articlesData.articles.find((article) => article.slug === slug);
+  return (articlesData.articles as Article[]).find(
+    (article) => article.slug === slug
+  );
 }
 
-// Get featured articles
+// Get featured articles (live only)
 export function getFeaturedArticles(): Article[] {
-  return articlesData.articles.filter((article) => article.featured);
+  return getLiveArticles().filter((article) => article.featured);
 }
 
-// Get articles by tag
+// Get articles by tag (live only)
 export function getArticlesByTag(tag: string): Article[] {
-  return articlesData.articles.filter((article) =>
+  return getLiveArticles().filter((article) =>
     article.tags.some(
       (articleTag) => articleTag.toLowerCase() === tag.toLowerCase()
     )
   );
 }
 
-// Get all unique tags
+// Get all unique tags (from live articles only)
 export function getAllTags(): string[] {
-  const allTags = articlesData.articles.flatMap((article) => article.tags);
+  const allTags = getLiveArticles().flatMap((article) => article.tags);
   return [...new Set(allTags)].sort();
 }
 
-// Get recent articles (last 5)
+// Get recent articles (last 5, live only)
 export function getRecentArticles(limit: number = 5): Article[] {
-  return articlesData.articles
+  return getLiveArticles()
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -59,10 +90,10 @@ export function getRecentArticles(limit: number = 5): Article[] {
     .slice(0, limit);
 }
 
-// Search articles
+// Search articles (live only)
 export function searchArticles(query: string): Article[] {
   const lowercaseQuery = query.toLowerCase();
-  return articlesData.articles.filter(
+  return getLiveArticles().filter(
     (article) =>
       article.title.toLowerCase().includes(lowercaseQuery) ||
       article.description.toLowerCase().includes(lowercaseQuery) ||
@@ -71,13 +102,13 @@ export function searchArticles(query: string): Article[] {
   );
 }
 
-// Get related articles (by tags)
+// Get related articles (by tags, live only)
 export function getRelatedArticles(
   currentArticle: Article,
   limit: number = 3
 ): Article[] {
   const currentTags = currentArticle.tags;
-  return articlesData.articles
+  return getLiveArticles()
     .filter(
       (article) =>
         article.id !== currentArticle.id &&

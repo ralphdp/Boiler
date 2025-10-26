@@ -28,8 +28,26 @@ export const config = {
 
   // Database
   database: {
-    url: process.env.DATABASE_URL || "",
-    redis: process.env.REDIS_URL || "",
+    local: process.env.DATABASE_LOCAL_URL || "",
+    remote: process.env.DATABASE_REMOTE_URL || "",
+    // Use remote in production, local in development
+    url:
+      process.env.NODE_ENV === "production"
+        ? process.env.DATABASE_REMOTE_URL ||
+          process.env.DATABASE_LOCAL_URL ||
+          ""
+        : process.env.DATABASE_LOCAL_URL ||
+          process.env.DATABASE_REMOTE_URL ||
+          "",
+  },
+  redis: {
+    local: process.env.REDIS_LOCAL_URL || "",
+    remote: process.env.REDIS_REMOTE_URL || "",
+    // Use remote in production, local in development
+    url:
+      process.env.NODE_ENV === "production"
+        ? process.env.REDIS_REMOTE_URL || process.env.REDIS_LOCAL_URL || ""
+        : process.env.REDIS_LOCAL_URL || process.env.REDIS_REMOTE_URL || "",
   },
 
   // Authentication
@@ -89,6 +107,7 @@ export const isConfigured = (key: keyof typeof config): boolean => {
 export const features = {
   analytics: isConfigured("analytics"),
   database: isConfigured("database"),
+  redis: isConfigured("redis"),
   auth: isConfigured("auth"),
   stripe: isConfigured("stripe"),
   email: isConfigured("email"),

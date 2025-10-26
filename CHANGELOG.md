@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.3-alpha] - 2025-01-21
+
+### Changed
+
+- **Database Configuration**: Updated database and Redis configuration to use separate local and remote environment variables for better environment management
+  - `DATABASE_URL` → `DATABASE_LOCAL_URL` and `DATABASE_REMOTE_URL`
+  - `REDIS_URL` → `REDIS_LOCAL_URL` and `REDIS_REMOTE_URL`
+  - Added automatic environment-based URL selection (local for development, remote for production)
+  - Updated configuration logic to support both local and remote database connections
+  - Enhanced documentation with new database variable structure
+
 ## [0.0.2-alpha] - 2025-01-20
 
 ### Added

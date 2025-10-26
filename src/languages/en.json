@@ -63,100 +63,21 @@
       "title": "Quick Start",
       "description": "Get up and running with Boiler.click in minutes. Follow these simple steps to set up your development environment."
     },
-    "gettingStarted": {
-      "title": "Getting Started",
-      "description": "Learn the basics of Boiler.click and how to set up your development environment.",
-      "prerequisites": {
-        "title": "Prerequisites",
-        "nodejs": "Node.js 18+ installed on your system",
-        "npm": "npm or yarn package manager",
-        "git": "Git for version control",
-        "database": "PostgreSQL database (local or cloud)"
-      },
-      "installation": {
-        "title": "Installation",
-        "description": "Clone the repository and install dependencies to get started with your development environment."
-      }
+    "installConfigure": {
+      "title": "Install & Configure",
+      "description": "Install dependencies and configure your environment to get started"
     },
-    "configuration": {
-      "title": "Configuration",
-      "description": "Configure your environment variables and database connection to get started.",
-      "environment": {
-        "title": "Environment Variables",
-        "description": "Copy the .env.example file to .env.local and configure your environment variables including database URL, authentication secrets, and API keys."
-      },
-      "database": {
-        "title": "Database Setup",
-        "description": "Set up your PostgreSQL database and run migrations to create the necessary tables and relationships."
-      }
-    },
-    "development": {
-      "title": "Development",
-      "description": "Learn about the development workflow and available scripts for building your application.",
-      "scripts": {
-        "title": "Available Scripts",
-        "dev": "Start the development server with hot reload",
-        "build": "Build the application for production",
-        "start": "Start the production server",
-        "lint": "Run ESLint to check code quality"
-      }
-    },
-    "vercel": {
-      "title": "Vercel Optimization",
-      "description": "This boilerplate is specifically optimized for Vercel deployment with built-in features and configurations.",
-      "features": {
-        "title": "Vercel-Specific Features",
-        "botid": "Built-in BotID bot detection (automatic in production)",
-        "edge": "Edge Runtime optimization for faster response times",
-        "analytics": "Vercel Analytics integration for performance monitoring",
-        "speed": "Automatic image optimization and CDN delivery",
-        "deployment": "Zero-config deployment with automatic builds",
-        "functions": "Serverless functions with optimal cold start performance",
-        "security": "Automatic HTTPS and security headers",
-        "scaling": "Automatic scaling based on traffic patterns"
-      },
-      "benefits": {
-        "title": "Why Vercel?",
-        "performance": "Lightning-fast global CDN and edge computing",
-        "developer": "Seamless developer experience with instant deployments",
-        "monitoring": "Built-in performance monitoring and error tracking",
-        "security": "Enterprise-grade security and compliance",
-        "cost": "Pay-as-you-scale pricing with generous free tier"
-      }
+    "developmentWorkflow": {
+      "title": "Development Workflow",
+      "description": "Learn about the development workflow and available scripts for building your application"
     },
     "shadcnComponents": {
       "title": "Shadcn/UI Components",
-      "description": "Learn how to use the most common shadcn/ui components with practical code examples.",
-      "visitWebsite": "Visit the official shadcn/ui website:",
-      "button": {
-        "title": "Button Component",
-        "description": "Versatile button component with multiple variants for different use cases."
-      },
-      "card": {
-        "title": "Card Component",
-        "description": "Flexible card component for displaying content in a structured layout."
-      },
-      "badge": {
-        "title": "Badge Component",
-        "description": "Small status indicators and labels with different variants."
-      }
+      "description": "Learn how to use the most common shadcn/ui components with practical code examples"
     },
-    "installationCommands": {
-      "title": "Installation Commands",
-      "description": "Essential commands to set up shadcn/ui components and required dependencies.",
-      "shadcn": {
-        "title": "Shadcn/UI Setup",
-        "description": "Initialize shadcn/ui and add the most commonly used components.",
-        "comments": {
-          "init": "Install shadcn/ui CLI",
-          "addComponents": "Add components"
-        }
-      },
-      "dependencies": {
-        "title": "Required Dependencies",
-        "description": "Install the necessary packages for shadcn/ui components to work properly.",
-        "comment": "Install required dependencies"
-      }
+    "vercelOptimization": {
+      "title": "Vercel Optimization",
+      "description": "This boilerplate is specifically optimized for Vercel deployment with built-in features and configurations"
     },
     "codeExamples": {
       "button": {
@@ -184,12 +105,20 @@
         "description": "Get started with Boiler.click and understand what you're building"
       },
       "install": {
-        "title": "Install",
-        "description": "Install dependencies and set up your development environment"
+        "title": "Install & Configure",
+        "description": "Install dependencies and configure your environment to get started"
       },
-      "setup": {
-        "title": "Setup",
-        "description": "Configure your database, authentication, and customize your application"
+      "development": {
+        "title": "Development Workflow",
+        "description": "Learn about the development workflow and available scripts for building your application"
+      },
+      "shadcnComponents": {
+        "title": "Shadcn/UI Components",
+        "description": "Learn how to use the most common shadcn/ui components with practical code examples"
+      },
+      "vercelOptimization": {
+        "title": "Vercel Optimization",
+        "description": "This boilerplate is specifically optimized for Vercel deployment with built-in features and configurations"
       }
     },
     "github": {

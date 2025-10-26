@@ -184,12 +184,20 @@
         "description": "Boiler.clickを始めて、何を構築しているかを理解してください"
       },
       "install": {
-        "title": "インストール",
-        "description": "依存関係をインストールし、開発環境をセットアップしてください"
+        "title": "インストールと設定",
+        "description": "依存関係をインストールし、環境を設定して開始してください"
       },
-      "setup": {
-        "title": "セットアップ",
-        "description": "データベース、認証を設定し、アプリケーションをカスタマイズしてください"
+      "development": {
+        "title": "開発ワークフロー",
+        "description": "開発ワークフローとアプリケーション構築に利用可能なスクリプトについて学んでください"
+      },
+      "shadcnComponents": {
+        "title": "Shadcn/UIコンポーネント",
+        "description": "実用的なコード例で最も一般的なshadcn/uiコンポーネントの使用方法を学んでください"
+      },
+      "vercelOptimization": {
+        "title": "Vercel最適化",
+        "description": "このボイラープレートは、組み込み機能と設定でVercelデプロイメントに特化して最適化されています"
       }
     },
     "github": {

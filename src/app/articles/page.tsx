@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useMemo } from "react";
 import {
-  getAllArticles,
+  getLiveArticles,
   getAllTags,
   formatArticleDate,
   getArticleUrl,
@@ -23,7 +23,7 @@ export default function ArticlesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const allArticles = getAllArticles();
+  const allArticles = getLiveArticles();
   const allTags = getAllTags();
 
   const filteredArticles = useMemo(() => {

@@ -184,12 +184,20 @@
         "description": "Comienza con Boiler.click y entiende lo que estás construyendo"
       },
       "install": {
-        "title": "Instalar",
-        "description": "Instala las dependencias y configura tu entorno de desarrollo"
+        "title": "Instalar y Configurar",
+        "description": "Instala las dependencias y configura tu entorno para comenzar"
       },
-      "setup": {
-        "title": "Configuración",
-        "description": "Configura tu base de datos, autenticación y personaliza tu aplicación"
+      "development": {
+        "title": "Flujo de Desarrollo",
+        "description": "Aprende sobre el flujo de desarrollo y los scripts disponibles para construir tu aplicación"
+      },
+      "shadcnComponents": {
+        "title": "Componentes Shadcn/UI",
+        "description": "Aprende a usar los componentes más comunes de shadcn/ui con ejemplos de código prácticos"
+      },
+      "vercelOptimization": {
+        "title": "Optimización para Vercel",
+        "description": "Este boilerplate está específicamente optimizado para el despliegue en Vercel con características y configuraciones integradas"
       }
     },
     "github": {

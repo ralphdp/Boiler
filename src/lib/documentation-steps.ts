@@ -35,15 +35,12 @@ export const documentationSteps: DocumentationStep[] = [
         {
           title: "What is Boiler.click?",
           content:
-            "Boiler.click is a comprehensive, production-ready Next.js boilerplate designed to accelerate your SaaS development. It includes everything you need to build and deploy a modern web application.",
-          codeBlocks: [
-            {
-              language: "bash",
-              code: `# Clone the repository\n${getGitHubCloneCommand()}\ncd boiler`,
-              description:
-                "Start by cloning the repository to your local machine",
-            },
-          ],
+            "Boiler.click is a comprehensive, production-ready Next.js boilerplate designed to accelerate your SaaS development. It's more than just a starter template – it's a complete foundation that includes everything you need to build, deploy, and scale modern web applications.",
+        },
+        {
+          title: "Why Choose Boiler.click?",
+          content:
+            "Built with enterprise-grade practices and modern development standards, Boiler.click eliminates the tedious setup process and lets you focus on building your unique features. Whether you're creating a SaaS platform, e-commerce site, or any web application, this boilerplate provides a solid, scalable foundation that grows with your project. The boilerplate is specifically optimized for Vercel deployment but works seamlessly with other hosting platforms. It includes built-in performance optimizations, security best practices, and developer experience enhancements that would typically take weeks to implement from scratch.",
         },
         {
           title: "What's Included",
@@ -63,8 +60,9 @@ export const documentationSteps: DocumentationStep[] = [
   {
     id: 2,
     slug: "install",
-    title: "Install",
-    description: "Install dependencies and set up your development environment",
+    title: "Install & Configure",
+    description:
+      "Install dependencies and configure your environment to get started",
     content: {
       sections: [
         {
@@ -94,30 +92,24 @@ export const documentationSteps: DocumentationStep[] = [
         {
           title: "Environment Variables",
           content:
-            "Configure your environment variables for proper functionality:",
+            "Copy the .env.example file to .env.local and configure your environment variables including database URL, authentication secrets, and API keys.",
           codeBlocks: [
             {
+              language: "bash",
+              code: "# Copy environment file\ncp .env.example .env.local",
+              description: "Create your local environment configuration",
+            },
+            {
               language: "env",
-              code: '# Maintenance Mode\nMAINTENANCE_MODE=false\n\nNEXT_PUBLIC_VERSION="0.0.1-alpha"\nNEXT_PUBLIC_BUILD_TIME="Oct. 25, 2025"\nNEXT_PUBLIC_GITHUB_USER="ralphdp"\nNEXT_PUBLIC_GITHUB_REPO="boiler"\n\n# Brand\nNEXT_PUBLIC_SITE_TITLE="Boiler.click"\nNEXT_PUBLIC_SITE_EMAIL_SUPPORT="hi@boiler.click"\nNEXT_PUBLIC_SITE_PHYSICAL_ADDRESS="123 Oak St."\nNEXT_PUBLIC_SITE_TELEPHONE="+18885551234"\nNEXT_PUBLIC_SOCIAL_GITHUB="Boiler.click"\nNEXT_PUBLIC_SOCIAL_X="Boiler.click"\nNEXT_PUBLIC_SOCIAL_FACEBOOK="Boiler.click"\nNEXT_PUBLIC_SOCIAL_YOUTUBE="Boiler.click"\nNEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"\n\n# Database Connections\n# Database\nDATABASE_URL="postgresql://username:password@localhost:5432/boiler"\n# DATABASE_URL="postgresql://neondb_owner:neondb_password@ep-polished-band-adiag2vf-pooler.c-2.us-east-1.aws.neon.tech/boiler?sslmode=require"\nREDIS_URL="redis://localhost:6379"\n# REDIS_URL="redis://default:password@redis-18324.c323.us-east-1-2.ec2.redns.redis-cloud.com:18324"\n\n# Authentication & Security\n# JWT Secret for token signing (if using JWT auth)\nJWT_SECRET=""\n\n# Session Configuration\nSESSION_SECRET=""\n\n# Third-Party Services\n# OAuth Providers\nGOOGLE_CLIENT_ID=602141741836-[id].apps.googleusercontent.com\nGOOGLE_CLIENT_SECRET=""\nGITHUB_CLIENT_ID=""\nGITHUB_CLIENT_SECRET=""\nDISCORD_CLIENT_ID="your-discord-client-id"\nDISCORD_CLIENT_SECRET="your-discord-client-secret"\nFACEBOOK_CLIENT_ID="your-facebook-client-id"\nFACEBOOK_CLIENT_SECRET="your-facebook-client-secret"\nTWITTER_CLIENT_ID="your-twitter-client-id"\nTWITTER_CLIENT_SECRET="your-twitter-client-secret"\n# Payment Processing\nSTRIPE_PUBLISHABLE_KEY="pk_test_your-stripe-publishable-key"\nSTRIPE_SECRET_KEY="sk_test_your-stripe-secret-key"\nSTRIPE_WEBHOOK_SECRET="whsec_your-webhook-secret"\n\n# Email\nSMTP_HOST="smtp.example.com"\nSMTP_PORT="587"\nSMTP_USER=""\nSMTP_PASS=""',
+              code: '# Maintenance Mode\nMAINTENANCE_MODE=false\n\nNEXT_PUBLIC_VERSION="0.0.1-alpha"\nNEXT_PUBLIC_BUILD_TIME="Jan. 01, 2025"\nNEXT_PUBLIC_GITHUB_USER=""\nNEXT_PUBLIC_GITHUB_REPO=""\n\n# Brand\nNEXT_PUBLIC_SITE_TITLE=""\nNEXT_PUBLIC_SITE_EMAIL_SUPPORT=""\nNEXT_PUBLIC_SITE_PHYSICAL_ADDRESS=""\nNEXT_PUBLIC_SITE_TELEPHONE=""\nNEXT_PUBLIC_SOCIAL_GITHUB=""\nNEXT_PUBLIC_SOCIAL_X=""\nNEXT_PUBLIC_SOCIAL_FACEBOOK=""\nNEXT_PUBLIC_SOCIAL_YOUTUBE=""\nNEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"\n\n# Database Connections\n# Database\nDATABASE_LOCAL_URL="postgresql://username:password@localhost:5432/boiler"\nDATABASE_REMOTE_URL="postgresql://neondb_owner:[password]@[server].c-2.us-east-1.aws.neon.tech/[database_name]?sslmode=require"\n# Redis\nREDIS_LOCAL_URL="redis://localhost:6379"\nREDIS_REMOTE_URL="redis://default:[password]@redis-[server_id]].c323.us-east-1-2.ec2.redns.redis-cloud.com:[server_id]"\n\n# Authentication & Security\n# JWT Secret for token signing (if using JWT auth)\nJWT_SECRET=""\n\n# Session Configuration\nSESSION_SECRET=""\n\n# Third-Party Services\n# OAuth Providers\nGOOGLE_CLIENT_ID=[602141741836]-[id].apps.googleusercontent.com\nGOOGLE_CLIENT_SECRET=""\nGITHUB_CLIENT_ID=""\nGITHUB_CLIENT_SECRET=""\nDISCORD_CLIENT_ID="your-discord-client-id"\nDISCORD_CLIENT_SECRET="your-discord-client-secret"\nFACEBOOK_CLIENT_ID="your-facebook-client-id"\nFACEBOOK_CLIENT_SECRET="your-facebook-client-secret"\nTWITTER_CLIENT_ID="your-twitter-client-id"\nTWITTER_CLIENT_SECRET="your-twitter-client-secret"\n# Payment Processing\nSTRIPE_PUBLISHABLE_KEY="pk_test_your-stripe-publishable-key"\nSTRIPE_SECRET_KEY="sk_test_your-stripe-secret-key"\nSTRIPE_WEBHOOK_SECRET="whsec_your-webhook-secret"\n\n# Email\nSMTP_HOST="smtp.example.com"\nSMTP_PORT="587"\nSMTP_USER=""\nSMTP_PASS=""',
               description: "Complete environment variables configuration",
             },
           ],
         },
-      ],
-    },
-  },
-  {
-    id: 3,
-    slug: "setup",
-    title: "Setup",
-    description:
-      "Configure your database, authentication, and customize your application",
-    content: {
-      sections: [
         {
           title: "Database Setup",
           content:
-            "Set up your PostgreSQL database and run the initial migrations:",
+            "Set up your PostgreSQL database and run migrations to create the necessary tables and relationships.",
           codeBlocks: [
             {
               language: "bash",
@@ -145,6 +137,178 @@ export const documentationSteps: DocumentationStep[] = [
               language: "css",
               code: "/* src/app/globals.css */\n:root {\n  --primary: 222.2 84% 4.9%;\n  --primary-foreground: 210 40% 98%;\n  --secondary: 210 40% 96%;\n  --secondary-foreground: 222.2 84% 4.9%;\n  /* Add your custom colors */\n}",
               description: "Customize your color scheme",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 3,
+    slug: "development",
+    title: "Development Workflow",
+    description:
+      "Learn about the development workflow and available scripts for building your application",
+    content: {
+      sections: [
+        {
+          title: "Available Scripts",
+          content: "Use these npm scripts to manage your development workflow:",
+          codeBlocks: [
+            {
+              language: "bash",
+              code: "# Start the development server with hot reload\nnpm run dev\n\n# Build the application for production\nnpm run build\n\n# Start the production server\nnpm run start\n\n# Run ESLint to check code quality\nnpm run lint",
+              description: "Essential development commands",
+            },
+          ],
+        },
+        {
+          title: "Development Workflow",
+          content: "Follow this workflow for efficient development:",
+          codeBlocks: [
+            {
+              language: "text",
+              code: "1. Start the development server: npm run dev\n2. Make your changes in the src/ directory\n3. Test your changes in the browser\n4. Run linting: npm run lint\n5. Build for production: npm run build\n6. Test production build: npm run start",
+              description: "Step-by-step development process",
+            },
+          ],
+        },
+        {
+          title: "Hot Reload",
+          content:
+            "The development server automatically reloads when you make changes to your code. This includes:\n\n• React components\n• CSS and Tailwind classes\n• TypeScript files\n• API routes\n• Configuration files",
+          codeBlocks: [
+            {
+              language: "bash",
+              code: "# Start development with hot reload\nnpm run dev\n\n# The server will start on http://localhost:3000\n# Changes will be reflected automatically",
+              description: "Development server with hot reload",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 4,
+    slug: "shadcn-components",
+    title: "Shadcn/UI Components",
+    description:
+      "Learn how to use the most common shadcn/ui components with practical code examples",
+    content: {
+      sections: [
+        {
+          title: "Introduction",
+          content:
+            "This boilerplate includes shadcn/ui components for building beautiful, accessible user interfaces. Visit the official shadcn/ui website: ui.shadcn.com",
+        },
+        {
+          title: "Button Component",
+          content:
+            "Versatile button component with multiple variants for different use cases:",
+          codeBlocks: [
+            {
+              language: "tsx",
+              code: 'import { Button } from "@/components/ui/button"\n\n<Button variant="default">Click me</Button>\n<Button variant="outline">Outline</Button>\n<Button variant="ghost">Ghost</Button>\n<Button variant="destructive">Delete</Button>',
+              description: "Button component with different variants",
+            },
+          ],
+        },
+        {
+          title: "Card Component",
+          content:
+            "Flexible card component for displaying content in a structured layout:",
+          codeBlocks: [
+            {
+              language: "tsx",
+              code: 'import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"\n\n<Card>\n  <CardHeader>\n    <CardTitle>Card Title</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <p>Card content goes here</p>\n  </CardContent>\n</Card>',
+              description: "Card component with header and content",
+            },
+          ],
+        },
+        {
+          title: "Badge Component",
+          content:
+            "Small status indicators and labels with different variants:",
+          codeBlocks: [
+            {
+              language: "tsx",
+              code: 'import { Badge } from "@/components/ui/badge"\n\n<Badge variant="default">Default</Badge>\n<Badge variant="secondary">Secondary</Badge>\n<Badge variant="outline">Outline</Badge>\n<Badge variant="destructive">Destructive</Badge>',
+              description: "Badge component with different variants",
+            },
+          ],
+        },
+        {
+          title: "Installation Commands",
+          content:
+            "Essential commands to set up shadcn/ui components and required dependencies:",
+          codeBlocks: [
+            {
+              language: "bash",
+              code: "# Install shadcn/ui CLI\nnpx shadcn@latest init\n\n# Add components\nnpx shadcn@latest add button\nnpx shadcn@latest add card\nnpx shadcn@latest add badge\nnpx shadcn@latest add tooltip\nnpx shadcn@latest add dropdown-menu",
+              description: "Shadcn/UI setup and component installation",
+            },
+            {
+              language: "bash",
+              code: "# Install required dependencies\nnpm install @radix-ui/react-slot\nnpm install class-variance-authority\nnpm install clsx tailwind-merge\nnpm install lucide-react",
+              description: "Required dependencies for shadcn/ui components",
+            },
+          ],
+        },
+        {
+          title: "Additional Components",
+          content: "The boilerplate includes several other useful components:",
+          codeBlocks: [
+            {
+              language: "text",
+              code: "• Tooltip - Hover tooltips for better UX\n• Dropdown Menu - Contextual menus\n• Modal - Overlay dialogs\n• Input - Form input fields\n• Separator - Visual dividers\n• Scroll Area - Custom scrollable areas\n• Sheet - Slide-out panels",
+              description: "Additional available components",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 5,
+    slug: "vercel-optimization",
+    title: "Vercel Optimization",
+    description:
+      "This boilerplate is specifically optimized for Vercel deployment with built-in features and configurations",
+    content: {
+      sections: [
+        {
+          title: "Why Vercel?",
+          content:
+            "Vercel provides several advantages for modern web applications:",
+          codeBlocks: [
+            {
+              language: "text",
+              code: "• Lightning-fast global CDN and edge computing\n• Seamless developer experience with instant deployments\n• Built-in performance monitoring and error tracking\n• Enterprise-grade security and compliance\n• Pay-as-you-scale pricing with generous free tier",
+              description: "Key benefits of using Vercel",
+            },
+          ],
+        },
+        {
+          title: "Vercel-Specific Features",
+          content:
+            "This boilerplate includes several Vercel-optimized features out of the box:",
+          codeBlocks: [
+            {
+              language: "text",
+              code: "• Built-in BotID bot detection (automatic in production)\n• Edge Runtime optimization for faster response times\n• Vercel Analytics integration for performance monitoring\n• Automatic image optimization and CDN delivery\n• Zero-config deployment with automatic builds\n• Serverless functions with optimal cold start performance\n• Automatic HTTPS and security headers\n• Automatic scaling based on traffic patterns",
+              description: "Built-in Vercel optimizations",
+            },
+          ],
+        },
+        {
+          title: "Deployment Configuration",
+          content:
+            "The boilerplate includes optimized Vercel configuration files:",
+          codeBlocks: [
+            {
+              language: "json",
+              code: '{\n  "functions": {\n    "src/app/api/**/*.ts": {\n      "runtime": "nodejs18.x"\n    }\n  },\n  "headers": [\n    {\n      "source": "/(.*)",\n      "headers": [\n        {\n          "key": "X-Content-Type-Options",\n          "value": "nosniff"\n        },\n        {\n          "key": "X-Frame-Options",\n          "value": "DENY"\n        },\n        {\n          "key": "X-XSS-Protection",\n          "value": "1; mode=block"\n        }\n      ]\n    }\n  ]\n}',
+              description: "vercel.json configuration for optimal performance",
             },
           ],
         },

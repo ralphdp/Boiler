@@ -217,8 +217,10 @@ NEXT_PUBLIC_SOCIAL_GITHUB="https://github.com/your-org"
 NEXT_PUBLIC_SOCIAL_X="https://x.com/your-handle"
 
 # Database (for future features)
-DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
-REDIS_URL="redis://localhost:6379"
+DATABASE_LOCAL_URL="postgresql://user:password@localhost:5432/dbname"
+DATABASE_REMOTE_URL="postgresql://user:password@your-remote-db.com:5432/dbname"
+REDIS_LOCAL_URL="redis://localhost:6379"
+REDIS_REMOTE_URL="redis://user:password@your-remote-redis.com:6379"
 
 # Authentication (for future features)
 JWT_SECRET="your-jwt-secret"
@@ -241,6 +243,21 @@ SMTP_PORT="587"
 SMTP_USER="your-email@gmail.com"
 SMTP_PASS="your-app-password"
 ```
+
+### Database Configuration
+
+The boilerplate uses a flexible database configuration system that automatically selects the appropriate database connection based on the environment:
+
+- **Development**: Uses `DATABASE_LOCAL_URL` and `REDIS_LOCAL_URL` for local development
+- **Production**: Uses `DATABASE_REMOTE_URL` and `REDIS_REMOTE_URL` for production deployment
+- **Fallback**: If the primary URL is not available, it falls back to the alternative URL
+
+This approach allows you to:
+
+- Develop locally with a local database
+- Deploy to production with a remote database
+- Switch between environments without code changes
+- Maintain separate database instances for different environments
 
 ## 📄 Pages Overview
 
@@ -559,8 +576,10 @@ NEXT_PUBLIC_SOCIAL_FACEBOOK="https://facebook.com/your-page"
 NEXT_PUBLIC_SOCIAL_YOUTUBE="https://youtube.com/your-channel"
 
 # Database (for future features)
-DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
-REDIS_URL="redis://localhost:6379"
+DATABASE_LOCAL_URL="postgresql://user:password@localhost:5432/dbname"
+DATABASE_REMOTE_URL="postgresql://user:password@your-remote-db.com:5432/dbname"
+REDIS_LOCAL_URL="redis://localhost:6379"
+REDIS_REMOTE_URL="redis://user:password@your-remote-redis.com:6379"
 
 # Authentication (for future features)
 JWT_SECRET="your-jwt-secret"

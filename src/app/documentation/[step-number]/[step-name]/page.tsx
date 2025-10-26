@@ -58,15 +58,15 @@ export default function StepPage({ params }: StepPageProps) {
                 >
                   Step {step.id}
                 </Badge>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-                <span className="text-gray-600 dark:text-gray-400">
+                <ChevronRight className="w-4 h-4 text-zinc-400" />
+                <span className="text-zinc-600 dark:text-zinc-400">
                   {step.title}
                 </span>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
                 {step.title}
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-zinc-600 dark:text-zinc-400">
                 {step.description}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function StepPage({ params }: StepPageProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                 >
-                  <Card>
+                  <Card className="dark:bg-gray-800">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <FileText className="w-5 h-5 text-purple-500" />
@@ -88,7 +88,7 @@ export default function StepPage({ params }: StepPageProps) {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
                         {section.content}
                       </p>
 
@@ -99,14 +99,14 @@ export default function StepPage({ params }: StepPageProps) {
                             <div key={codeIndex}>
                               {codeBlock.description && (
                                 <div className="flex items-center gap-2 mb-2">
-                                  <Code className="w-4 h-4 text-gray-500" />
-                                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                                  <Code className="w-4 h-4 text-zinc-500" />
+                                  <span className="text-sm text-zinc-600 dark:text-zinc-400">
                                     {codeBlock.description}
                                   </span>
                                 </div>
                               )}
-                              <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 overflow-x-auto">
-                                <pre className="text-sm text-zinc-100">
+                              <div className="border border-gray-600 dark:border-gray-400 rounded-lg p-4 overflow-x-auto">
+                                <pre className="text-sm text-zinc-600 dark:text-zinc-100">
                                   <code
                                     className={`language-${codeBlock.language}`}
                                   >
@@ -130,7 +130,7 @@ export default function StepPage({ params }: StepPageProps) {
                                 className="rounded-lg border border-zinc-200 dark:border-zinc-700 w-full"
                               />
                               {image.caption && (
-                                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                                <p className="text-sm text-zinc-600 dark:text-zinc-400 text-center">
                                   {image.caption}
                                 </p>
                               )}
@@ -152,7 +152,7 @@ export default function StepPage({ params }: StepPageProps) {
                     href={`/documentation/${stepNumber - 1}/${
                       allSteps[stepNumber - 2].slug
                     }`}
-                    className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                   >
                     ← Previous: {allSteps[stepNumber - 2].title}
                   </a>
