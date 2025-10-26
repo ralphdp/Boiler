@@ -93,6 +93,27 @@ const changelogData: Version[] = [
           "Reduced critical path latency from 146ms to ~80-100ms through strategic resource loading and bundle optimization.",
         date: "2025-01-20",
       },
+      {
+        type: "feature",
+        title: "BotID Integration",
+        description:
+          "Replaced reCAPTCHA with Vercel BotID for advanced bot detection, featuring automatic protection on Vercel deployment with no environment variables required.",
+        date: "2025-01-20",
+      },
+      {
+        type: "improvement",
+        title: "Homepage Text Update",
+        description:
+          "Updated homepage description from 'A.I.' to 'Vercel' across all supported languages (English, Spanish, French, Japanese, Arabic).",
+        date: "2025-01-20",
+      },
+      {
+        type: "fix",
+        title: "BotID Implementation Fixes",
+        description:
+          "Corrected BotID integration with proper import paths, component structure, and server-side verification. Resolved multiple TypeScript compilation errors.",
+        date: "2025-01-20",
+      },
     ],
   },
   {
