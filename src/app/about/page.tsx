@@ -261,6 +261,7 @@ export default function AboutPage() {
                         }
                         // Fallback to hardcoded English features if translation fails
                         const fallbackFeatures = [
+                          "* BotID built-in Vercel bot detection",
                           "Content Security Policy headers",
                           "Rate limiting with IP blocking",
                           "Input validation with Zod",
@@ -305,6 +306,53 @@ export default function AboutPage() {
                           "Performance optimization",
                         ];
                         return fallbackFeatures.map(
+                          (feature: string, index: number) => (
+                            <li key={index}>• {feature}</li>
+                          )
+                        );
+                      })()}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </section>
+
+            {/* BotID Advanced Bot Detection Section */}
+            <section aria-labelledby="botid-detection" className="w-full">
+              <h2
+                id="botid-detection"
+                className="text-2xl font-semibold text-black dark:text-white mb-6"
+              >
+                {t("about.securitySeo.botid.title")}
+              </h2>
+              <div className="mb-4">
+                <p className="text-lg text-zinc-600 dark:text-zinc-200 mb-4">
+                  {t("about.securitySeo.botid.description")}
+                </p>
+                <Card>
+                  <CardContent className="pt-6">
+                    <ul className="space-y-2 text-zinc-600 dark:text-zinc-400">
+                      {(() => {
+                        const features = t("about.securitySeo.botid.features");
+                        if (Array.isArray(features)) {
+                          return features.map(
+                            (feature: string, index: number) => (
+                              <li key={index}>• {feature}</li>
+                            )
+                          );
+                        }
+                        // Fallback to hardcoded English features if translation fails
+                        const fallbackBotIdFeatures = [
+                          "Automatic bot detection using machine learning",
+                          "No configuration or API keys required",
+                          "Real-time risk scoring and analysis",
+                          "Protection against automated attacks",
+                          "Seamless integration with Vercel platform",
+                          "Invisible to legitimate users",
+                          "Advanced behavioral analysis",
+                          "Automatic blocking of malicious traffic",
+                        ];
+                        return fallbackBotIdFeatures.map(
                           (feature: string, index: number) => (
                             <li key={index}>• {feature}</li>
                           )

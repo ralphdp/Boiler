@@ -264,12 +264,27 @@
       "security": {
         "title": "Características de Seguridad",
         "features": [
+          "* BotID detección de bots integrada en Vercel",
           "Headers de Política de Seguridad de Contenido",
           "Limitación de velocidad con bloqueo de IP",
           "Validación de entrada con Zod",
           "Flujo de autenticación seguro",
           "Protección XSS",
           "Protección CSRF"
+        ]
+      },
+      "botid": {
+        "title": "BotID Detección Avanzada de Bots",
+        "description": "Sistema de detección de bots integrado de Vercel que protege automáticamente tu aplicación",
+        "features": [
+          "Detección automática de bots usando aprendizaje automático",
+          "Sin configuración ni claves API requeridas",
+          "Puntuación de riesgo y análisis en tiempo real",
+          "Protección contra ataques automatizados",
+          "Integración perfecta con la plataforma Vercel",
+          "Invisible para usuarios legítimos",
+          "Análisis avanzado de comportamiento",
+          "Bloqueo automático de tráfico malicioso"
         ]
       },
       "seo": {
