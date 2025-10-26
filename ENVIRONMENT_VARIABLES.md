@@ -10,7 +10,7 @@ This document describes all the environment variables used in the Boiler.click p
 # Google Analytics 4 Measurement ID
 # Get this from: https://analytics.google.com/
 # Format: G-XXXXXXXXXX
-NEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"
+NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
 ```
 
 ### Google reCAPTCHA
