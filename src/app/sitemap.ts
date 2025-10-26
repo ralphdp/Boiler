@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import articlesData from "@/data/articles.json";
+import { getAllSteps } from "@/lib/documentation-steps";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://boiler.click";
@@ -71,15 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: article.featured ? 0.9 : 0.7,
   }));
 
-  // Documentation step pages (if any exist)
-  const documentationSteps = [
-    {
-      url: `${baseUrl}/documentation/1/welcome`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-  ];
+  // Documentation step pages (dynamically generated)
+  const documentationSteps = getAllSteps().map((step) => ({
+    url: `${baseUrl}/documentation/${step.id}/${step.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   return [...staticPages, ...articlePages, ...documentationSteps];
 }
