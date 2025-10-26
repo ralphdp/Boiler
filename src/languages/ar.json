@@ -520,10 +520,7 @@
   "footer": {
     "copyright": "جميع الحقوق محفوظة © {year} Boiler.click",
     "legal": "معلومات قانونية",
-    "showcase": {
-      "title": "مبني بـ",
-      "footer": "التقنيات التي تدعم Boiler"
-    }
+    "sitemap": "خريطة الموقع"
   },
   "showcase": {
     "title": "مبني بـ",

@@ -511,7 +511,8 @@
   },
   "footer": {
     "copyright": "© {year} Boiler.click. Tous droits réservés.",
-    "legal": "Légal"
+    "legal": "Légal",
+    "sitemap": "Plan du site"
   },
   "language": {
     "switch": "Changer de Langue",

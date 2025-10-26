@@ -1,27 +1,85 @@
 import { MetadataRoute } from "next";
+import articlesData from "@/data/articles.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://boiler.click";
   const currentDate = new Date().toISOString();
 
-  return [
+  // Static pages
+  const staticPages = [
     {
       url: baseUrl,
       lastModified: currentDate,
-      changeFrequency: "weekly",
+      changeFrequency: "weekly" as const,
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: currentDate,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/mission`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/legal`,
       lastModified: currentDate,
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/support`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/documentation`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/documentation/change-log`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/articles`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
   ];
+
+  // Dynamic article pages
+  const articlePages = articlesData.articles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.publishedAt).toISOString(),
+    changeFrequency: "monthly" as const,
+    priority: article.featured ? 0.9 : 0.7,
+  }));
+
+  // Documentation step pages (if any exist)
+  const documentationSteps = [
+    {
+      url: `${baseUrl}/documentation/1/welcome`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+  ];
+
+  return [...staticPages, ...articlePages, ...documentationSteps];
 }

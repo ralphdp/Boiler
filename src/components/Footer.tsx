@@ -63,6 +63,16 @@ export default function Footer() {
                 {t("footer.legal")}
               </Link>
               <span className="text-gray-400 dark:text-gray-500">•</span>
+              <Link
+                href="/sitemap.xml"
+                className="text-sm underline transition-all duration-300 text-zinc-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white"
+                aria-label="View sitemap"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("footer.sitemap")}
+              </Link>
+              <span className="text-gray-400 dark:text-gray-500">•</span>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>

@@ -503,7 +503,8 @@
   },
   "footer": {
     "copyright": "© {year} Boiler.click. 全著作権所有。",
-    "legal": "法的"
+    "legal": "法的",
+    "sitemap": "サイトマップ"
   },
   "language": {
     "switch": "言語を切り替える",
