@@ -20,7 +20,7 @@
       "build": "本番用にビルド"
     }
   },
-  "githubButton": "Github",
+  "githubButton": "GitHub",
   "tooltips": {
     "themeToggle": "テーマを切り替え",
     "languageSwitcher": "言語を変更"
@@ -191,6 +191,10 @@
         "title": "開発ワークフロー",
         "description": "開発ワークフローとアプリケーション構築に利用可能なスクリプトについて学んでください"
       },
+      "buildingPatterns": {
+        "title": "ビルドとコーディングパターン",
+        "description": "スケーラブルなアプリケーションのための基本的なビルドパターン、コーディング規約、ベストプラクティスを学びます"
+      },
       "shadcnComponents": {
         "title": "Shadcn/UIコンポーネント",
         "description": "実用的なコード例で最も一般的なshadcn/uiコンポーネントの使用方法を学んでください"
@@ -202,7 +206,7 @@
     },
     "github": {
       "title": "GitHubリポジトリ",
-      "description": "完全なソースコードにアクセスし、プロジェクトに貢献したり、GitHubリポジトリで問題を報告したりできます。",
+      "description": "完全なソースコードにアクセスし、プロジェクトに貢献したり、GitHubリポジトリで問題を報告したりできます。Boiler.clickの開発におけるすべての機能、改善、修正を追跡できます。",
       "button": "GitHubで見る"
     }
   },
@@ -210,7 +214,7 @@
     "subtitle": "フルスタックSaaSボイラープレート",
     "description": "Next.js、Prisma、Shadcn、Vercelで構築",
     "aboutButton": "Boilerについて",
-    "githubButton": "Github",
+    "githubButton": "GitHub",
     "comingSoon": "近日公開...",
     "showcase": {
       "title": "構築技術",
@@ -278,7 +282,10 @@
         "すべてのデバイスで動作するレスポンシブデザイン",
         "最適化されたパフォーマンスによる高速読み込み",
         "直感的なナビゲーションとユーザーフレンドリーなインターフェース",
-        "インクルーシブデザインのためのアクセシビリティ機能"
+        "アクセシビリティファーストデザイン",
+        "RTL（右から左）サポート",
+        "国際化（i18n）",
+        "強化されたエラーハンドリング"
       ]
     },
     "securitySeo": {
@@ -337,6 +344,30 @@
         "title": "ビルド時間",
         "value": "~45s",
         "description": "高速開発ビルド"
+      }
+    },
+    "advancedFeatures": {
+      "title": "高度な機能とコンプライアンス",
+      "performance": {
+        "title": "高度なパフォーマンス最適化",
+        "features": [
+          "Next.js画像最適化（WebP/AVIF対応）",
+          "自動コード分割と遅延読み込み",
+          "Vercel用Edge Runtime最適化",
+          "内蔵キャッシュ戦略",
+          "バンドルサイズ最適化",
+          "Core Web Vitals最適化"
+        ]
+      },
+      "compliance": {
+        "title": "コンプライアンスと標準",
+        "features": [
+          "GDPR準拠クッキー管理",
+          "SOC 2 Type 2準拠ホスティング（Vercel）",
+          "WCAG 2.1 AAアクセシビリティ標準",
+          "セキュリティヘッダーとCSP実装",
+          "データ保護とプライバシー制御"
+        ]
       }
     }
   },
@@ -534,7 +565,7 @@
   "articles": {
     "title": "記事",
     "subtitle": "有用なチュートリアルとガイド",
-    "description": "SaaS開発に関する有用な記事とチュートリアルを発見してください。",
+    "description": "Boilerに関する有用な記事とチュートリアルを発見してください。",
     "searchPlaceholder": "記事を検索...",
     "clearFilters": "フィルターをクリア",
     "noResults": "結果が見つかりません",
@@ -562,6 +593,40 @@
       "facebook": "Facebookで共有",
       "linkedin": "LinkedInで共有",
       "github": "GitHubで表示"
+    }
+  },
+  "error": {
+    "404": {
+      "title": "404",
+      "message": "ページが見つかりません"
+    },
+    "403": {
+      "title": "403",
+      "message": "アクセス禁止"
+    },
+    "405": {
+      "title": "405",
+      "message": "メソッドが許可されていません"
+    },
+    "429": {
+      "title": "429",
+      "message": "リクエストが多すぎます"
+    },
+    "500": {
+      "title": "500",
+      "message": "内部サーバーエラー"
+    },
+    "503": {
+      "title": "503",
+      "message": "サービス利用不可"
+    },
+    "default": {
+      "title": "エラー",
+      "message": "何かが間違っています"
+    },
+    "actions": {
+      "tryAgain": "再試行",
+      "goHome": "ホームに戻る"
     }
   }
 }

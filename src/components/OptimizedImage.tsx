@@ -28,19 +28,19 @@ export function OptimizedImage({
   sizes,
   quality = 75,
 }: OptimizedImageProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [hasImageError, setHasImageError] = useState(false);
 
   const handleLoad = () => {
-    setIsLoading(false);
+    setIsImageLoading(false);
   };
 
   const handleError = () => {
-    setHasError(true);
-    setIsLoading(false);
+    setHasImageError(true);
+    setIsImageLoading(false);
   };
 
-  if (hasError) {
+  if (hasImageError) {
     return (
       <div
         className={`bg-gray-200 dark:bg-gray-700 flex items-center justify-center ${className}`}
@@ -55,7 +55,7 @@ export function OptimizedImage({
 
   return (
     <div className={`relative ${className}`}>
-      {isLoading && (
+      {isImageLoading && (
         <div
           className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse"
           style={{ width, height }}
@@ -74,7 +74,7 @@ export function OptimizedImage({
         onLoad={handleLoad}
         onError={handleError}
         className={`transition-opacity duration-300 ${
-          isLoading ? "opacity-0" : "opacity-100"
+          isImageLoading ? "opacity-0" : "opacity-100"
         }`}
       />
     </div>

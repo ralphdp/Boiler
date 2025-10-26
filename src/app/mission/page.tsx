@@ -5,8 +5,9 @@ import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, HelpCircle } from "lucide-react";
 import { getGitHubUrl } from "@/lib/github";
+import Link from "next/link";
 
 export default function MissionPage() {
   const { t } = useLanguage();
@@ -48,7 +49,11 @@ export default function MissionPage() {
               {t("mission.goal")}
             </p>
 
-            <div role="group" aria-label="GitHub link">
+            <div
+              className="flex flex-row gap-4 w-full justify-center sm:justify-start"
+              role="group"
+              aria-label="Action buttons"
+            >
               <Button asChild>
                 <a
                   href={getGitHubUrl()}
@@ -60,6 +65,12 @@ export default function MissionPage() {
                   <Github className="h-4 w-4" />
                   {t("mission.githubButton")}
                 </a>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/support" aria-label="Get support for Boiler.click">
+                  <HelpCircle className="h-4 w-4" />
+                  {t("navigation.support")}
+                </Link>
               </Button>
             </div>
           </motion.div>

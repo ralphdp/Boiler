@@ -74,7 +74,7 @@ export function Navigation() {
                   return (
                     <>
                       {parts[0]}
-                      <span className="text-sm">.{parts[1] || ""}</span>
+                      <span className="text-xs">.{parts[1] || ""}</span>
                     </>
                   );
                 })()}
@@ -104,12 +104,7 @@ export function Navigation() {
               >
                 {t("navigation.mission")}
               </Link>
-              <Link
-                href="/documentation"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
-              >
-                {t("navigation.documentation")}
-              </Link>
+
               <Link
                 href="/articles"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
@@ -121,6 +116,12 @@ export function Navigation() {
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
                 {t("navigation.faq")}
+              </Link>
+              <Link
+                href="/documentation"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+              >
+                {t("navigation.documentation")}
               </Link>
               <Link
                 href="/support"
@@ -143,7 +144,7 @@ export function Navigation() {
             <Sheet>
               <SheetTrigger asChild>
                 <button
-                  className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   aria-label="Toggle mobile menu"
                   aria-expanded="false"
                   aria-controls="mobile-menu"
@@ -178,11 +179,11 @@ export function Navigation() {
                   </div>
 
                   {/* Mobile Navigation Links */}
-                  <div className="space-y-3" role="menubar">
+                  <div className="space-y-4" role="menubar">
                     <Link
                       ref={firstLinkRef}
                       href="/about"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
@@ -190,7 +191,7 @@ export function Navigation() {
                     </Link>
                     <Link
                       href="/mission"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
@@ -198,7 +199,7 @@ export function Navigation() {
                     </Link>
                     <Link
                       href="/support"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
@@ -206,7 +207,7 @@ export function Navigation() {
                     </Link>
                     <Link
                       href="/articles"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
@@ -214,7 +215,7 @@ export function Navigation() {
                     </Link>
                     <Link
                       href="/faq"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >

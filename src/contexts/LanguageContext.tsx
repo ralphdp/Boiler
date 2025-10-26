@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Language = "en" | "es" | "fr" | "ja" | "ar";
+type Language = "en" | "es" | "fr" | "jp" | "ar";
 
 interface LanguageContextType {
   language: Language;
@@ -33,13 +33,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     ) as Language;
     if (
       savedLanguage &&
-      ["en", "es", "fr", "ja", "ar"].includes(savedLanguage)
+      ["en", "es", "fr", "jp", "ar"].includes(savedLanguage)
     ) {
       setLanguage(savedLanguage);
     } else {
       // Try to detect browser language
       const browserLang = navigator.language.split("-")[0];
-      if (["en", "es", "fr", "ja", "ar"].includes(browserLang)) {
+      if (["en", "es", "fr", "jp", "ar"].includes(browserLang)) {
         setLanguage(browserLang as Language);
         localStorage.setItem("boiler-click-language", browserLang);
       }
@@ -67,8 +67,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
           case "fr":
             messages = (await import("../languages/fr.json")).default;
             break;
-          case "ja":
-            messages = (await import("../languages/ja.json")).default;
+          case "jp":
+            messages = (await import("../languages/jp.json")).default;
             break;
           case "ar":
             messages = (await import("../languages/ar.json")).default;

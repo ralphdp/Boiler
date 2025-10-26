@@ -32,18 +32,18 @@ export default function StepPage({ params }: StepPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
+    <div className="min-h-screen bg-gray-50 font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
       {/* Theme Toggle - Fixed Position */}
       <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
       </div>
 
-      <div className="flex">
+      <div className="flex min-h-screen overflow-x-hidden">
         {/* Sidebar */}
         <DocumentationSidebar currentStepNumber={stepNumber} />
 
         {/* Main Content */}
-        <div className="flex-1 max-w-4xl mx-auto p-6 lg:p-12 lg:ml-0">
+        <div className="flex-1 max-w-4xl mx-auto p-4 sm:p-6 lg:p-12 lg:ml-0 min-w-0 w-full pt-16 sm:pt-20 lg:pt-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,15 +58,15 @@ export default function StepPage({ params }: StepPageProps) {
                 >
                   Step {step.id}
                 </Badge>
-                <ChevronRight className="w-4 h-4 text-zinc-400" />
-                <span className="text-zinc-600 dark:text-zinc-400">
+                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <span className="text-gray-600 dark:text-gray-400">
                   {step.title}
                 </span>
               </div>
-              <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 break-words">
                 {step.title}
               </h1>
-              <p className="text-xl text-zinc-600 dark:text-zinc-400">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 break-words">
                 {step.description}
               </p>
             </div>
@@ -80,15 +80,15 @@ export default function StepPage({ params }: StepPageProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                 >
-                  <Card className="dark:bg-gray-800">
+                  <Card className="dark:bg-gray-800 overflow-hidden">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <FileText className="w-5 h-5 text-purple-500" />
                         {section.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                    <CardContent className="space-y-6 overflow-hidden">
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed break-words">
                         {section.content}
                       </p>
 
@@ -99,14 +99,14 @@ export default function StepPage({ params }: StepPageProps) {
                             <div key={codeIndex}>
                               {codeBlock.description && (
                                 <div className="flex items-center gap-2 mb-2">
-                                  <Code className="w-4 h-4 text-zinc-500" />
-                                  <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                                  <Code className="w-4 h-4 text-gray-500" />
+                                  <span className="text-sm text-gray-600 dark:text-gray-400">
                                     {codeBlock.description}
                                   </span>
                                 </div>
                               )}
-                              <div className="border border-gray-600 dark:border-gray-400 rounded-lg p-4 overflow-x-auto">
-                                <pre className="text-sm text-zinc-600 dark:text-zinc-100">
+                              <div className="bg-gray-50 dark:bg-gray-500/10 p-4 sm:p-6 rounded-lg overflow-x-auto">
+                                <pre className="text-xs sm:text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-all overflow-wrap-anywhere">
                                   <code
                                     className={`language-${codeBlock.language}`}
                                   >
@@ -146,13 +146,13 @@ export default function StepPage({ params }: StepPageProps) {
 
             {/* Navigation */}
             <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row justify-between gap-4">
                 {stepNumber > 1 && (
                   <a
                     href={`/documentation/${stepNumber - 1}/${
                       allSteps[stepNumber - 2].slug
                     }`}
-                    className="flex items-center gap-2 px-4 py-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors break-words"
                   >
                     ← Previous: {allSteps[stepNumber - 2].title}
                   </a>
@@ -162,7 +162,7 @@ export default function StepPage({ params }: StepPageProps) {
                     href={`/documentation/${stepNumber + 1}/${
                       allSteps[stepNumber].slug
                     }`}
-                    className="flex items-center gap-2 px-4 py-2 text-purple-600 hover:text-purple-700 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-purple-600 hover:text-purple-700 transition-colors break-words"
                   >
                     Next: {allSteps[stepNumber].title} →
                   </a>

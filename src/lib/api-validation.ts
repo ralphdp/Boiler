@@ -135,7 +135,7 @@ export const CommonSchemas = {
   // User preferences
   preferences: z.object({
     theme: z.enum(["light", "dark", "system"]).optional(),
-    language: z.enum(["en", "es", "fr", "ja"]).optional(),
+    language: z.enum(["en", "es", "fr", "jp"]).optional(),
     notifications: z.boolean().optional(),
   }),
 

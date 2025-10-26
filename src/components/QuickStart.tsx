@@ -69,9 +69,7 @@ npm run build`;
                 # {t("homepage.quickStart.codeComments.clone")}
               </span>
               <br />
-              <span className="text-zinc-100">
-                {getGitHubCloneCommand()}
-              </span>
+              <span className="text-zinc-100">{getGitHubCloneCommand()}</span>
               <br />
               <br />
               <span className="text-zinc-400">

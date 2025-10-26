@@ -100,15 +100,12 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           }}
         />
       </Head>
-      <div
-        className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
-        role="main"
-      >
+      <div className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
         <Navigation />
         <main
           className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
           role="main"
-          aria-label="Article page content"
+          aria-label="Article page main content"
         >
           <div className="prose prose-lg dark:prose-invert max-w-none">
             {/* Back Button */}
@@ -282,7 +279,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
                   Related Articles
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {relatedArticles.map((relatedArticle) => (
                     <Link
                       key={relatedArticle.id}

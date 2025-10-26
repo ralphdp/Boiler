@@ -20,7 +20,7 @@
       "build": "Construire pour la production"
     }
   },
-  "githubButton": "Github",
+  "githubButton": "GitHub",
   "tooltips": {
     "themeToggle": "Changer de thème",
     "languageSwitcher": "Changer de langue"
@@ -191,6 +191,10 @@
         "title": "Flux de Développement",
         "description": "Apprenez le flux de développement et les scripts disponibles pour construire votre application"
       },
+      "buildingPatterns": {
+        "title": "Patrons de Construction et de Code",
+        "description": "Apprenez les patrons essentiels de construction, conventions de code et meilleures pratiques pour des applications évolutives"
+      },
       "shadcnComponents": {
         "title": "Composants Shadcn/UI",
         "description": "Apprenez à utiliser les composants les plus courants de shadcn/ui avec des exemples de code pratiques"
@@ -202,7 +206,7 @@
     },
     "github": {
       "title": "Dépôt GitHub",
-      "description": "Accédez au code source complet, contribuez au projet ou signalez des problèmes sur notre dépôt GitHub.",
+      "description": "Accédez au code source complet, contribuez au projet ou signalez des problèmes sur notre dépôt GitHub. Suivez toutes les fonctionnalités, améliorations et corrections dans le développement de Boiler.click.",
       "button": "Voir sur GitHub"
     }
   },
@@ -210,7 +214,7 @@
     "subtitle": "Modèle SaaS Full-Stack",
     "description": "Alimenté par Next.js, Prisma, Shadcn et Vercel",
     "aboutButton": "À propos de Boiler",
-    "githubButton": "Github",
+    "githubButton": "GitHub",
     "comingSoon": "Bientôt disponible...",
     "showcase": {
       "title": "Construit avec",
@@ -278,7 +282,10 @@
         "Design responsive qui fonctionne sur tous les appareils",
         "Temps de chargement rapides avec des performances optimisées",
         "Navigation intuitive et interface conviviale",
-        "Fonctionnalités d'accessibilité pour un design inclusif"
+        "Design Centré sur l'Accessibilité",
+        "Support RTL (Droite à Gauche)",
+        "Internationalisation (i18n)",
+        "Gestion améliorée des erreurs"
       ]
     },
     "securitySeo": {
@@ -337,6 +344,30 @@
         "title": "Temps de Build",
         "value": "~45s",
         "description": "Builds de développement rapides"
+      }
+    },
+    "advancedFeatures": {
+      "title": "Fonctionnalités Avancées et Conformité",
+      "performance": {
+        "title": "Optimisations Avancées de Performance",
+        "features": [
+          "Optimisation d'Images Next.js avec WebP/AVIF",
+          "Division automatique du code et chargement différé",
+          "Optimisation Edge Runtime pour Vercel",
+          "Stratégies de cache intégrées",
+          "Optimisation de la taille du bundle",
+          "Optimisation des Core Web Vitals"
+        ]
+      },
+      "compliance": {
+        "title": "Conformité et Standards",
+        "features": [
+          "Gestion des cookies conforme RGPD",
+          "Hébergement conforme SOC 2 Type 2 (Vercel)",
+          "Standards d'accessibilité WCAG 2.1 AA",
+          "Implémentation des headers de sécurité et CSP",
+          "Contrôles de protection des données et confidentialité"
+        ]
       }
     }
   },
@@ -542,7 +573,7 @@
   "articles": {
     "title": "Articles",
     "subtitle": "Tutoriels et guides utiles",
-    "description": "Découvrez des articles et tutoriels utiles sur le développement SaaS.",
+    "description": "Découvrez des articles et tutoriels utiles sur Boiler.",
     "searchPlaceholder": "Rechercher des articles...",
     "clearFilters": "Effacer les filtres",
     "noResults": "Aucun résultat trouvé",
@@ -570,6 +601,40 @@
       "facebook": "Partager sur Facebook",
       "linkedin": "Partager sur LinkedIn",
       "github": "Voir sur GitHub"
+    }
+  },
+  "error": {
+    "404": {
+      "title": "404",
+      "message": "Page non trouvée"
+    },
+    "403": {
+      "title": "403",
+      "message": "Accès Interdit"
+    },
+    "405": {
+      "title": "405",
+      "message": "Méthode Non Autorisée"
+    },
+    "429": {
+      "title": "429",
+      "message": "Trop de Demandes"
+    },
+    "500": {
+      "title": "500",
+      "message": "Erreur Interne du Serveur"
+    },
+    "503": {
+      "title": "503",
+      "message": "Service Indisponible"
+    },
+    "default": {
+      "title": "Erreur",
+      "message": "Quelque chose s'est mal passé"
+    },
+    "actions": {
+      "tryAgain": "Réessayer",
+      "goHome": "Aller à l'accueil"
     }
   }
 }

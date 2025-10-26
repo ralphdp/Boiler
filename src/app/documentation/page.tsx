@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Github, FileText } from "lucide-react";
+import { Github } from "lucide-react";
 import { getGitHubUrl } from "@/lib/github";
 import Link from "next/link";
 
@@ -13,19 +13,16 @@ export default function DocumentationPage() {
   const { t } = useLanguage();
 
   return (
-    <div
-      className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
-      role="main"
-    >
+    <div className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
       <Navigation />
       <main
         className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
         role="main"
-        aria-label="Documentation"
+        aria-label="Documentation page main content"
       >
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <motion.div
-            className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+            className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -36,7 +33,7 @@ export default function DocumentationPage() {
           </motion.div>
 
           <motion.div
-            className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+            className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -77,7 +74,7 @@ export default function DocumentationPage() {
                   <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                     {t("documentation.stepGuide.description")}
                   </p>
-                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <Link
                       href="/documentation/1/welcome"
                       className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-300 dark:hover:border-purple-600 transition-colors group"
@@ -127,12 +124,30 @@ export default function DocumentationPage() {
                       </p>
                     </Link>
                     <Link
-                      href="/documentation/4/shadcn-components"
+                      href="/documentation/4/building-patterns"
                       className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-300 dark:hover:border-purple-600 transition-colors group"
                     >
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-sm font-medium">
                           4
+                        </div>
+                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                          {t("documentation.stepGuide.buildingPatterns.title")}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {t(
+                          "documentation.stepGuide.buildingPatterns.description"
+                        )}
+                      </p>
+                    </Link>
+                    <Link
+                      href="/documentation/5/shadcn-components"
+                      className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-300 dark:hover:border-purple-600 transition-colors group"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-sm font-medium">
+                          5
                         </div>
                         <h3 className="font-semibold text-gray-900 dark:text-white">
                           {t("documentation.stepGuide.shadcnComponents.title")}
@@ -145,12 +160,12 @@ export default function DocumentationPage() {
                       </p>
                     </Link>
                     <Link
-                      href="/documentation/5/vercel-optimization"
+                      href="/documentation/6/vercel-optimization"
                       className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-300 dark:hover:border-purple-600 transition-colors group"
                     >
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-sm font-medium">
-                          5
+                          6
                         </div>
                         <h3 className="font-semibold text-gray-900 dark:text-white">
                           {t(
@@ -168,18 +183,21 @@ export default function DocumentationPage() {
                 </div>
               </section>
 
-              {/* GitHub Link */}
+              {/* GitHub Repository */}
               <section aria-labelledby="github">
                 <h2
                   id="github"
                   className="text-3xl font-bold text-black dark:text-white mb-6"
                 >
-                  {t("documentation.github.title")}
+                  GitHub Repository
                 </h2>
 
                 <div className="space-y-4">
                   <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {t("documentation.github.description")}
+                    Access the complete source code, contribute to the project,
+                    or report issues on our GitHub repository. Track all the
+                    features, improvements, and fixes in Boiler.click
+                    development.
                   </p>
                   <Button asChild>
                     <a
@@ -190,36 +208,8 @@ export default function DocumentationPage() {
                       aria-label="View Boiler.click on GitHub (opens in new tab)"
                     >
                       <Github className="h-4 w-4" />
-                      {t("documentation.github.button")}
+                      View on GitHub
                     </a>
-                  </Button>
-                </div>
-              </section>
-
-              {/* Changelog Link */}
-              <section aria-labelledby="changelog">
-                <h2
-                  id="changelog"
-                  className="text-3xl font-bold text-black dark:text-white mb-6"
-                >
-                  Changelog
-                </h2>
-
-                <div className="space-y-4">
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Track all the features, improvements, and fixes in
-                    Boiler.click development. Stay updated with the latest
-                    changes and version history.
-                  </p>
-                  <Button asChild>
-                    <Link
-                      href="/documentation/change-log"
-                      className="inline-flex items-center"
-                      aria-label="View changelog"
-                    >
-                      <FileText className="h-4 w-4" />
-                      View Changelog
-                    </Link>
                   </Button>
                 </div>
               </section>

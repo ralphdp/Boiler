@@ -5,18 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.3-alpha] - 2025-01-21
-
-### Changed
-
-- **Database Configuration**: Updated database and Redis configuration to use separate local and remote environment variables for better environment management
-  - `DATABASE_URL` → `DATABASE_LOCAL_URL` and `DATABASE_REMOTE_URL`
-  - `REDIS_URL` → `REDIS_LOCAL_URL` and `REDIS_REMOTE_URL`
-  - Added automatic environment-based URL selection (local for development, remote for production)
-  - Updated configuration logic to support both local and remote database connections
-  - Enhanced documentation with new database variable structure
-
-## [0.0.2-alpha] - 2025-01-20
+## [0.0.2-alpha] - 2025-01-26
 
 ### Added
 
@@ -30,12 +19,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Critical Path Optimization**: Reduced critical path latency from 146ms to ~80-100ms through strategic resource loading and bundle optimization
 - **BotID Integration**: Replaced reCAPTCHA with Vercel BotID for advanced bot detection, featuring automatic protection on Vercel deployment with no environment variables required
 - **Homepage Text Update**: Updated homepage description from "A.I." to "Vercel" across all supported languages (English, Spanish, French, Japanese, Arabic)
+- **Article Status System**: Implemented comprehensive article status management with draft, review, and live states for content workflow control
+- **Homepage Hero Enhancement**: Added Eddie the Elephant image to homepage hero section with Next.js Image optimization, WebP format, and responsive loading states
+- **Advanced Features Documentation**: Added comprehensive documentation for RTL support, GDPR compliance, i18n, enhanced error handling, advanced performance optimizations, Accessibility-First Design, and SOC 2 compliance
+- **Building & Coding Patterns**: Added new documentation step covering essential building patterns including component architecture, custom hooks, error boundaries, compound components, render props, HOCs, and state management patterns
+- **Error Page System**: Implemented comprehensive error handling with universal ErrorDisplay component supporting 404, 403, 405, 429, 500, 503 errors with internationalization and theme controls
+- **Language File Optimization**: Renamed Japanese language file from ja.json to jp.json and updated all references throughout the codebase for consistency
+
+### Changed
+
+- **Database Configuration**: Updated database and Redis configuration to use separate local and remote environment variables for better environment management
+  - `DATABASE_URL` → `DATABASE_LOCAL_URL` and `DATABASE_REMOTE_URL`
+  - `REDIS_URL` → `REDIS_LOCAL_URL` and `REDIS_REMOTE_URL`
+  - Added automatic environment-based URL selection (local for development, remote for production)
+  - Updated configuration logic to support both local and remote database connections
+  - Enhanced documentation with new database variable structure
+- **Homepage Layout**: Redesigned homepage hero section with improved responsive layout, better mobile spacing, and enhanced visual hierarchy
+- **Article Content**: Updated article content to remove emoji usage, improve readability, and standardize formatting across all articles
+- **Image Management**: Moved and optimized image assets with proper Next.js Image component implementation and WebP format support
+- **Documentation Structure**: Consolidated and reorganized documentation steps for better user experience and logical flow
+- **Articles Description**: Updated articles description across all language files to reference "Boiler" instead of "SaaS development"
+- **Documentation Responsive Design**: Fixed responsive issues on documentation pages preventing horizontal scrollbars and improving mobile/tablet experience
 
 ### Fixed
 
 - **BotID Implementation**: Corrected BotID integration with proper import paths, component structure, and server-side verification
 - **TypeScript Build Errors**: Resolved multiple TypeScript compilation errors related to BotID component props and server-side implementation
 - **Component Structure**: Fixed BotIdProvider children prop structure and BotIdClient protect prop configuration
+- **Image Loading Issues**: Resolved homepage image loading problems with proper Next.js optimization, loading states, and error handling
+- **Mobile Layout Issues**: Fixed mobile/tablet layout where steps button was overlaying breadcrumb navigation
+- **Code Block Responsiveness**: Fixed horizontal scrollbar issues on documentation pages caused by long code blocks and environment variables
 
 ## [0.0.1-alpha] - 2025-10-25
 
@@ -79,7 +92,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Performance optimization suite
 - Articles system enhancements
 - Technology showcase improvements
-- 8 new features and optimizations
+- Database configuration updates
+- Advanced features documentation
+- Building & coding patterns
+- Error page system
+- Language file optimization
+- 20+ new features and optimizations
 - Alpha release for testing
 
 ### Version 0.0.1-alpha (October 2025)
@@ -95,16 +113,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Development Notes
 
-This changelog is automatically generated from the changelog data in the application. For the most up-to-date information, visit the [Changelog Page](/documentation/change-log) in the application.
-
 ### Contributing
 
 When adding new features or making changes:
 
-1. Update the changelog data in `src/app/documentation/change-log/page.tsx`
-2. Add corresponding entries to this `CHANGELOG.md` file
-3. Follow the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
-4. Use semantic versioning for releases
+1. Add corresponding entries to this `CHANGELOG.md` file
+2. Follow the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
+3. Use semantic versioning for releases
 
 ### Types of Changes
 

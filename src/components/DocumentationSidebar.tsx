@@ -78,7 +78,7 @@ export function DocumentationSidebar({
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block w-72 xl:w-80 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-r border-gray-200 dark:border-gray-800 sticky top-0 h-screen overflow-y-auto">
+      <div className="hidden lg:block w-72 xl:w-80 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-r border-gray-200 dark:border-gray-800 sticky top-0 h-screen overflow-y-auto flex-shrink-0">
         <SidebarContent />
       </div>
 

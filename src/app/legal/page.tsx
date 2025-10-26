@@ -15,15 +15,12 @@ export default function LegalPage() {
     process.env.NEXT_PUBLIC_SITE_PHYSICAL_ADDRESS || "123 Oak St.";
 
   return (
-    <div
-      className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
-      role="main"
-    >
+    <div className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
       <Navigation />
       <main
         className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
         role="main"
-        aria-label="Legal information"
+        aria-label="Legal page main content"
       >
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <motion.div

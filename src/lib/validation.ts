@@ -19,7 +19,7 @@ export const newsletterSchema = z.object({
 });
 
 // Language validation schema
-export const languageSchema = z.enum(["en", "es", "fr", "ja"]);
+export const languageSchema = z.enum(["en", "es", "fr", "jp"]);
 
 // Input sanitization function
 export const sanitizeInput = (input: string): string => {

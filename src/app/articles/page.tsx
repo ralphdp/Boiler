@@ -141,19 +141,16 @@ export default function ArticlesPage() {
           }}
         />
       </Head>
-      <div
-        className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
-        role="main"
-      >
+      <div className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
         <Navigation />
         <main
           className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
           role="main"
-          aria-label="Articles page content"
+          aria-label="Articles page main content"
         >
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <motion.div
-              className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+              className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 20 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -164,7 +161,7 @@ export default function ArticlesPage() {
             </motion.div>
 
             <motion.div
-              className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+              className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -174,7 +171,7 @@ export default function ArticlesPage() {
               </p>
 
               {/* Search and Filters */}
-              <div className="flex flex-col md:flex-row gap-4 mt-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
@@ -200,7 +197,7 @@ export default function ArticlesPage() {
               <div className="flex flex-wrap gap-2 justify-center sm:justify-start mb-2">
                 <button
                   onClick={() => setSelectedTag(null)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                     selectedTag === null
                       ? "bg-black dark:bg-white text-white dark:text-black"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -212,7 +209,7 @@ export default function ArticlesPage() {
                   <button
                     key={tag}
                     onClick={() => setSelectedTag(tag)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                    className={`px-4 py-2 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                       selectedTag === tag
                         ? "bg-black dark:bg-white text-white dark:text-black"
                         : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"

@@ -20,7 +20,7 @@
       "build": "Construir para producción"
     }
   },
-  "githubButton": "Github",
+  "githubButton": "GitHub",
   "tooltips": {
     "themeToggle": "Cambiar tema",
     "languageSwitcher": "Cambiar idioma"
@@ -191,6 +191,10 @@
         "title": "Flujo de Desarrollo",
         "description": "Aprende sobre el flujo de desarrollo y los scripts disponibles para construir tu aplicación"
       },
+      "buildingPatterns": {
+        "title": "Patrones de Construcción y Código",
+        "description": "Aprende patrones esenciales de construcción, convenciones de código y mejores prácticas para aplicaciones escalables"
+      },
       "shadcnComponents": {
         "title": "Componentes Shadcn/UI",
         "description": "Aprende a usar los componentes más comunes de shadcn/ui con ejemplos de código prácticos"
@@ -202,7 +206,7 @@
     },
     "github": {
       "title": "Repositorio GitHub",
-      "description": "Accede al código fuente completo, contribuye al proyecto o reporta problemas en nuestro repositorio de GitHub.",
+      "description": "Accede al código fuente completo, contribuye al proyecto o reporta problemas en nuestro repositorio de GitHub. Rastrea todas las características, mejoras y correcciones en el desarrollo de Boiler.click.",
       "button": "Ver en GitHub"
     }
   },
@@ -210,7 +214,7 @@
     "subtitle": "Plantilla SaaS Full-Stack",
     "description": "Potenciado con Next.js, Prisma, Shadcn y Vercel",
     "aboutButton": "Acerca de Boiler",
-    "githubButton": "Github",
+    "githubButton": "GitHub",
     "comingSoon": "Próximamente...",
     "showcase": {
       "title": "Construido con",
@@ -287,7 +291,10 @@
         "Diseño responsivo que funciona en todos los dispositivos",
         "Tiempos de carga rápidos con rendimiento optimizado",
         "Navegación intuitiva e interfaz fácil de usar",
-        "Características de accesibilidad para diseño inclusivo"
+        "Diseño Centrado en Accesibilidad",
+        "Soporte RTL (Derecha a Izquierda)",
+        "Internacionalización (i18n)",
+        "Manejo mejorado de errores"
       ]
     },
     "securitySeo": {
@@ -346,6 +353,30 @@
         "title": "Tiempo de Build",
         "value": "~45s",
         "description": "Builds de desarrollo rápidos"
+      }
+    },
+    "advancedFeatures": {
+      "title": "Características Avanzadas y Cumplimiento",
+      "performance": {
+        "title": "Optimizaciones Avanzadas de Rendimiento",
+        "features": [
+          "Optimización de Imágenes Next.js con WebP/AVIF",
+          "División automática de código y carga diferida",
+          "Optimización Edge Runtime para Vercel",
+          "Estrategias de caché integradas",
+          "Optimización del tamaño del bundle",
+          "Optimización de Core Web Vitals"
+        ]
+      },
+      "compliance": {
+        "title": "Cumplimiento y Estándares",
+        "features": [
+          "Gestión de cookies compatible con GDPR",
+          "Hosting compatible con SOC 2 Tipo 2 (Vercel)",
+          "Estándares de accesibilidad WCAG 2.1 AA",
+          "Implementación de headers de seguridad y CSP",
+          "Controles de protección de datos y privacidad"
+        ]
       }
     }
   },
@@ -551,7 +582,7 @@
   "articles": {
     "title": "Artículos",
     "subtitle": "Tutoriales y guías útiles",
-    "description": "Descubre artículos y tutoriales útiles sobre desarrollo SaaS.",
+    "description": "Descubre artículos y tutoriales útiles sobre Boiler.",
     "searchPlaceholder": "Buscar artículos...",
     "clearFilters": "Limpiar filtros",
     "noResults": "No se encontraron resultados",
@@ -579,6 +610,40 @@
       "facebook": "Compartir en Facebook",
       "linkedin": "Compartir en LinkedIn",
       "github": "Ver en GitHub"
+    }
+  },
+  "error": {
+    "404": {
+      "title": "404",
+      "message": "Página no encontrada"
+    },
+    "403": {
+      "title": "403",
+      "message": "Acceso Prohibido"
+    },
+    "405": {
+      "title": "405",
+      "message": "Método No Permitido"
+    },
+    "429": {
+      "title": "429",
+      "message": "Demasiadas Solicitudes"
+    },
+    "500": {
+      "title": "500",
+      "message": "Error Interno del Servidor"
+    },
+    "503": {
+      "title": "503",
+      "message": "Servicio No Disponible"
+    },
+    "default": {
+      "title": "Error",
+      "message": "Algo salió mal"
+    },
+    "actions": {
+      "tryAgain": "Intentar de nuevo",
+      "goHome": "Ir al inicio"
     }
   }
 }

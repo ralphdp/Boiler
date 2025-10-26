@@ -101,7 +101,7 @@ export const documentationSteps: DocumentationStep[] = [
             },
             {
               language: "env",
-              code: '# Maintenance Mode\nMAINTENANCE_MODE=false\n\nNEXT_PUBLIC_VERSION="0.0.1-alpha"\nNEXT_PUBLIC_BUILD_TIME="Jan. 01, 2025"\nNEXT_PUBLIC_GITHUB_USER=""\nNEXT_PUBLIC_GITHUB_REPO=""\n\n# Brand\nNEXT_PUBLIC_SITE_TITLE=""\nNEXT_PUBLIC_SITE_EMAIL_SUPPORT=""\nNEXT_PUBLIC_SITE_PHYSICAL_ADDRESS=""\nNEXT_PUBLIC_SITE_TELEPHONE=""\nNEXT_PUBLIC_SOCIAL_GITHUB=""\nNEXT_PUBLIC_SOCIAL_X=""\nNEXT_PUBLIC_SOCIAL_FACEBOOK=""\nNEXT_PUBLIC_SOCIAL_YOUTUBE=""\nNEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"\n\n# Database Connections\n# Database\nDATABASE_LOCAL_URL="postgresql://username:password@localhost:5432/boiler"\nDATABASE_REMOTE_URL="postgresql://neondb_owner:[password]@[server].c-2.us-east-1.aws.neon.tech/[database_name]?sslmode=require"\n# Redis\nREDIS_LOCAL_URL="redis://localhost:6379"\nREDIS_REMOTE_URL="redis://default:[password]@redis-[server_id]].c323.us-east-1-2.ec2.redns.redis-cloud.com:[server_id]"\n\n# Authentication & Security\n# JWT Secret for token signing (if using JWT auth)\nJWT_SECRET=""\n\n# Session Configuration\nSESSION_SECRET=""\n\n# Third-Party Services\n# OAuth Providers\nGOOGLE_CLIENT_ID=[602141741836]-[id].apps.googleusercontent.com\nGOOGLE_CLIENT_SECRET=""\nGITHUB_CLIENT_ID=""\nGITHUB_CLIENT_SECRET=""\nDISCORD_CLIENT_ID="your-discord-client-id"\nDISCORD_CLIENT_SECRET="your-discord-client-secret"\nFACEBOOK_CLIENT_ID="your-facebook-client-id"\nFACEBOOK_CLIENT_SECRET="your-facebook-client-secret"\nTWITTER_CLIENT_ID="your-twitter-client-id"\nTWITTER_CLIENT_SECRET="your-twitter-client-secret"\n# Payment Processing\nSTRIPE_PUBLISHABLE_KEY="pk_test_your-stripe-publishable-key"\nSTRIPE_SECRET_KEY="sk_test_your-stripe-secret-key"\nSTRIPE_WEBHOOK_SECRET="whsec_your-webhook-secret"\n\n# Email\nSMTP_HOST="smtp.example.com"\nSMTP_PORT="587"\nSMTP_USER=""\nSMTP_PASS=""',
+              code: '# Maintenance Mode\nMAINTENANCE_MODE=false\n\nNEXT_PUBLIC_VERSION="0.0.1"\nNEXT_PUBLIC_BUILD_TIME="Jan. 01, 2025"\nNEXT_PUBLIC_GITHUB_USER=""\nNEXT_PUBLIC_GITHUB_REPO=""\n\n# Brand\nNEXT_PUBLIC_SITE_TITLE=""\nNEXT_PUBLIC_SITE_EMAIL_SUPPORT=""\nNEXT_PUBLIC_SITE_PHYSICAL_ADDRESS=""\nNEXT_PUBLIC_SITE_TELEPHONE=""\nNEXT_PUBLIC_SOCIAL_GITHUB=""\nNEXT_PUBLIC_SOCIAL_X=""\nNEXT_PUBLIC_SOCIAL_FACEBOOK=""\nNEXT_PUBLIC_SOCIAL_YOUTUBE=""\nNEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"\n\n# Database Connections\n# Database\nDATABASE_LOCAL_URL="postgresql://username:password@localhost:5432/boiler"\nDATABASE_REMOTE_URL="postgresql://neondb_owner:[password]@[server].c-2.us-east-1.aws.neon.tech/[database_name]?sslmode=require"\n# Redis\nREDIS_LOCAL_URL="redis://localhost:6379"\nREDIS_REMOTE_URL="redis://default:[password]@redis-[server_id]].c323.us-east-1-2.ec2.redns.redis-cloud.com:[server_id]"\n\n# Authentication & Security\n# JWT Secret for token signing (if using JWT auth)\nJWT_SECRET=""\n\n# Session Configuration\nSESSION_SECRET=""\n\n# Third-Party Services\n# OAuth Providers\nGOOGLE_CLIENT_ID=[602141741836]-[id].apps.googleusercontent.com\nGOOGLE_CLIENT_SECRET=""\nGITHUB_CLIENT_ID=""\nGITHUB_CLIENT_SECRET=""\nDISCORD_CLIENT_ID="your-discord-client-id"\nDISCORD_CLIENT_SECRET="your-discord-client-secret"\nFACEBOOK_CLIENT_ID="your-facebook-client-id"\nFACEBOOK_CLIENT_SECRET="your-facebook-client-secret"\nTWITTER_CLIENT_ID="your-twitter-client-id"\nTWITTER_CLIENT_SECRET="your-twitter-client-secret"\n# Payment Processing\nSTRIPE_PUBLISHABLE_KEY="pk_test_your-stripe-publishable-key"\nSTRIPE_SECRET_KEY="sk_test_your-stripe-secret-key"\nSTRIPE_WEBHOOK_SECRET="whsec_your-webhook-secret"\n\n# Email\nSMTP_HOST="smtp.example.com"\nSMTP_PORT="587"\nSMTP_USER=""\nSMTP_PASS=""',
               description: "Complete environment variables configuration",
             },
           ],
@@ -190,6 +190,492 @@ export const documentationSteps: DocumentationStep[] = [
   },
   {
     id: 4,
+    slug: "building-patterns",
+    title: "Building & Coding Patterns",
+    description:
+      "Learn essential building patterns, coding conventions, and best practices for scalable applications",
+    content: {
+      sections: [
+        {
+          title: "Component Architecture",
+          content:
+            "Understanding how to structure components for maintainability and reusability. Learn about atomic design principles, component composition, and when to create custom hooks.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// Atomic Design Structure
+// atoms/Button.tsx
+export const Button = ({ variant, size, children, ...props }) => {
+  return (
+    <button 
+      className={cn(buttonVariants({ variant, size }))} 
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+// molecules/FormField.tsx
+export const FormField = ({ label, error, children }) => {
+  return (
+    <div className="space-y-2">
+      <Label>{label}</Label>
+      {children}
+      {error && <p className="text-sm text-red-500">{error}</p>}
+    </div>
+  );
+};
+
+// organisms/ContactForm.tsx
+export const ContactForm = () => {
+  const [formData, setFormData] = useState({});
+  
+  return (
+    <form className="space-y-4">
+      <FormField label="Name" error={errors.name}>
+        <Input {...register("name")} />
+      </FormField>
+      <FormField label="Email" error={errors.email}>
+        <Input type="email" {...register("email")} />
+      </FormField>
+      <Button type="submit">Submit</Button>
+    </form>
+  );
+};`,
+              description:
+                "Atomic design structure for scalable component architecture",
+            },
+          ],
+        },
+        {
+          title: "Custom Hooks Pattern",
+          content:
+            "Creating reusable custom hooks for state management, API calls, and side effects. This pattern promotes code reusability and separation of concerns.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// hooks/useApi.ts
+export const useApi = <T>(url: string) => {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Failed to fetch');
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+// hooks/useLocalStorage.ts
+export const useLocalStorage = <T>(key: string, initialValue: T) => {
+  const [storedValue, setStoredValue] = useState<T>(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      return initialValue;
+    }
+  });
+
+  const setValue = (value: T | ((val: T) => T)) => {
+    try {
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return [storedValue, setValue] as const;
+};`,
+              description:
+                "Custom hooks for API calls and local storage management",
+            },
+          ],
+        },
+        {
+          title: "Error Boundary Pattern",
+          content:
+            "Implementing error boundaries to catch JavaScript errors anywhere in the component tree and display fallback UI instead of crashing the entire application.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// components/ErrorBoundary.tsx
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+}
+
+export class ErrorBoundary extends Component<
+  PropsWithChildren<{}>,
+  ErrorBoundaryState
+> {
+  constructor(props: PropsWithChildren<{}>) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+    // Log to error reporting service
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="p-4 border border-red-200 rounded-lg bg-red-50">
+          <h2 className="text-lg font-semibold text-red-800">
+            Something went wrong
+          </h2>
+          <p className="text-red-600">
+            {this.state.error?.message || 'An unexpected error occurred'}
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false })}
+            className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+          >
+            Try again
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+// Usage in App
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
+    </ErrorBoundary>
+  );
+}`,
+              description:
+                "Error boundary implementation for graceful error handling",
+            },
+          ],
+        },
+        {
+          title: "Compound Component Pattern",
+          content:
+            "Creating compound components that work together to provide a flexible and intuitive API. This pattern is commonly used in UI libraries like Radix UI.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// components/Modal.tsx
+interface ModalContextType {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ModalContext = createContext<ModalContextType | undefined>(undefined);
+
+const useModal = () => {
+  const context = useContext(ModalContext);
+  if (!context) {
+    throw new Error('useModal must be used within a Modal');
+  }
+  return context;
+};
+
+export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
+  return (
+    <ModalContext.Provider value={{ isOpen, onClose }}>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/50" onClick={onClose} />
+          <div className="relative bg-white rounded-lg shadow-xl">
+            {children}
+          </div>
+        </div>
+      )}
+    </ModalContext.Provider>
+  );
+};
+
+export const ModalHeader = ({ children }: { children: React.ReactNode }) => {
+  const { onClose } = useModal();
+  return (
+    <div className="flex items-center justify-between p-6 border-b">
+      <h2 className="text-xl font-semibold">{children}</h2>
+      <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <X className="h-6 w-6" />
+      </button>
+    </div>
+  );
+};
+
+export const ModalBody = ({ children }: { children: React.ReactNode }) => {
+  return <div className="p-6">{children}</div>;
+};
+
+export const ModalFooter = ({ children }: { children: React.ReactNode }) => {
+  return <div className="flex justify-end gap-2 p-6 border-t">{children}</div>;
+};
+
+// Usage
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+  <ModalHeader>Confirm Action</ModalHeader>
+  <ModalBody>
+    <p>Are you sure you want to proceed?</p>
+  </ModalBody>
+  <ModalFooter>
+    <Button variant="outline" onClick={() => setIsOpen(false)}>
+      Cancel
+    </Button>
+    <Button onClick={handleConfirm}>Confirm</Button>
+  </ModalFooter>
+</Modal>`,
+              description:
+                "Compound component pattern for flexible modal implementation",
+            },
+          ],
+        },
+        {
+          title: "Render Props Pattern",
+          content:
+            "Using render props to share code between components by passing a function as a prop. This pattern provides maximum flexibility and reusability.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// components/DataFetcher.tsx
+interface DataFetcherProps<T> {
+  url: string;
+  children: (state: {
+    data: T | null;
+    loading: boolean;
+    error: string | null;
+    refetch: () => void;
+  }) => React.ReactNode;
+}
+
+export const DataFetcher = <T,>({ url, children }: DataFetcherProps<T>) => {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Failed to fetch');
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  }, [url]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return <>{children({ data, loading, error, refetch: fetchData })}</>;
+};
+
+// Usage
+<DataFetcher url="/api/users">
+  {({ data, loading, error, refetch }) => {
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+    
+    return (
+      <div>
+        <h2>Users</h2>
+        <button onClick={refetch}>Refresh</button>
+        <ul>
+          {data?.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }}
+</DataFetcher>`,
+              description: "Render props pattern for flexible data fetching",
+            },
+          ],
+        },
+        {
+          title: "Higher-Order Component (HOC) Pattern",
+          content:
+            "Creating higher-order components to add functionality to existing components without modifying their structure. HOCs are useful for cross-cutting concerns like authentication, logging, and analytics.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// HOCs/withAuth.tsx
+interface WithAuthProps {
+  isAuthenticated: boolean;
+  user: User | null;
+}
+
+export const withAuth = <P extends object>(
+  WrappedComponent: React.ComponentType<P & WithAuthProps>
+) => {
+  return (props: P) => {
+    const { user, isAuthenticated } = useAuth();
+    
+    if (!isAuthenticated) {
+      return <LoginPage />;
+    }
+
+    return <WrappedComponent {...props} isAuthenticated={isAuthenticated} user={user} />;
+  };
+};
+
+// HOCs/withAnalytics.tsx
+export const withAnalytics = <P extends object>(
+  WrappedComponent: React.ComponentType<P>,
+  eventName: string
+) => {
+  return (props: P) => {
+    useEffect(() => {
+      // Track page view or component mount
+      analytics.track(eventName, {
+        component: WrappedComponent.name,
+        timestamp: new Date().toISOString(),
+      });
+    }, []);
+
+    return <WrappedComponent {...props} />;
+  };
+};
+
+// Usage
+const ProtectedDashboard = withAuth(Dashboard);
+const TrackedHomePage = withAnalytics(HomePage, 'home_page_viewed');
+
+// Multiple HOCs can be composed
+const ProtectedTrackedProfile = withAuth(withAnalytics(Profile, 'profile_viewed'));`,
+              description:
+                "Higher-order components for authentication and analytics",
+            },
+          ],
+        },
+        {
+          title: "State Management Patterns",
+          content:
+            "Implementing effective state management using Context API, Zustand, or Redux Toolkit. Choose the right pattern based on your application's complexity and requirements.",
+          codeBlocks: [
+            {
+              language: "typescript",
+              code: `// Context API Pattern
+interface AppState {
+  theme: 'light' | 'dark';
+  user: User | null;
+  notifications: Notification[];
+}
+
+interface AppContextType extends AppState {
+  setTheme: (theme: 'light' | 'dark') => void;
+  setUser: (user: User | null) => void;
+  addNotification: (notification: Notification) => void;
+  removeNotification: (id: string) => void;
+}
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export const AppProvider = ({ children }: { children: React.ReactNode }) => {
+  const [state, setState] = useState<AppState>({
+    theme: 'light',
+    user: null,
+    notifications: [],
+  });
+
+  const setTheme = (theme: 'light' | 'dark') => {
+    setState(prev => ({ ...prev, theme }));
+  };
+
+  const setUser = (user: User | null) => {
+    setState(prev => ({ ...prev, user }));
+  };
+
+  const addNotification = (notification: Notification) => {
+    setState(prev => ({
+      ...prev,
+      notifications: [...prev.notifications, notification],
+    }));
+  };
+
+  const removeNotification = (id: string) => {
+    setState(prev => ({
+      ...prev,
+      notifications: prev.notifications.filter(n => n.id !== id),
+    }));
+  };
+
+  return (
+    <AppContext.Provider
+      value={{
+        ...state,
+        setTheme,
+        setUser,
+        addNotification,
+        removeNotification,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+// Zustand Pattern (Alternative)
+import { create } from 'zustand';
+
+interface AppStore {
+  theme: 'light' | 'dark';
+  user: User | null;
+  setTheme: (theme: 'light' | 'dark') => void;
+  setUser: (user: User | null) => void;
+}
+
+export const useAppStore = create<AppStore>((set) => ({
+  theme: 'light',
+  user: null,
+  setTheme: (theme) => set({ theme }),
+  setUser: (user) => set({ user }),
+}));`,
+              description:
+                "State management patterns with Context API and Zustand",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 5,
     slug: "shadcn-components",
     title: "Shadcn/UI Components",
     description:
@@ -269,7 +755,7 @@ export const documentationSteps: DocumentationStep[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
     slug: "vercel-optimization",
     title: "Vercel Optimization",
     description:

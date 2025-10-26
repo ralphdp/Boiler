@@ -21,7 +21,7 @@ const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "es", name: "Español", flag: "🇪🇸" },
   { code: "fr", name: "Français", flag: "🇫🇷" },
-  { code: "ja", name: "日本語", flag: "🇯🇵" },
+  { code: "jp", name: "日本語", flag: "🇯🇵" },
   { code: "ar", name: "العربية", flag: "🇸🇦" },
 ];
 

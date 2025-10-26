@@ -20,7 +20,7 @@
       "build": "Build for production"
     }
   },
-  "githubButton": "Github",
+  "githubButton": "GitHub",
   "tooltips": {
     "themeToggle": "Toggle theme",
     "languageSwitcher": "Change language"
@@ -112,6 +112,10 @@
         "title": "Development Workflow",
         "description": "Learn about the development workflow and available scripts for building your application"
       },
+      "buildingPatterns": {
+        "title": "Building & Coding Patterns",
+        "description": "Learn essential building patterns, coding conventions, and best practices for scalable applications"
+      },
       "shadcnComponents": {
         "title": "Shadcn/UI Components",
         "description": "Learn how to use the most common shadcn/ui components with practical code examples"
@@ -123,7 +127,7 @@
     },
     "github": {
       "title": "GitHub Repository",
-      "description": "Access the complete source code, contribute to the project, or report issues on our GitHub repository.",
+      "description": "Access the complete source code, contribute to the project, or report issues on our GitHub repository. Track all the features, improvements, and fixes in Boiler.click development.",
       "button": "View on GitHub"
     }
   },
@@ -131,7 +135,7 @@
     "subtitle": "Full-Stack SaaS Minimal Boilerplate",
     "description": "Powered by Next.js, Prisma, Shadcn, and Vercel",
     "aboutButton": "About Boiler",
-    "githubButton": "Github",
+    "githubButton": "GitHub",
     "comingSoon": "Coming soon...",
     "showcase": {
       "title": "Built with",
@@ -208,7 +212,10 @@
         "Responsive design",
         "Optimized performance",
         "Intuitive UI/UX",
-        "Accessibility friendly"
+        "Accessibility-First Design",
+        "RTL (Right-to-Left) support",
+        "Internationalization (i18n)",
+        "Enhanced error handling"
       ]
     },
     "securitySeo": {
@@ -267,6 +274,30 @@
         "title": "Build Time",
         "value": "~45s",
         "description": "Fast development builds"
+      }
+    },
+    "advancedFeatures": {
+      "title": "Advanced Features & Compliance",
+      "performance": {
+        "title": "Advanced Performance Optimizations",
+        "features": [
+          "Next.js Image Optimization with WebP/AVIF",
+          "Automatic code splitting and lazy loading",
+          "Edge Runtime optimization for Vercel",
+          "Built-in caching strategies",
+          "Bundle size optimization",
+          "Core Web Vitals optimization"
+        ]
+      },
+      "compliance": {
+        "title": "Compliance & Standards",
+        "features": [
+          "GDPR compliant cookie management",
+          "SOC 2 Type 2 compliant hosting (Vercel)",
+          "WCAG 2.1 AA accessibility standards",
+          "Security headers and CSP implementation",
+          "Data protection and privacy controls"
+        ]
       }
     }
   },
@@ -472,7 +503,7 @@
   "articles": {
     "title": "Articles",
     "subtitle": "Helpful tutorials and guides",
-    "description": "Discover helpful articles and tutorials about SaaS development.",
+    "description": "Discover helpful articles and tutorials about Boiler.",
     "searchPlaceholder": "Search articles...",
     "clearFilters": "Clear filters",
     "noResults": "No results found",
@@ -500,6 +531,40 @@
       "facebook": "Share on Facebook",
       "linkedin": "Share on LinkedIn",
       "github": "View on GitHub"
+    }
+  },
+  "error": {
+    "404": {
+      "title": "404",
+      "message": "Page not found"
+    },
+    "403": {
+      "title": "403",
+      "message": "Access Forbidden"
+    },
+    "405": {
+      "title": "405",
+      "message": "Method Not Allowed"
+    },
+    "429": {
+      "title": "429",
+      "message": "Too Many Requests"
+    },
+    "500": {
+      "title": "500",
+      "message": "Internal Server Error"
+    },
+    "503": {
+      "title": "503",
+      "message": "Service Unavailable"
+    },
+    "default": {
+      "title": "Error",
+      "message": "Something went wrong"
+    },
+    "actions": {
+      "tryAgain": "Try again",
+      "goHome": "Go home"
     }
   }
 }

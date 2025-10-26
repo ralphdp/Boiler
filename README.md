@@ -30,7 +30,6 @@ src/
 │   │   ├── [slug]/              # Dynamic article pages
 │   │   └── page.tsx             # Articles listing
 │   ├── documentation/           # Documentation system
-│   │   ├── change-log/         # Changelog page
 │   │   ├── [step-number]/       # Dynamic step pages
 │   │   │   └── [step-name]/     # Step content pages
 │   │   └── page.tsx             # Documentation overview
@@ -81,7 +80,7 @@ src/
 │   ├── en.json                 # English translations
 │   ├── es.json                 # Spanish translations
 │   ├── fr.json                 # French translations
-│   └── ja.json                 # Japanese translations
+│   └── jp.json                 # Japanese translations
 ├── lib/                        # Utility libraries
 │   ├── analytics.ts            # Analytics and performance monitoring
 │   ├── api-validation.ts       # API request validation
@@ -94,6 +93,7 @@ src/
 │   ├── rate-limit.ts           # Rate limiting utilities
 │   ├── utils.ts                # General utilities
 │   └── validation.ts           # Validation schemas
+├── CHANGELOG.md                # Project changelog
 └── i18n.ts                     # Internationalization setup
 ```
 
