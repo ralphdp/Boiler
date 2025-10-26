@@ -1,83 +1,25 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { 
-  getBotIdSiteKey, 
-  isBotIdEnabled, 
-  initializeBotId, 
-  generateBotIdToken,
-  BotIdResult 
-} from "@/lib/botid";
+import { useEffect, useState } from "react";
+import { BotIdClient } from "botid/client";
+import { isBotIdEnabled, getBotIdConfig } from "@/lib/botid";
 
 interface BotIdProps {
-  onChange?: (token: string | null, result?: BotIdResult) => void;
-  onError?: (error: string) => void;
   className?: string;
   children?: React.ReactNode;
 }
 
-export default function BotId({
-  onChange,
-  onError,
-  className = "",
-  children,
-}: BotIdProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [lastToken, setLastToken] = useState<string | null>(null);
-  const siteKey = getBotIdSiteKey();
-  const enabled = isBotIdEnabled();
+export default function BotId({ className = "", children }: BotIdProps) {
+  const [isActive, setIsActive] = useState(false);
+  const config = getBotIdConfig();
 
   useEffect(() => {
-    const initBotId = async () => {
-      if (enabled && siteKey) {
-        const success = await initializeBotId();
-        setIsLoaded(success);
-      } else {
-        setIsLoaded(true); // Always loaded in development
-      }
-    };
+    // BotID is automatically active when deployed to Vercel
+    setIsActive(config.enabled);
+  }, [config.enabled]);
 
-    initBotId();
-  }, [enabled, siteKey]);
-
-  const handleGenerateToken = async () => {
-    if (!isLoaded) return;
-
-    setIsGenerating(true);
-    try {
-      const token = await generateBotIdToken();
-      setLastToken(token);
-      
-      if (onChange) {
-        onChange(token, {
-          success: true,
-          score: enabled ? 0.9 : 1.0,
-          riskLevel: enabled ? 'low' : 'low',
-          isBot: false,
-        });
-      }
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to generate BotID token';
-      console.error('BotID token generation error:', errorMessage);
-      
-      if (onError) {
-        onError(errorMessage);
-      }
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
-  // Auto-generate token on load
-  useEffect(() => {
-    if (isLoaded && !lastToken) {
-      handleGenerateToken();
-    }
-  }, [isLoaded, lastToken]);
-
-  // Don't render in development or if not enabled
-  if (!enabled || !siteKey) {
+  // In development, show status indicator
+  if (!config.enabled) {
     return (
       <div className={`text-sm text-gray-500 dark:text-gray-400 ${className}`}>
         <div className="flex items-center gap-2">
@@ -93,78 +35,36 @@ export default function BotId({
 
   return (
     <div className={className}>
-      {isLoaded && (
+      {isActive && (
         <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
           <div className="w-4 h-4 bg-blue-100 dark:bg-blue-900 rounded border border-blue-300 dark:border-blue-700 flex items-center justify-center">
             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
           </div>
-          <span>
-            {isGenerating ? 'Generating BotID token...' : 'BotID protection active'}
-          </span>
+          <span>BotID protection active</span>
         </div>
       )}
       {children}
+      {/* Official BotID Client Component - automatically handles bot detection */}
+      <BotIdClient />
     </div>
   );
 }
 
-// Hook for using BotID functionality
-export const useBotId = () => {
-  const [token, setToken] = useState<string | null>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const generateToken = async (): Promise<string | null> => {
-    setIsGenerating(true);
-    setError(null);
-
-    try {
-      const newToken = await generateBotIdToken();
-      setToken(newToken);
-      return newToken;
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to generate token';
-      setError(errorMessage);
-      return null;
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
-  const reset = () => {
-    setToken(null);
-    setError(null);
-  };
-
-  return {
-    token,
-    isGenerating,
-    error,
-    generateToken,
-    reset,
-  };
-};
-
 // BotID Provider for context
 export const BotIdProvider = ({ children }: { children: React.ReactNode }) => {
   const [isInitialized, setIsInitialized] = useState(false);
+  const config = getBotIdConfig();
 
   useEffect(() => {
-    const init = async () => {
-      if (isBotIdEnabled()) {
-        const success = await initializeBotId();
-        setIsInitialized(success);
-      } else {
-        setIsInitialized(true);
-      }
-    };
-
-    init();
+    // BotID initializes automatically on Vercel
+    setIsInitialized(true);
   }, []);
 
   return (
-    <div data-botid-initialized={isInitialized}>
+    <div data-botid-initialized={isInitialized} data-vercel={config.isVercel}>
       {children}
+      {/* Official BotID Client Component */}
+      <BotIdClient />
     </div>
   );
 };

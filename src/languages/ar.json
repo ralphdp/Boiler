@@ -59,7 +59,7 @@
   "homepage": {
     "title": "Boiler.click - قالب SaaS شامل",
     "subtitle": "قالب SaaS شامل للواجهة الأمامية والخلفية",
-    "description": "مدعوم بـ Next.js و Prisma و Shadcn و الذكاء الاصطناعي وتقنيات أخرى",
+    "description": "مدعوم بـ Next.js و Prisma و Shadcn و Vercel",
     "aboutButton": "حول Boiler",
     "githubButton": "جيثب",
     "comingSoon": "قريباً...",

@@ -205,9 +205,8 @@ NEXT_PUBLIC_SITE_PHYSICAL_ADDRESS="123 Oak St."
 # Analytics
 NEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"
 
-# BotID (Bot Detection)
-NEXT_PUBLIC_BOTID_SITE_KEY="your_site_key"
-BOTID_SECRET_KEY="your_secret_key"
+# BotID (Bot Detection) - No environment variables needed!
+# BotID is automatically enabled when deployed to Vercel
 
 # GitHub Repository
 NEXT_PUBLIC_GITHUB_USER="ralphdp"

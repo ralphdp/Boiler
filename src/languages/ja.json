@@ -177,7 +177,7 @@
   },
   "homepage": {
     "subtitle": "フルスタックSaaSボイラープレート",
-    "description": "Next.js、Prisma、Shadcn、その他のテクノロジーで構築",
+    "description": "Next.js、Prisma、Shadcn、Vercelで構築",
     "aboutButton": "Boilerについて",
     "githubButton": "Github",
     "comingSoon": "近日公開...",

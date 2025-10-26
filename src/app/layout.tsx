@@ -8,6 +8,7 @@ import {
   LazyFloatingSocialIcons,
   LazyCookieManager,
 } from "@/components/LazyComponents";
+import { BotIdProvider } from "@/components/BotId";
 
 const cabin = Cabin({
   subsets: ["latin"],
@@ -275,6 +276,8 @@ export default function RootLayout({
             <ScrollRestoration>{children}</ScrollRestoration>
             <LazyFloatingSocialIcons />
             <LazyCookieManager />
+            {/* BotID Client Component - automatically handles bot detection */}
+            <BotIdProvider />
           </CookieProvider>
         </LanguageProvider>
       </body>

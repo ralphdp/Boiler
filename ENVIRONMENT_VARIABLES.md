@@ -16,15 +16,9 @@ NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
 ### BotID (Bot Detection)
 
 ```bash
-# BotID Site Key (Public)
-# Get this from: https://vercel.com/botid
-# This is safe to expose in client-side code
-NEXT_PUBLIC_BOTID_SITE_KEY="your_site_key"
-
-# BotID Secret Key (Private)
-# Get this from: https://vercel.com/botid
-# Keep this secret - only used server-side
-BOTID_SECRET_KEY="your_secret_key"
+# BotID is automatically enabled when deployed to Vercel
+# No environment variables required!
+# BotID works out of the box on Vercel platform
 ```
 
 ### GitHub Repository

@@ -177,7 +177,7 @@
   },
   "homepage": {
     "subtitle": "Modèle SaaS Full-Stack",
-    "description": "Alimenté par Next.js, Prisma, Shadcn et d'autres technologies",
+    "description": "Alimenté par Next.js, Prisma, Shadcn et Vercel",
     "aboutButton": "À propos de Boiler",
     "githubButton": "Github",
     "comingSoon": "Bientôt disponible...",

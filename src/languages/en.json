@@ -177,7 +177,7 @@
   },
   "homepage": {
     "subtitle": "Full-Stack SaaS Minimal Boilerplate",
-    "description": "Powered by Next.js, Prisma, Shadcn, A.I., and other technologies",
+    "description": "Powered by Next.js, Prisma, Shadcn, and Vercel",
     "aboutButton": "About Boiler",
     "githubButton": "Github",
     "comingSoon": "Coming soon...",
