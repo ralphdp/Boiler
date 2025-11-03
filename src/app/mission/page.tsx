@@ -1,17 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Github, HelpCircle } from "lucide-react";
-import { getGitHubUrl } from "@/lib/github";
-import Link from "next/link";
 
 export default function MissionPage() {
-  const { t } = useLanguage();
-
   return (
     <div
       className="min-h-screen font-sans dark:bg-gradient-to-br dark:from-gray-900 dark:to-black"
@@ -19,59 +12,47 @@ export default function MissionPage() {
     >
       <Navigation />
       <main
-        className="flex min-h-screen w-full max-w-3xl mx-auto flex-col items-center justify-center py-32 px-16 sm:items-start relative z-10"
+        className="flex min-h-screen w-full max-w-4xl mx-auto flex-col items-center justify-center py-32 px-8 sm:px-16 relative z-10"
         role="main"
         aria-label="Mission page content"
       >
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="prose prose-lg dark:prose-invert max-w-none w-full">
           <motion.div
-            className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
-              {t("mission.title")}
-            </h1>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left"
+            className="flex flex-col gap-8 text-center sm:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p className="text-lg text-zinc-600 dark:text-zinc-200 leading-relaxed">
-              {t("mission.description")}
-            </p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4">
+              Our Mission
+            </h1>
 
-            <p className="text-lg text-zinc-600 dark:text-zinc-200 leading-relaxed mb-2">
-              {t("mission.goal")}
-            </p>
+            <div className="space-y-6">
+              <motion.p
+                className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-200 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              >
+                At Boiler.click, we believe that every developer should have
+                access to high-quality, production-ready tools that accelerate
+                their development process. Our mission is to eliminate the
+                repetitive setup work that often delays the launch of innovative
+                SaaS applications.
+              </motion.p>
 
-            <div
-              className="flex flex-row gap-4 w-full justify-center sm:justify-start"
-              role="group"
-              aria-label="Action buttons"
-            >
-              <Button asChild>
-                <a
-                  href={getGitHubUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center"
-                  aria-label="View Boiler.click on GitHub (opens in new tab)"
-                >
-                  <Github className="h-4 w-4" />
-                  {t("mission.githubButton")}
-                </a>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/support" aria-label="Get support for Boiler.click">
-                  <HelpCircle className="h-4 w-4" />
-                  {t("navigation.support")}
-                </Link>
-              </Button>
+              <motion.p
+                className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-200 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              >
+                We provide a comprehensive, modern boilerplate that includes
+                everything you need to build and deploy a full-stack SaaS
+                application. From authentication and database management to
+                beautiful UI components and deployment configurations, we've got
+                you covered.
+              </motion.p>
             </div>
           </motion.div>
         </div>

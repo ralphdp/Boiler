@@ -1,13 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Flame, Github, Info } from "lucide-react";
+import {
+  Flame,
+  Github,
+  Info,
+  Shield,
+  Database,
+  Palette,
+  Rocket,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { getGitHubUrl } from "@/lib/github";
@@ -160,9 +175,9 @@ export default function Home() {
               aria-label="Homepage action buttons"
             >
               <Button asChild className="w-auto">
-                <Link href="/about" aria-label="Learn more about Boiler.click">
+                <Link href="/features" aria-label="View all features">
                   <Info className="h-4 w-4" />
-                  {t("homepage.aboutButton")}
+                  {t("homepage.featuresButton")}
                 </Link>
               </Button>
               <Button asChild variant="outline" className="w-auto">
@@ -222,6 +237,70 @@ export default function Home() {
           </div>
         </motion.div>
       </main>
+
+      {/* Features Preview Section */}
+      <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16 relative z-10">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
+            {t("homepage.features.title")}
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+            {t("homepage.features.description")}
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Button asChild variant="outline">
+              <Link href="/features">View All Features</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/examples">See Examples</Link>
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { key: "authentication", icon: Shield },
+            { key: "database", icon: Database },
+            { key: "ui", icon: Palette },
+          ].map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="text-lg">
+                        {t(`features.items.${feature.key}.title`)}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      {t(`features.items.${feature.key}.description`)}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
       <Footer />
       <TechnologyShowcase />
     </div>

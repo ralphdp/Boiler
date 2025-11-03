@@ -76,14 +76,14 @@ export default function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="/documentation">
+                    <div>
                       <Badge
                         variant="secondary"
                         className="text-xs cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                       >
                         v.{process.env.NEXT_PUBLIC_VERSION || "0.0.1"}
                       </Badge>
-                    </Link>
+                    </div>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p className="text-xs">

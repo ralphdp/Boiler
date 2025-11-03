@@ -93,41 +93,22 @@ export function Navigation() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
-                href="/about"
+                href="/"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
-                {t("navigation.about")}
+                {t("navigation.home")}
               </Link>
               <Link
-                href="/mission"
+                href="/features"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
-                {t("navigation.mission")}
-              </Link>
-
-              <Link
-                href="/articles"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
-              >
-                {t("navigation.articles")}
+                {t("navigation.features")}
               </Link>
               <Link
-                href="/faq"
+                href="/examples"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
               >
-                {t("navigation.faq")}
-              </Link>
-              <Link
-                href="/documentation"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
-              >
-                {t("navigation.documentation")}
-              </Link>
-              <Link
-                href="/support"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
-              >
-                {t("navigation.support")}
+                {t("navigation.examples")}
               </Link>
             </motion.div>
 
@@ -182,44 +163,28 @@ export function Navigation() {
                   <div className="space-y-4" role="menubar">
                     <Link
                       ref={firstLinkRef}
-                      href="/about"
+                      href="/"
                       className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
-                      {t("navigation.about")}
+                      {t("navigation.home")}
                     </Link>
                     <Link
-                      href="/mission"
+                      href="/features"
                       className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
-                      {t("navigation.mission")}
+                      {t("navigation.features")}
                     </Link>
                     <Link
-                      href="/support"
+                      href="/examples"
                       className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       tabIndex={0}
                     >
-                      {t("navigation.support")}
-                    </Link>
-                    <Link
-                      href="/articles"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
-                      role="menuitem"
-                      tabIndex={0}
-                    >
-                      {t("navigation.articles")}
-                    </Link>
-                    <Link
-                      href="/faq"
-                      className="block text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
-                      role="menuitem"
-                      tabIndex={0}
-                    >
-                      {t("navigation.faq")}
+                      {t("navigation.examples")}
                     </Link>
                   </div>
 

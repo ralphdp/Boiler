@@ -1,12 +1,9 @@
 {
   "navigation": {
     "title": "Boiler.click",
-    "mission": "Mission",
-    "support": "Support",
-    "about": "About",
-    "documentation": "Documentation",
-    "articles": "Articles",
-    "faq": "FAQ"
+    "home": "Home",
+    "features": "Features",
+    "examples": "Examples"
   },
   "quickStart": {
     "title": "Quick Start",
@@ -134,7 +131,7 @@
   "homepage": {
     "subtitle": "Full-Stack SaaS Minimal Boilerplate",
     "description": "Powered by Next.js, Prisma, Shadcn, and Vercel",
-    "aboutButton": "About Boiler",
+    "featuresButton": "View Features",
     "githubButton": "GitHub",
     "comingSoon": "Coming soon...",
     "showcase": {
@@ -181,6 +178,147 @@
         "env": "Set up environment variables",
         "dev": "Start development server",
         "build": "Build for production"
+      }
+    },
+    "features": {
+      "title": "Key Features",
+      "subtitle": "Everything you need to build production-ready SaaS applications",
+      "description": "Boiler.click comes packed with essential features and best practices to help you launch faster."
+    }
+  },
+  "features": {
+    "title": "Features",
+    "subtitle": "Everything You Need to Build Production-Ready SaaS Applications",
+    "description": "Boiler.click comes packed with essential features and best practices to help you launch faster and scale with confidence.",
+    "sections": {
+      "core": {
+        "title": "Core Features",
+        "description": "Essential functionality built right in"
+      },
+      "development": {
+        "title": "Developer Experience",
+        "description": "Tools and configurations that make development a pleasure"
+      },
+      "production": {
+        "title": "Production Ready",
+        "description": "Optimized for scale, security, and performance"
+      }
+    },
+    "items": {
+      "authentication": {
+        "title": "Authentication System",
+        "description": "Passport.js integration (planned) with secure session management and OAuth support"
+      },
+      "database": {
+        "title": "Database Management",
+        "description": "Prisma ORM with PostgreSQL for type-safe database operations and migrations"
+      },
+      "ui": {
+        "title": "UI Components",
+        "description": "Shadcn/ui component library with custom styling and dark mode support"
+      },
+      "i18n": {
+        "title": "Internationalization",
+        "description": "Support for 5 languages (EN, ES, FR, AR, JP) with easy expansion"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Mobile-first approach with beautiful responsive layouts"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "WCAG 2.1 AA compliant with proper ARIA labels and keyboard navigation"
+      },
+      "security": {
+        "title": "Security",
+        "description": "BotID integration, CSP headers, rate limiting, and secure cookie handling"
+      },
+      "seo": {
+        "title": "SEO Optimization",
+        "description": "Meta tags, sitemap generation, structured data, and robots.txt"
+      },
+      "typescript": {
+        "title": "TypeScript",
+        "description": "Full TypeScript support with strict type checking"
+      },
+      "eslint": {
+        "title": "Code Quality",
+        "description": "ESLint and Prettier configured for consistent code style"
+      },
+      "vercel": {
+        "title": "Vercel Optimized",
+        "description": "Optimized for Vercel deployment with edge runtime support"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Web Vitals tracking and performance monitoring"
+      }
+    }
+  },
+  "examples": {
+    "title": "Examples",
+    "subtitle": "UI Components & Layout Examples",
+    "description": "Explore the UI components, layouts, and design patterns available in Boiler.click. All examples are interactive and ready to use.",
+    "sections": {
+      "components": {
+        "title": "UI Components",
+        "description": "Beautiful, accessible components from Shadcn/ui"
+      },
+      "layouts": {
+        "title": "Layout Examples",
+        "description": "Common page layouts and structures"
+      },
+      "patterns": {
+        "title": "Design Patterns",
+        "description": "Proven patterns for SaaS applications"
+      }
+    },
+    "components": {
+      "button": {
+        "title": "Button",
+        "description": "Versatile button component with multiple variants",
+        "variants": {
+          "default": "Default",
+          "destructive": "Destructive",
+          "outline": "Outline",
+          "secondary": "Secondary",
+          "ghost": "Ghost",
+          "link": "Link"
+        }
+      },
+      "card": {
+        "title": "Card",
+        "description": "Flexible card component for displaying content",
+        "exampleTitle": "Example Card",
+        "exampleContent": "This is an example card component with header, content, and footer sections."
+      },
+      "badge": {
+        "title": "Badge",
+        "description": "Small status indicators and labels",
+        "variants": {
+          "default": "Default",
+          "secondary": "Secondary",
+          "destructive": "Destructive",
+          "outline": "Outline"
+        }
+      }
+    },
+    "layouts": {
+      "hero": {
+        "title": "Hero Section",
+        "description": "Eye-catching hero sections with CTAs"
+      },
+      "features": {
+        "title": "Features Grid",
+        "description": "Grid layouts for showcasing features"
+      },
+      "pricing": {
+        "title": "Pricing Cards",
+        "description": "Pricing table layouts"
+      },
+      "testimonials": {
+        "title": "Testimonials",
+        "description": "Customer testimonial sections"
       }
     }
   },
