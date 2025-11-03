@@ -203,7 +203,7 @@ NEXT_PUBLIC_SITE_EMAIL_SUPPORT="hi@boiler.click"
 NEXT_PUBLIC_SITE_PHYSICAL_ADDRESS="123 Oak St."
 
 # Analytics
-NEXT_PUBLIC_GA_ID="G-DH9HJEP4VV"
+NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
 
 # BotID (Bot Detection) - No environment variables needed!
 # BotID is automatically enabled when deployed to Vercel

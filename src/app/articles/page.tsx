@@ -148,7 +148,7 @@ export default function ArticlesPage() {
           role="main"
           aria-label="Articles page main content"
         >
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="prose prose-lg dark:prose-invert w-full">
             <motion.div
               className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
               initial={{ opacity: 0, y: 0 }}
