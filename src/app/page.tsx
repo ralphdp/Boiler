@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -49,6 +49,26 @@ export default function Home() {
   const { t } = useLanguage();
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [hasImageError, setHasImageError] = useState(false);
+
+  // Memoize image load handlers
+  const handleImageLoad = useCallback(() => {
+    setIsImageLoading(false);
+  }, []);
+
+  const handleImageError = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+      setHasImageError(true);
+      setIsImageLoading(false);
+    },
+    []
+  );
+
+  // Memoize blur data URL to avoid re-creating on every render
+  const blurDataURL = useMemo(
+    () =>
+      "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==",
+    []
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans dark:bg-black relative overflow-hidden">
@@ -157,25 +177,13 @@ export default function Home() {
             <QuickStart />
           </div> */}
 
-            {/* Coming soon section */}
-            <div className="w-full mb-4">
-              <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                <Badge
-                  variant="outline"
-                  className="bg-transparent border-purple-500 text-purple-600 dark:text-purple-400 px-4 py-2 text-sm font-medium"
-                >
-                  {t("homepage.comingSoon")}
-                </Badge>
-              </div>
-            </div>
-
             <div
               className="flex flex-row gap-4 w-full justify-center md:justify-start"
               role="group"
               aria-label="Homepage action buttons"
             >
               <Button asChild className="w-auto">
-                <Link href="/features" aria-label="View all features">
+                <Link href="/features" aria-label={t("ui.viewAllFeatures")}>
                   <Info className="h-4 w-4" />
                   {t("homepage.featuresButton")}
                 </Link>
@@ -185,7 +193,7 @@ export default function Home() {
                   href={getGitHubUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="View Boiler.click on GitHub (opens in new tab)"
+                  aria-label={t("ui.viewGitHub")}
                 >
                   <Github className="h-4 w-4" />
                   {t("homepage.githubButton")}
@@ -205,12 +213,14 @@ export default function Home() {
           <div className="relative w-64 h-64 lg:w-80 lg:h-80">
             {isImageLoading && !hasImageError && (
               <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg flex items-center justify-center">
-                <div className="text-gray-400 text-sm">Loading...</div>
+                <div className="text-gray-400 text-sm">{t("ui.loading")}</div>
               </div>
             )}
             {hasImageError && (
               <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-                <div className="text-gray-400 text-sm">Image unavailable</div>
+                <div className="text-gray-400 text-sm">
+                  {t("ui.imageUnavailable")}
+                </div>
               </div>
             )}
             <Image
@@ -218,91 +228,22 @@ export default function Home() {
               alt="Eddie the Elephant - Boiler.click mascot"
               width={320}
               height={320}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 320px"
               className={`object-contain w-full h-full transition-opacity duration-300 ${
                 !isImageLoading ? "opacity-100" : "opacity-0"
               }`}
               priority
               quality={90}
               placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-              onLoad={() => {
-                setIsImageLoading(false);
-                console.log("Eddie image loaded successfully");
-              }}
-              onError={(e) => {
-                setHasImageError(true);
-                console.error("Eddie image failed to load:", e);
-              }}
+              blurDataURL={blurDataURL}
+              onLoad={handleImageLoad}
+              onError={handleImageError}
             />
           </div>
         </motion.div>
       </main>
 
-      {/* Features Preview Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16 relative z-10">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
-            {t("homepage.features.title")}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-            {t("homepage.features.description")}
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Button asChild variant="outline">
-              <Link href="/features">View All Features</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/examples">See Examples</Link>
-            </Button>
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { key: "authentication", icon: Shield },
-            { key: "database", icon: Database },
-            { key: "ui", icon: Palette },
-          ].map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <CardTitle className="text-lg">
-                        {t(`features.items.${feature.key}.title`)}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      {t(`features.items.${feature.key}.description`)}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
-
       <Footer />
-      <TechnologyShowcase />
     </div>
   );
 }

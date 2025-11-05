@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Flame, Menu } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo, memo } from "react";
 import { SimpleLanguageSwitcher } from "@/components/SimpleLanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
@@ -14,7 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export function Navigation() {
+export const Navigation = memo(function Navigation() {
   const { t, isRTL } = useLanguage();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -68,7 +68,7 @@ export function Navigation() {
                 aria-hidden="true"
               />
               <span className="text-xl font-bold font-cabin">
-                {(() => {
+                {useMemo(() => {
                   const title = t("navigation.title") as string;
                   const parts = title.split(".");
                   return (
@@ -77,7 +77,7 @@ export function Navigation() {
                       <span className="text-xs">.{parts[1] || ""}</span>
                     </>
                   );
-                })()}
+                }, [t])}
               </span>
             </Link>
           </motion.div>
@@ -200,4 +200,4 @@ export function Navigation() {
       </div>
     </motion.nav>
   );
-}
+});

@@ -301,6 +301,116 @@
           "destructive": "Destructive",
           "outline": "Outline"
         }
+      },
+      "form": {
+        "title": "Form Components",
+        "description": "Input fields and form elements",
+        "placeholders": {
+          "text": "Text input",
+          "email": "Email input",
+          "password": "Password input",
+          "disabled": "Disabled input"
+        }
+      },
+      "interactive": {
+        "title": "Interactive Components",
+        "description": "Dropdowns, tooltips, and menus",
+        "userMenu": "User Menu",
+        "myAccount": "My Account",
+        "profile": "Profile",
+        "settings": "Settings",
+        "logout": "Log out"
+      },
+      "textarea": {
+        "title": "Textarea",
+        "description": "Multi-line text input component",
+        "placeholder": "Enter your message here..."
+      },
+      "select": {
+        "title": "Select",
+        "description": "Dropdown selection component",
+        "options": {
+          "option1": "Option 1",
+          "option2": "Option 2",
+          "option3": "Option 3"
+        }
+      },
+      "alert": {
+        "title": "Alert Messages",
+        "description": "Important notifications and alerts",
+        "success": {
+          "title": "Success",
+          "message": "Your changes have been saved successfully!"
+        },
+        "error": {
+          "title": "Error",
+          "message": "Something went wrong. Please try again."
+        },
+        "warning": {
+          "title": "Warning",
+          "message": "Please review your input before submitting."
+        },
+        "info": {
+          "title": "Information",
+          "message": "New features are available. Check them out!"
+        }
+      },
+      "modal": {
+        "title": "Modal Dialog",
+        "description": "Interactive modal dialogs and overlays",
+        "openModal": "Open Modal",
+        "modalTitle": "Confirm Action",
+        "modalDescription": "Are you sure you want to proceed? This action cannot be undone.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      },
+      "separator": {
+        "title": "Separator",
+        "description": "Visual dividers and separators"
+      },
+      "loading": {
+        "title": "Loading States",
+        "description": "Loading indicators and skeleton screens",
+        "loading": "Loading...",
+        "pleaseWait": "Please wait while we process your request."
+      },
+      "emptyState": {
+        "title": "Empty States",
+        "description": "Try adjusting your search or filters.",
+        "noResults": "No results found",
+        "action": "Clear Filters"
+      },
+      "pricing": {
+        "title": "Pricing Cards",
+        "description": "Pricing table layouts",
+        "basic": {
+          "name": "Basic",
+          "price": "$9",
+          "period": "/month",
+          "features": [
+            "10 projects",
+            "5GB storage",
+            "Email support"
+          ]
+        },
+        "pro": {
+          "name": "Pro",
+          "price": "$29",
+          "period": "/month",
+          "features": [
+            "Unlimited projects",
+            "50GB storage",
+            "Priority support"
+          ]
+        }
+      },
+      "dashboard": {
+        "title": "Dashboard Cards",
+        "description": "Dashboard widget examples",
+        "activeUsers": "Active Users",
+        "conversionRate": "Conversion Rate",
+        "avgSession": "Avg. Session",
+        "bounceRate": "Bounce Rate"
       }
     },
     "layouts": {
@@ -319,7 +429,13 @@
       "testimonials": {
         "title": "Testimonials",
         "description": "Customer testimonial sections"
-      }
+      },
+      "totalUsers": "Total Users",
+      "revenue": "Revenue",
+      "growthPercent": "from last month",
+      "title": "Dashboard Cards",
+      "activeUsers": "Active Users",
+      "conversionRate": "Conversion Rate"
     }
   },
   "about": {
@@ -704,5 +820,68 @@
       "tryAgain": "Try again",
       "goHome": "Go home"
     }
+  },
+  "ui": {
+    "loading": "Loading...",
+    "imageUnavailable": "Image unavailable",
+    "close": "Close",
+    "share": "Share:",
+    "viewAllFeatures": "View all features",
+    "viewGitHub": "View Boiler.click on GitHub (opens in new tab)"
+  },
+  "botid": {
+    "example": {
+      "title": "BotID Example",
+      "description": "This example demonstrates BotID integration:",
+      "features": {
+        "invisible": "Invisible bot detection",
+        "noInteraction": "No user interaction required",
+        "mlProtection": "Advanced ML-based protection",
+        "riskScoring": "Risk scoring and analysis",
+        "automatic": "Automatic on Vercel deployment"
+      },
+      "status": {
+        "label": "BotID Status:",
+        "active": "Active (Official Implementation)",
+        "message": "No tokens required - automatic detection"
+      },
+      "button": {
+        "verifying": "Verifying...",
+        "test": "Test BotID Verification"
+      },
+      "modes": {
+        "development": {
+          "label": "Development Mode:",
+          "description": "BotID is disabled in development"
+        },
+        "production": {
+          "label": "Production Mode:",
+          "description": "BotID automatically activates on Vercel"
+        },
+        "noConfig": {
+          "label": "No Configuration:",
+          "description": "No environment variables or API keys required"
+        }
+      },
+      "disabled": "BotID disabled in development",
+      "active": "BotID protection active"
+    }
+  },
+  "aria": {
+    "mobileMenu": "Mobile navigation menu",
+    "toggleMobileMenu": "Toggle mobile menu",
+    "coreFeatures": "Core features",
+    "devExperience": "Developer experience features",
+    "userExperience": "User experience features",
+    "socialSharingLinks": "Social sharing links",
+    "shareOn": "Share on",
+    "siteFooter": "Site footer",
+    "footerContent": "Footer content",
+    "viewLegalInfo": "View legal information",
+    "viewSitemap": "View sitemap",
+    "mainNavigation": "Main navigation",
+    "homepage": "Boiler.click homepage",
+    "homepageMainContent": "Homepage main content",
+    "homepageActionButtons": "Homepage action buttons"
   }
 }

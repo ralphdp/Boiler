@@ -479,7 +479,6 @@ Boiler.click is optimized for Vercel deployment with zero configuration required
    ```
 
 2. **Connect to Vercel**
-
    - Go to [vercel.com](https://vercel.com)
    - Sign in with GitHub
    - Click "New Project"
@@ -626,19 +625,16 @@ Boiler.click includes comprehensive setup guides for analytics and advertising p
 See `ADMIN_PANEL_SETUP.md` for detailed instructions on:
 
 1. **Google Analytics Setup**
-
    - GA4 property creation
    - API key generation
    - Event tracking configuration
 
 2. **Google Ads Integration**
-
    - API credentials setup
    - Campaign data retrieval
    - Performance metrics
 
 3. **Bing Ads Integration**
-
    - Microsoft Advertising API setup
    - Campaign management
    - Cross-platform analytics

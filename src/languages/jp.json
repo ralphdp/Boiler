@@ -1,12 +1,9 @@
 {
   "navigation": {
     "title": "Boiler.click",
-    "mission": "ミッション",
-    "support": "サポート",
-    "about": "について",
-    "documentation": "ドキュメント",
-    "articles": "記事",
-    "faq": "よくある質問"
+    "home": "ホーム",
+    "features": "機能",
+    "examples": "例"
   },
   "quickStart": {
     "title": "クイックスタート",
@@ -213,7 +210,7 @@
   "homepage": {
     "subtitle": "フルスタックSaaSボイラープレート",
     "description": "Next.js、Prisma、Shadcn、Vercelで構築",
-    "aboutButton": "Boilerについて",
+    "featuresButton": "機能を見る",
     "githubButton": "GitHub",
     "comingSoon": "近日公開...",
     "showcase": {
@@ -628,5 +625,252 @@
       "tryAgain": "再試行",
       "goHome": "ホームに戻る"
     }
+  },
+  "features": {
+    "title": "機能",
+    "subtitle": "本番環境対応のSaaSアプリケーションを構築するために必要なすべて",
+    "description": "Boiler.clickには、より迅速に起動し、自信を持ってスケールできるように、必須機能とベストプラクティスが満載されています。",
+    "sections": {
+      "core": {
+        "title": "コア機能",
+        "description": "組み込まれた基本的な機能"
+      },
+      "development": {
+        "title": "開発者エクスペリエンス",
+        "description": "開発を楽しくするツールと設定"
+      },
+      "production": {
+        "title": "本番環境対応",
+        "description": "スケール、セキュリティ、パフォーマンスに最適化"
+      }
+    },
+    "items": {}
+  },
+  "examples": {
+    "title": "例",
+    "subtitle": "UIコンポーネントとレイアウトの例",
+    "description": "Boiler.clickで利用可能なUIコンポーネント、レイアウト、デザインパターンを探索してください。すべての例はインタラクティブで、すぐに使用できます。",
+    "sections": {
+      "components": {
+        "title": "UIコンポーネント",
+        "description": "Shadcn/uiの美しくアクセシブルなコンポーネント"
+      },
+      "layouts": {
+        "title": "レイアウトの例",
+        "description": "一般的なページレイアウトと構造"
+      }
+    },
+    "components": {
+      "button": {
+        "title": "ボタン",
+        "description": "複数のバリアントを持つ汎用ボタンコンポーネント",
+        "variants": {
+          "default": "デフォルト",
+          "destructive": "破壊的",
+          "outline": "アウトライン",
+          "secondary": "セカンダリ",
+          "ghost": "ゴースト",
+          "link": "リンク"
+        }
+      },
+      "badge": {
+        "title": "バッジ",
+        "description": "小さなステータスインジケーターとラベル",
+        "variants": {
+          "default": "デフォルト",
+          "secondary": "セカンダリ",
+          "destructive": "破壊的",
+          "outline": "アウトライン"
+        }
+      },
+      "card": {
+        "title": "カード",
+        "description": "コンテンツを表示するための柔軟なカードコンポーネント",
+        "exampleTitle": "サンプルカード",
+        "exampleContent": "これは、ヘッダー、コンテンツ、フッターセクションを持つサンプルカードコンポーネントです。"
+      },
+      "form": {
+        "title": "フォームコンポーネント",
+        "description": "入力フィールドとフォーム要素",
+        "placeholders": {
+          "text": "テキスト入力",
+          "email": "メール入力",
+          "password": "パスワード入力",
+          "disabled": "無効な入力"
+        }
+      },
+      "interactive": {
+        "title": "インタラクティブコンポーネント",
+        "description": "ドロップダウン、ツールチップ、メニュー",
+        "userMenu": "ユーザーメニュー",
+        "myAccount": "マイアカウント",
+        "profile": "プロフィール",
+        "settings": "設定",
+        "logout": "ログアウト"
+      },
+      "textarea": {
+        "title": "テキストエリア",
+        "description": "複数行テキスト入力コンポーネント",
+        "placeholder": "メッセージをここに入力してください..."
+      },
+      "select": {
+        "title": "選択",
+        "description": "ドロップダウン選択コンポーネント",
+        "options": {
+          "option1": "オプション1",
+          "option2": "オプション2",
+          "option3": "オプション3"
+        }
+      },
+      "alert": {
+        "title": "アラートメッセージ",
+        "description": "重要な通知とアラート",
+        "success": {
+          "title": "成功",
+          "message": "変更が正常に保存されました！"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "問題が発生しました。もう一度お試しください。"
+        },
+        "warning": {
+          "title": "警告",
+          "message": "送信前に入力を確認してください。"
+        },
+        "info": {
+          "title": "情報",
+          "message": "新機能が利用可能です。チェックしてみてください！"
+        }
+      },
+      "modal": {
+        "title": "モーダルダイアログ",
+        "description": "インタラクティブなモーダルダイアログとオーバーレイ",
+        "openModal": "モーダルを開く",
+        "modalTitle": "アクションを確認",
+        "modalDescription": "続行してもよろしいですか？このアクションは元に戻せません。",
+        "cancel": "キャンセル",
+        "confirm": "確認"
+      },
+      "separator": {
+        "title": "区切り線",
+        "description": "視覚的な区切り線"
+      },
+      "loading": {
+        "title": "読み込み状態",
+        "description": "読み込みインジケーターとスケルトン画面",
+        "loading": "読み込み中...",
+        "pleaseWait": "リクエストを処理しています。お待ちください。"
+      },
+      "emptyState": {
+        "title": "空の状態",
+        "description": "検索またはフィルターを調整してみてください。",
+        "noResults": "結果が見つかりません",
+        "action": "フィルターをクリア"
+      },
+      "pricing": {
+        "title": "価格カード",
+        "description": "価格表レイアウト",
+        "basic": {
+          "name": "ベーシック",
+          "price": "$9",
+          "period": "/月",
+          "features": [
+            "10プロジェクト",
+            "5GBストレージ",
+            "メールサポート"
+          ]
+        },
+        "pro": {
+          "name": "プロ",
+          "price": "$29",
+          "period": "/月",
+          "features": [
+            "無制限プロジェクト",
+            "50GBストレージ",
+            "優先サポート"
+          ]
+        }
+      },
+      "dashboard": {
+        "title": "ダッシュボードカード",
+        "description": "ダッシュボードウィジェットの例",
+        "activeUsers": "アクティブユーザー",
+        "conversionRate": "コンバージョン率",
+        "avgSession": "平均セッション",
+        "bounceRate": "バウンス率"
+      }
+    },
+    "layouts": {
+      "title": "ダッシュボードカード",
+      "description": "一般的なページレイアウトと構造",
+      "totalUsers": "総ユーザー数",
+      "revenue": "収益",
+      "growthPercent": "先月から%",
+      "activeUsers": "アクティブユーザー",
+      "conversionRate": "コンバージョン率"
+    }
+  },
+  "ui": {
+    "loading": "読み込み中...",
+    "imageUnavailable": "画像が利用できません",
+    "close": "閉じる",
+    "share": "共有:",
+    "viewAllFeatures": "すべての機能を見る",
+    "viewGitHub": "GitHubでBoiler.clickを表示（新しいタブで開く）"
+  },
+  "botid": {
+    "example": {
+      "title": "BotIDの例",
+      "description": "この例はBotID統合を示しています:",
+      "features": {
+        "invisible": "非表示のボット検出",
+        "noInteraction": "ユーザー操作不要",
+        "mlProtection": "高度なMLベースの保護",
+        "riskScoring": "リスクスコアリングと分析",
+        "automatic": "Vercelデプロイ時に自動"
+      },
+      "status": {
+        "label": "BotIDステータス:",
+        "active": "アクティブ（公式実装）",
+        "message": "トークン不要 - 自動検出"
+      },
+      "button": {
+        "verifying": "確認中...",
+        "test": "BotID検証をテスト"
+      },
+      "modes": {
+        "development": {
+          "label": "開発モード:",
+          "description": "開発ではBotIDは無効"
+        },
+        "production": {
+          "label": "本番モード:",
+          "description": "BotIDはVercelで自動的に有効化"
+        },
+        "noConfig": {
+          "label": "設定不要:",
+          "description": "環境変数やAPIキーは不要"
+        }
+      },
+      "disabled": "開発ではBotIDは無効",
+      "active": "BotID保護がアクティブ"
+    }
+  },
+  "aria": {
+    "mobileMenu": "モバイルナビゲーションメニュー",
+    "toggleMobileMenu": "モバイルメニューを切り替え",
+    "coreFeatures": "コア機能",
+    "devExperience": "開発者体験機能",
+    "userExperience": "ユーザー体験機能",
+    "socialSharingLinks": "ソーシャル共有リンク",
+    "shareOn": "で共有",
+    "siteFooter": "サイトフッター",
+    "footerContent": "フッターコンテンツ",
+    "viewLegalInfo": "法的情報を表示",
+    "viewSitemap": "サイトマップを表示",
+    "mainNavigation": "メインナビゲーション",
+    "homepage": "Boiler.clickホームページ",
+    "homepageMainContent": "ホームページのメインコンテンツ",
+    "homepageActionButtons": "ホームページのアクションボタン"
   }
 }

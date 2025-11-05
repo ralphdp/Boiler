@@ -1,12 +1,9 @@
 {
   "navigation": {
     "title": "Boiler.click",
-    "mission": "Notre Mission",
-    "support": "Assistance",
-    "about": "À propos",
-    "documentation": "Documentation",
-    "articles": "Articles",
-    "faq": "FAQ"
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "examples": "Exemples"
   },
   "quickStart": {
     "title": "Démarrage Rapide",
@@ -213,7 +210,7 @@
   "homepage": {
     "subtitle": "Modèle SaaS Full-Stack",
     "description": "Alimenté par Next.js, Prisma, Shadcn et Vercel",
-    "aboutButton": "À propos de Boiler",
+    "featuresButton": "Voir les Fonctionnalités",
     "githubButton": "GitHub",
     "comingSoon": "Bientôt disponible...",
     "showcase": {
@@ -636,5 +633,252 @@
       "tryAgain": "Réessayer",
       "goHome": "Aller à l'accueil"
     }
+  },
+  "features": {
+    "title": "Fonctionnalités",
+    "subtitle": "Tout ce dont vous avez besoin pour créer des applications SaaS prêtes pour la production",
+    "description": "Boiler.click est livré avec des fonctionnalités essentielles et des meilleures pratiques pour vous aider à lancer plus rapidement et à évoluer en toute confiance.",
+    "sections": {
+      "core": {
+        "title": "Fonctionnalités Principales",
+        "description": "Fonctionnalité essentielle intégrée"
+      },
+      "development": {
+        "title": "Expérience Développeur",
+        "description": "Outils et configurations qui rendent le développement agréable"
+      },
+      "production": {
+        "title": "Prêt pour la Production",
+        "description": "Optimisé pour la mise à l'échelle, la sécurité et les performances"
+      }
+    },
+    "items": {}
+  },
+  "examples": {
+    "title": "Exemples",
+    "subtitle": "Exemples de Composants UI et Mises en Page",
+    "description": "Explorez les composants UI, les mises en page et les modèles de conception disponibles dans Boiler.click. Tous les exemples sont interactifs et prêts à l'emploi.",
+    "sections": {
+      "components": {
+        "title": "Composants UI",
+        "description": "Composants magnifiques et accessibles de Shadcn/ui"
+      },
+      "layouts": {
+        "title": "Exemples de Mise en Page",
+        "description": "Mises en page et structures de page courantes"
+      }
+    },
+    "components": {
+      "button": {
+        "title": "Bouton",
+        "description": "Composant bouton polyvalent avec plusieurs variantes",
+        "variants": {
+          "default": "Par Défaut",
+          "destructive": "Destructif",
+          "outline": "Contour",
+          "secondary": "Secondaire",
+          "ghost": "Fantôme",
+          "link": "Lien"
+        }
+      },
+      "badge": {
+        "title": "Badge",
+        "description": "Petits indicateurs de statut et étiquettes",
+        "variants": {
+          "default": "Par Défaut",
+          "secondary": "Secondaire",
+          "destructive": "Destructif",
+          "outline": "Contour"
+        }
+      },
+      "card": {
+        "title": "Carte",
+        "description": "Composant carte flexible pour afficher du contenu",
+        "exampleTitle": "Carte d'Exemple",
+        "exampleContent": "Ceci est un composant carte d'exemple avec des sections d'en-tête, de contenu et de pied de page."
+      },
+      "form": {
+        "title": "Composants de Formulaire",
+        "description": "Champs de saisie et éléments de formulaire",
+        "placeholders": {
+          "text": "Saisie de texte",
+          "email": "Saisie d'email",
+          "password": "Saisie de mot de passe",
+          "disabled": "Saisie désactivée"
+        }
+      },
+      "interactive": {
+        "title": "Composants Interactifs",
+        "description": "Menus déroulants, tooltips et menus",
+        "userMenu": "Menu Utilisateur",
+        "myAccount": "Mon Compte",
+        "profile": "Profil",
+        "settings": "Paramètres",
+        "logout": "Déconnexion"
+      },
+      "textarea": {
+        "title": "Zone de Texte",
+        "description": "Composant de saisie de texte multiligne",
+        "placeholder": "Entrez votre message ici..."
+      },
+      "select": {
+        "title": "Sélection",
+        "description": "Composant de sélection déroulante",
+        "options": {
+          "option1": "Option 1",
+          "option2": "Option 2",
+          "option3": "Option 3"
+        }
+      },
+      "alert": {
+        "title": "Messages d'Alerte",
+        "description": "Notifications et alertes importantes",
+        "success": {
+          "title": "Succès",
+          "message": "Vos modifications ont été enregistrées avec succès!"
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Quelque chose s'est mal passé. Veuillez réessayer."
+        },
+        "warning": {
+          "title": "Avertissement",
+          "message": "Veuillez vérifier votre saisie avant de soumettre."
+        },
+        "info": {
+          "title": "Information",
+          "message": "De nouvelles fonctionnalités sont disponibles. Découvrez-les!"
+        }
+      },
+      "modal": {
+        "title": "Dialogue Modal",
+        "description": "Dialogues modaux interactifs et superpositions",
+        "openModal": "Ouvrir Modal",
+        "modalTitle": "Confirmer l'Action",
+        "modalDescription": "Êtes-vous sûr de vouloir continuer? Cette action ne peut pas être annulée.",
+        "cancel": "Annuler",
+        "confirm": "Confirmer"
+      },
+      "separator": {
+        "title": "Séparateur",
+        "description": "Séparateurs visuels"
+      },
+      "loading": {
+        "title": "États de Chargement",
+        "description": "Indicateurs de chargement et écrans squelette",
+        "loading": "Chargement...",
+        "pleaseWait": "Veuillez patienter pendant le traitement de votre demande."
+      },
+      "emptyState": {
+        "title": "États Vides",
+        "description": "Essayez d'ajuster votre recherche ou vos filtres.",
+        "noResults": "Aucun résultat trouvé",
+        "action": "Effacer les Filtres"
+      },
+      "pricing": {
+        "title": "Cartes de Prix",
+        "description": "Dispositions de tableau de prix",
+        "basic": {
+          "name": "De Base",
+          "price": "9€",
+          "period": "/mois",
+          "features": [
+            "10 projets",
+            "5 Go de stockage",
+            "Support email"
+          ]
+        },
+        "pro": {
+          "name": "Pro",
+          "price": "29€",
+          "period": "/mois",
+          "features": [
+            "Projets illimités",
+            "50 Go de stockage",
+            "Support prioritaire"
+          ]
+        }
+      },
+      "dashboard": {
+        "title": "Cartes de Tableau de Bord",
+        "description": "Exemples de widgets de tableau de bord",
+        "activeUsers": "Utilisateurs Actifs",
+        "conversionRate": "Taux de Conversion",
+        "avgSession": "Session Moyenne",
+        "bounceRate": "Taux de Rebond"
+      }
+    },
+    "layouts": {
+      "title": "Cartes de Tableau de Bord",
+      "description": "Mises en page et structures de page courantes",
+      "totalUsers": "Utilisateurs Totaux",
+      "revenue": "Revenus",
+      "growthPercent": "% du mois dernier",
+      "activeUsers": "Utilisateurs Actifs",
+      "conversionRate": "Taux de Conversion"
+    }
+  },
+  "ui": {
+    "loading": "Chargement...",
+    "imageUnavailable": "Image indisponible",
+    "close": "Fermer",
+    "share": "Partager:",
+    "viewAllFeatures": "Voir toutes les fonctionnalités",
+    "viewGitHub": "Voir Boiler.click sur GitHub (s'ouvre dans un nouvel onglet)"
+  },
+  "botid": {
+    "example": {
+      "title": "Exemple BotID",
+      "description": "Cet exemple démontre l'intégration BotID:",
+      "features": {
+        "invisible": "Détection invisible des bots",
+        "noInteraction": "Aucune interaction utilisateur requise",
+        "mlProtection": "Protection avancée basée sur ML",
+        "riskScoring": "Analyse et notation des risques",
+        "automatic": "Automatique sur le déploiement Vercel"
+      },
+      "status": {
+        "label": "Statut BotID:",
+        "active": "Actif (Implémentation Officielle)",
+        "message": "Aucun token requis - détection automatique"
+      },
+      "button": {
+        "verifying": "Vérification...",
+        "test": "Tester la Vérification BotID"
+      },
+      "modes": {
+        "development": {
+          "label": "Mode Développement:",
+          "description": "BotID est désactivé en développement"
+        },
+        "production": {
+          "label": "Mode Production:",
+          "description": "BotID s'active automatiquement sur Vercel"
+        },
+        "noConfig": {
+          "label": "Aucune Configuration:",
+          "description": "Aucune variable d'environnement ou clé API requise"
+        }
+      },
+      "disabled": "BotID désactivé en développement",
+      "active": "Protection BotID active"
+    }
+  },
+  "aria": {
+    "mobileMenu": "Menu de navigation mobile",
+    "toggleMobileMenu": "Basculer le menu mobile",
+    "coreFeatures": "Fonctionnalités principales",
+    "devExperience": "Fonctionnalités d'expérience développeur",
+    "userExperience": "Fonctionnalités d'expérience utilisateur",
+    "socialSharingLinks": "Liens de partage social",
+    "shareOn": "Partager sur",
+    "siteFooter": "Pied de page du site",
+    "footerContent": "Contenu du pied de page",
+    "viewLegalInfo": "Voir les informations légales",
+    "viewSitemap": "Voir le plan du site",
+    "mainNavigation": "Navigation principale",
+    "homepage": "Page d'accueil Boiler.click",
+    "homepageMainContent": "Contenu principal de la page d'accueil",
+    "homepageActionButtons": "Boutons d'action de la page d'accueil"
   }
 }

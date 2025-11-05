@@ -18,10 +18,13 @@ const webVitalsSchema = z.object({
   timestamp: z.string().optional(),
 });
 
+export const dynamic = "force-dynamic"; // Analytics endpoints should always be dynamic
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   try {
     // Apply rate limiting
-    const rateLimitResponse = apiRateLimit(request);
+    const rateLimitResponse = await apiRateLimit(request);
     if (rateLimitResponse.status !== 200) {
       return rateLimitResponse;
     }

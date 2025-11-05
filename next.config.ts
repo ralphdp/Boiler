@@ -35,6 +35,27 @@ const nextConfig: NextConfig = {
             chunks: "all",
             priority: 10,
           },
+          // Split large animation library
+          framerMotion: {
+            name: "framer-motion",
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            chunks: "async",
+            priority: 15,
+          },
+          // Split UI component libraries
+          radixUI: {
+            name: "radix-ui",
+            test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+            chunks: "async",
+            priority: 12,
+          },
+          // Split icon library
+          lucideIcons: {
+            name: "lucide-icons",
+            test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+            chunks: "async",
+            priority: 11,
+          },
           common: {
             name: "common",
             minChunks: 2,
@@ -50,7 +71,28 @@ const nextConfig: NextConfig = {
   headers: async () => [
     {
       source: "/api/:path*",
-      headers: [{ key: "Cache-Control", value: "public, max-age=300" }],
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=300" },
+        {
+          key: "Access-Control-Allow-Origin",
+          value:
+            process.env.NODE_ENV === "production"
+              ? process.env.NEXT_PUBLIC_SITE_URL || "https://boiler.click"
+              : "*",
+        },
+        {
+          key: "Access-Control-Allow-Methods",
+          value: "GET, POST, PUT, DELETE, OPTIONS",
+        },
+        {
+          key: "Access-Control-Allow-Headers",
+          value: "Content-Type, Authorization, X-CSRF-Token",
+        },
+        {
+          key: "Access-Control-Max-Age",
+          value: "86400",
+        },
+      ],
     },
     {
       source: "/_next/static/:path*",
@@ -69,6 +111,45 @@ const nextConfig: NextConfig = {
         { key: "X-Frame-Options", value: "DENY" },
         { key: "X-Content-Type-Options", value: "nosniff" },
         { key: "Referrer-Policy", value: "origin-when-cross-origin" },
+        {
+          key: "Content-Security-Policy",
+          value: [
+            "default-src 'self'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+            "img-src 'self' data: https: blob:",
+            "font-src 'self' data: https://fonts.gstatic.com",
+            "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://vercel.live",
+            "frame-ancestors 'none'",
+            "base-uri 'self'",
+            "form-action 'self'",
+            "frame-src 'self'",
+            "object-src 'none'",
+            "upgrade-insecure-requests",
+          ].join("; "),
+        },
+        {
+          key: "Permissions-Policy",
+          value: [
+            "geolocation=()",
+            "microphone=()",
+            "camera=()",
+            "payment=()",
+            "usb=()",
+          ].join(", "),
+        },
+        {
+          key: "Cross-Origin-Embedder-Policy",
+          value: "require-corp",
+        },
+        {
+          key: "Cross-Origin-Opener-Policy",
+          value: "same-origin",
+        },
+        {
+          key: "Cross-Origin-Resource-Policy",
+          value: "same-origin",
+        },
       ],
     },
   ],

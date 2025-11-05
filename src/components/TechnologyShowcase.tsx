@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
@@ -25,7 +25,7 @@ interface TechnologyItem {
   category: string;
 }
 
-export default function TechnologyShowcase() {
+const TechnologyShowcase = memo(function TechnologyShowcase() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -40,69 +40,72 @@ export default function TechnologyShowcase() {
   }, []);
 
   // Save visibility state to localStorage when it changes
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsVisible(false);
     localStorage.setItem("technologyShowcaseVisible", "false");
-  };
+  }, []);
 
-  const technologies: TechnologyItem[] = [
-    {
-      id: "nextjs",
-      name: "Next.js",
-      description: t("homepage.showcase.nextjs.description") as string,
-      icon: Globe,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "framework",
-    },
-    {
-      id: "prisma",
-      name: "Prisma",
-      description: t("homepage.showcase.prisma.description") as string,
-      icon: Database,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "database",
-    },
-    {
-      id: "shadcn",
-      name: "Shadcn/UI",
-      description: t("homepage.showcase.shadcn.description") as string,
-      icon: Layers,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "ui",
-    },
-    {
-      id: "tailwind",
-      name: "Tailwind CSS",
-      description: t("homepage.showcase.tailwind.description") as string,
-      icon: Palette,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "styling",
-    },
-    {
-      id: "typescript",
-      name: "TypeScript",
-      description: t("homepage.showcase.typescript.description") as string,
-      icon: Type,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "language",
-    },
-    {
-      id: "framer",
-      name: "Framer Motion",
-      description: t("homepage.showcase.framer.description") as string,
-      icon: Zap,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "animation",
-    },
-    {
-      id: "lucide",
-      name: "Lucide React",
-      description: t("homepage.showcase.lucide.description") as string,
-      icon: Code,
-      color: "text-purple-500 dark:text-purple-400",
-      category: "icons",
-    },
-  ];
+  const technologies: TechnologyItem[] = useMemo(
+    () => [
+      {
+        id: "nextjs",
+        name: "Next.js",
+        description: t("homepage.showcase.nextjs.description") as string,
+        icon: Globe,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "framework",
+      },
+      {
+        id: "prisma",
+        name: "Prisma",
+        description: t("homepage.showcase.prisma.description") as string,
+        icon: Database,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "database",
+      },
+      {
+        id: "shadcn",
+        name: "Shadcn/UI",
+        description: t("homepage.showcase.shadcn.description") as string,
+        icon: Layers,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "ui",
+      },
+      {
+        id: "tailwind",
+        name: "Tailwind CSS",
+        description: t("homepage.showcase.tailwind.description") as string,
+        icon: Palette,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "styling",
+      },
+      {
+        id: "typescript",
+        name: "TypeScript",
+        description: t("homepage.showcase.typescript.description") as string,
+        icon: Type,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "language",
+      },
+      {
+        id: "framer",
+        name: "Framer Motion",
+        description: t("homepage.showcase.framer.description") as string,
+        icon: Zap,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "animation",
+      },
+      {
+        id: "lucide",
+        name: "Lucide React",
+        description: t("homepage.showcase.lucide.description") as string,
+        icon: Code,
+        color: "text-purple-500 dark:text-purple-400",
+        category: "icons",
+      },
+    ],
+    [t]
+  );
 
   // Auto-cycling effect
   useEffect(() => {
@@ -115,38 +118,51 @@ export default function TechnologyShowcase() {
     return () => clearInterval(interval);
   }, [isHovered, technologies.length]);
 
-  const currentTech = technologies[currentIndex];
+  const currentTech = useMemo(
+    () => technologies[currentIndex],
+    [technologies, currentIndex]
+  );
 
-  const fadeVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      scale: 0.95,
-    },
-  };
+  const fadeVariants = useMemo(
+    () => ({
+      hidden: {
+        opacity: 0,
+        y: 20,
+        scale: 0.95,
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+      },
+      exit: {
+        opacity: 0,
+        y: -20,
+        scale: 0.95,
+      },
+    }),
+    []
+  );
 
-  const panelVariants = {
-    hidden: {
-      opacity: 0,
-      x: 100,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-    },
-  };
+  const panelVariants = useMemo(
+    () => ({
+      hidden: {
+        opacity: 0,
+        x: 100,
+        scale: 0.9,
+      },
+      visible: {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+      },
+    }),
+    []
+  );
+
+  const handleIndexChange = useCallback((index: number) => {
+    setCurrentIndex(index);
+  }, []);
 
   if (!isVisible) return null;
 
@@ -215,7 +231,7 @@ export default function TechnologyShowcase() {
           {technologies.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => handleIndexChange(index)}
               className={`w-3 h-3 rounded-full transition-colors duration-200 ${
                 index === currentIndex
                   ? "bg-purple-500 dark:bg-purple-400 shadow-lg shadow-purple-500/50 dark:shadow-purple-400/50"
@@ -249,4 +265,6 @@ export default function TechnologyShowcase() {
       </div>
     </motion.div>
   );
-}
+});
+
+export default TechnologyShowcase;

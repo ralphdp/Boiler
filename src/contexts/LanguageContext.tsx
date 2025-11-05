@@ -52,6 +52,24 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("boiler-click-language", newLanguage);
   };
 
+  // Preload common languages (English is most common)
+  useEffect(() => {
+    // Preload English immediately since it's the default
+    import("../languages/en.json").then((mod) => {
+      if (language === "en" || Object.keys(messages).length === 0) {
+        setMessages(mod.default);
+        setIsLoading(false);
+      }
+    });
+    // Preload other common languages in background
+    Promise.all([
+      import("../languages/es.json"),
+      import("../languages/fr.json"),
+    ]).catch(() => {
+      // Ignore errors for background preloading
+    });
+  }, []);
+
   // Load messages when language changes
   useEffect(() => {
     const loadMessages = async () => {

@@ -23,19 +23,20 @@ function ScrollRestorationInner({ children }: ScrollRestorationProps) {
   // Create a unique key for the current page
   const currentPageKey = `${pathname}${searchParams.toString()}`;
 
-  // Throttled scroll position saving
+  // Debounced scroll position saving (optimized: increased debounce time)
   const saveScrollPosition = useCallback(() => {
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
     }
 
+    // Increased debounce from 100ms to 250ms to reduce writes
     scrollTimeoutRef.current = setTimeout(() => {
       const currentPosition: ScrollPosition = {
         x: window.scrollX,
         y: window.scrollY,
       };
       scrollPositions.current.set(currentPageKey, currentPosition);
-    }, 100);
+    }, 250);
   }, [currentPageKey]);
 
   useEffect(() => {
@@ -81,8 +82,13 @@ function ScrollRestorationInner({ children }: ScrollRestorationProps) {
     }
   }, [pathname, searchParams, currentPageKey]);
 
-  // Save scroll position before navigation
+  // Save scroll position before navigation (optimized with cleanup)
   useEffect(() => {
+    const handleScroll = () => {
+      // Debounced scroll handler
+      saveScrollPosition();
+    };
+
     const handleBeforeUnload = () => {
       const currentPosition: ScrollPosition = {
         x: window.scrollX,
@@ -95,21 +101,15 @@ function ScrollRestorationInner({ children }: ScrollRestorationProps) {
       isNavigating.current = true;
     };
 
-    // Listen for navigation events
+    // Use passive scroll listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("beforeunload", handleBeforeUnload);
     window.addEventListener("popstate", handlePopState);
 
-    // Save scroll position on scroll (throttled)
-    const handleScroll = () => {
-      saveScrollPosition();
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("beforeunload", handleBeforeUnload);
       window.removeEventListener("popstate", handlePopState);
-      window.removeEventListener("scroll", handleScroll);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }

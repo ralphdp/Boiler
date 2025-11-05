@@ -1,12 +1,9 @@
 {
   "navigation": {
     "title": "Boiler.click",
-    "mission": "المهمة",
-    "support": "الدعم",
-    "about": "حول",
-    "documentation": "الوثائق",
-    "articles": "المقالات",
-    "faq": "الأسئلة الشائعة"
+    "home": "الرئيسية",
+    "features": "المميزات",
+    "examples": "أمثلة"
   },
   "quickStart": {
     "title": "البدء السريع",
@@ -60,6 +57,7 @@
     "title": "Boiler.click - قالب SaaS شامل",
     "subtitle": "قالب SaaS شامل للواجهة الأمامية والخلفية",
     "description": "مدعوم بـ Next.js و Prisma و Shadcn و Vercel",
+    "featuresButton": "عرض المميزات",
     "aboutButton": "حول Boiler",
     "githubButton": "جيثب",
     "comingSoon": "قريباً...",
@@ -662,5 +660,252 @@
       "tryAgain": "حاول مرة أخرى",
       "goHome": "العودة للرئيسية"
     }
+  },
+  "features": {
+    "title": "المميزات",
+    "subtitle": "كل ما تحتاجه لبناء تطبيقات SaaS جاهزة للإنتاج",
+    "description": "Boiler.click يأتي معبأ بالمميزات الأساسية وأفضل الممارسات لمساعدتك على الإطلاق بشكل أسرع والتوسع بثقة.",
+    "sections": {
+      "core": {
+        "title": "المميزات الأساسية",
+        "description": "وظائف أساسية مدمجة"
+      },
+      "development": {
+        "title": "تجربة المطور",
+        "description": "أدوات وإعدادات تجعل التطوير ممتعاً"
+      },
+      "production": {
+        "title": "جاهز للإنتاج",
+        "description": "محسّن للقياس والأمان والأداء"
+      }
+    },
+    "items": {}
+  },
+  "examples": {
+    "title": "أمثلة",
+    "subtitle": "أمثلة على مكونات الواجهة والتخطيطات",
+    "description": "استكشف مكونات الواجهة والتخطيطات وأنماط التصميم المتاحة في Boiler.click. جميع الأمثلة تفاعلية وجاهزة للاستخدام.",
+    "sections": {
+      "components": {
+        "title": "مكونات الواجهة",
+        "description": "مكونات جميلة ويمكن الوصول إليها من Shadcn/ui"
+      },
+      "layouts": {
+        "title": "أمثلة التخطيط",
+        "description": "تخطيطات وهياكل الصفحات الشائعة"
+      }
+    },
+    "components": {
+      "button": {
+        "title": "زر",
+        "description": "مكون زر متعدد الاستخدامات مع متغيرات متعددة",
+        "variants": {
+          "default": "افتراضي",
+          "destructive": "تدميري",
+          "outline": "مخطط",
+          "secondary": "ثانوي",
+          "ghost": "شبح",
+          "link": "رابط"
+        }
+      },
+      "badge": {
+        "title": "شارة",
+        "description": "مؤشرات حالة وملصقات صغيرة",
+        "variants": {
+          "default": "افتراضي",
+          "secondary": "ثانوي",
+          "destructive": "تدميري",
+          "outline": "مخطط"
+        }
+      },
+      "card": {
+        "title": "بطاقة",
+        "description": "مكون بطاقة مرن لعرض المحتوى",
+        "exampleTitle": "بطاقة مثال",
+        "exampleContent": "هذا مكون بطاقة مثال مع أقسام رأس ومحتوى وتذييل."
+      },
+      "form": {
+        "title": "مكونات النموذج",
+        "description": "حقول الإدخال وعناصر النموذج",
+        "placeholders": {
+          "text": "إدخال نص",
+          "email": "إدخال بريد إلكتروني",
+          "password": "إدخال كلمة مرور",
+          "disabled": "إدخال معطل"
+        }
+      },
+      "interactive": {
+        "title": "مكونات تفاعلية",
+        "description": "القوائم المنسدلة والتلميحات والقوائم",
+        "userMenu": "قائمة المستخدم",
+        "myAccount": "حسابي",
+        "profile": "الملف الشخصي",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج"
+      },
+      "textarea": {
+        "title": "منطقة النص",
+        "description": "مكون إدخال نص متعدد الأسطر",
+        "placeholder": "أدخل رسالتك هنا..."
+      },
+      "select": {
+        "title": "اختيار",
+        "description": "مكون اختيار منسدل",
+        "options": {
+          "option1": "خيار 1",
+          "option2": "خيار 2",
+          "option3": "خيار 3"
+        }
+      },
+      "alert": {
+        "title": "رسائل التنبيه",
+        "description": "إشعارات وتنبيهات مهمة",
+        "success": {
+          "title": "نجح",
+          "message": "تم حفظ تغييراتك بنجاح!"
+        },
+        "error": {
+          "title": "خطأ",
+          "message": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+        },
+        "warning": {
+          "title": "تحذير",
+          "message": "يرجى مراجعة إدخالك قبل الإرسال."
+        },
+        "info": {
+          "title": "معلومات",
+          "message": "ميزات جديدة متاحة. تحقق منها!"
+        }
+      },
+      "modal": {
+        "title": "حوار نافذة منبثقة",
+        "description": "حوارات نافذة منبثقة تفاعلية وطبقات",
+        "openModal": "فتح النافذة",
+        "modalTitle": "تأكيد الإجراء",
+        "modalDescription": "هل أنت متأكد أنك تريد المتابعة؟ لا يمكن التراجع عن هذا الإجراء.",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد"
+      },
+      "separator": {
+        "title": "فاصل",
+        "description": "فواصل مرئية"
+      },
+      "loading": {
+        "title": "حالات التحميل",
+        "description": "مؤشرات التحميل والشاشات الهيكلية",
+        "loading": "جاري التحميل...",
+        "pleaseWait": "يرجى الانتظار بينما نعالج طلبك."
+      },
+      "emptyState": {
+        "title": "الحالات الفارغة",
+        "description": "حاول تعديل بحثك أو المرشحات.",
+        "noResults": "لم يتم العثور على نتائج",
+        "action": "مسح المرشحات"
+      },
+      "pricing": {
+        "title": "بطاقات الأسعار",
+        "description": "تخطيطات جدول الأسعار",
+        "basic": {
+          "name": "أساسي",
+          "price": "$9",
+          "period": "/شهر",
+          "features": [
+            "10 مشاريع",
+            "5 جيجابايت تخزين",
+            "دعم البريد الإلكتروني"
+          ]
+        },
+        "pro": {
+          "name": "احترافي",
+          "price": "$29",
+          "period": "/شهر",
+          "features": [
+            "مشاريع غير محدودة",
+            "50 جيجابايت تخزين",
+            "دعم ذو أولوية"
+          ]
+        }
+      },
+      "dashboard": {
+        "title": "بطاقات لوحة المعلومات",
+        "description": "أمثلة على عناصر واجهة لوحة المعلومات",
+        "activeUsers": "المستخدمون النشطون",
+        "conversionRate": "معدل التحويل",
+        "avgSession": "متوسط الجلسة",
+        "bounceRate": "معدل الارتداد"
+      }
+    },
+    "layouts": {
+      "title": "بطاقات لوحة المعلومات",
+      "description": "تخطيطات وهياكل الصفحات الشائعة",
+      "totalUsers": "إجمالي المستخدمين",
+      "revenue": "الإيرادات",
+      "growthPercent": "% من الشهر الماضي",
+      "activeUsers": "المستخدمون النشطون",
+      "conversionRate": "معدل التحويل"
+    }
+  },
+  "ui": {
+    "loading": "جاري التحميل...",
+    "imageUnavailable": "الصورة غير متاحة",
+    "close": "إغلاق",
+    "share": "مشاركة:",
+    "viewAllFeatures": "عرض جميع المميزات",
+    "viewGitHub": "عرض Boiler.click على GitHub (يفتح في علامة تبويب جديدة)"
+  },
+  "botid": {
+    "example": {
+      "title": "مثال BotID",
+      "description": "هذا المثال يوضح تكامل BotID:",
+      "features": {
+        "invisible": "كشف غير مرئي للبوتات",
+        "noInteraction": "لا يتطلب تفاعل المستخدم",
+        "mlProtection": "حماية متقدمة تعتمد على التعلم الآلي",
+        "riskScoring": "تحليل وتقييم المخاطر",
+        "automatic": "تلقائي على نشر Vercel"
+      },
+      "status": {
+        "label": "حالة BotID:",
+        "active": "نشط (تنفيذ رسمي)",
+        "message": "لا حاجة للرموز - كشف تلقائي"
+      },
+      "button": {
+        "verifying": "جاري التحقق...",
+        "test": "اختبار التحقق من BotID"
+      },
+      "modes": {
+        "development": {
+          "label": "وضع التطوير:",
+          "description": "BotID معطل في التطوير"
+        },
+        "production": {
+          "label": "وضع الإنتاج:",
+          "description": "BotID يتم تفعيله تلقائياً على Vercel"
+        },
+        "noConfig": {
+          "label": "بدون إعداد:",
+          "description": "لا حاجة لمتغيرات البيئة أو مفاتيح API"
+        }
+      },
+      "disabled": "BotID معطل في التطوير",
+      "active": "حماية BotID نشطة"
+    }
+  },
+  "aria": {
+    "mobileMenu": "قائمة التنقل للجوال",
+    "toggleMobileMenu": "تبديل القائمة المحمولة",
+    "coreFeatures": "المميزات الأساسية",
+    "devExperience": "مميزات تجربة المطور",
+    "userExperience": "مميزات تجربة المستخدم",
+    "socialSharingLinks": "روابط المشاركة الاجتماعية",
+    "shareOn": "مشاركة على",
+    "siteFooter": "تذييل الموقع",
+    "footerContent": "محتوى التذييل",
+    "viewLegalInfo": "عرض المعلومات القانونية",
+    "viewSitemap": "عرض خريطة الموقع",
+    "mainNavigation": "التنقل الرئيسي",
+    "homepage": "الصفحة الرئيسية لـ Boiler.click",
+    "homepageMainContent": "المحتوى الرئيسي للصفحة الرئيسية",
+    "homepageActionButtons": "أزرار الإجراءات للصفحة الرئيسية"
   }
 }

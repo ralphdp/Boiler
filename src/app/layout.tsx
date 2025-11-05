@@ -1,4 +1,5 @@
 import { Cabin, PT_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CookieProvider } from "@/contexts/CookieContext";
@@ -15,14 +16,19 @@ const cabin = Cabin({
   variable: "--font-cabin",
   display: "swap",
   preload: true,
+  // Optimize font loading - only load regular weight initially
+  weight: ["400"],
+  fallback: ["system-ui", "arial"],
 });
 
+// Load secondary font with reduced priority
 const ptSans = PT_Sans({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-pt-sans",
   display: "swap",
-  preload: true,
+  preload: false, // Don't preload secondary font
+  fallback: ["system-ui", "arial"],
 });
 
 export default function RootLayout({
@@ -196,31 +202,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics - Optimized loading */}
-        {process.env.NODE_ENV === "production" &&
-          process.env.NEXT_PUBLIC_GA_ID && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                      'anonymize_ip': true,
-                      'cookie_flags': 'SameSite=None;Secure',
-                      'send_page_view': false
-                    });
-                  `,
-                }}
-              />
-            </>
-          )}
-
         {/* Analytics and Performance Monitoring */}
         <script
           dangerouslySetInnerHTML={{
@@ -269,6 +250,33 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+
+        {/* Google Analytics - Optimized loading with next/script */}
+        {process.env.NODE_ENV === "production" &&
+          process.env.NEXT_PUBLIC_GA_ID && (
+            <>
+              <Script
+                strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              />
+              <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                      'anonymize_ip': true,
+                      'cookie_flags': 'SameSite=None;Secure',
+                      'send_page_view': false
+                    });
+                  `,
+                }}
+              />
+            </>
+          )}
 
         <LanguageProvider>
           <LanguageAttributes />

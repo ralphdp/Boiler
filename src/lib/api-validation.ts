@@ -13,41 +13,55 @@ export interface ValidationResult<T = any> {
   errors?: string[];
 }
 
-export function validateRequest<T = any>(
+export async function validateRequest<T = any>(
   request: NextRequest,
   config: ValidationConfig
-): ValidationResult<T> {
+): Promise<ValidationResult<T>> {
   const errors: string[] = [];
+  const validatedData: any = {};
 
   try {
     // Validate body if schema provided
     if (config.body) {
-      const body = request.json ? request.json() : {};
-      const bodyResult = config.body.parse(body);
-      if (bodyResult) {
-        return { success: true, data: bodyResult as T };
+      let body = {};
+      try {
+        body = await request.json();
+      } catch (e) {
+        // If body parsing fails, body stays as empty object
+        // This will be caught by Zod validation
       }
+      const bodyResult = config.body.parse(body);
+      validatedData.body = bodyResult;
     }
 
     // Validate query parameters
     if (config.query) {
       const queryParams = Object.fromEntries(request.nextUrl.searchParams);
       const queryResult = config.query.parse(queryParams);
-      if (queryResult) {
-        return { success: true, data: queryResult as T };
-      }
+      validatedData.query = queryResult;
     }
 
     // Validate headers
     if (config.headers) {
       const headers = Object.fromEntries(request.headers.entries());
       const headersResult = config.headers.parse(headers);
-      if (headersResult) {
-        return { success: true, data: headersResult as T };
-      }
+      validatedData.headers = headersResult;
     }
 
-    return { success: true, data: {} as T };
+    // Combine all validated data
+    const data =
+      Object.keys(validatedData).length > 0
+        ? {
+            ...validatedData.body,
+            ...validatedData.query,
+            ...validatedData.headers,
+          }
+        : validatedData.body ||
+          validatedData.query ||
+          validatedData.headers ||
+          {};
+
+    return { success: true, data: data as T };
   } catch (error) {
     if (error instanceof ZodError) {
       errors.push(
@@ -65,7 +79,7 @@ export function createValidatedApiHandler<T = any>(
   handler: (request: NextRequest, validatedData: T) => Promise<NextResponse>
 ) {
   return async function validatedHandler(request: NextRequest) {
-    const validation = validateRequest<T>(request, config);
+    const validation = await validateRequest<T>(request, config);
 
     if (!validation.success) {
       return new NextResponse(
@@ -147,6 +161,31 @@ export const CommonSchemas = {
       .string()
       .optional()
       .transform((val) => (val ? parseInt(val, 10) : 1)),
+  }),
+
+  // Error tracking
+  errorTracking: z.object({
+    message: z.string().min(1).max(1000, "Message too long"),
+    stack: z.string().max(5000, "Stack trace too long").optional(),
+    context: z.string().max(500, "Context too long").optional(),
+    url: z.string().url("Invalid URL").max(500, "URL too long").optional(),
+    userAgent: z.string().max(500, "User agent too long").optional(),
+    timestamp: z.string().optional(),
+  }),
+
+  // Performance tracking
+  performanceTracking: z.object({
+    name: z.string().min(1).max(200, "Metric name too long"),
+    duration: z.number().min(0).max(1000000, "Duration too large"),
+    timestamp: z.string().optional(),
+  }),
+
+  // Resource tracking
+  resourceTracking: z.object({
+    name: z.string().min(1).max(500, "Resource name too long"),
+    duration: z.number().min(0).max(1000000, "Duration too large"),
+    size: z.number().min(0).max(1000000000, "Size too large").optional(),
+    timestamp: z.string().optional(),
   }),
 };
 

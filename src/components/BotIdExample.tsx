@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BotId from "@/components/BotId";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BotIdExample() {
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -45,32 +47,34 @@ export default function BotIdExample() {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center">BotID Example</CardTitle>
+        <CardTitle className="text-center">
+          {t("botid.example.title")}
+        </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <BotId>
           <div className="space-y-4">
             <div className="text-sm text-gray-600 dark:text-gray-400">
-              <p>This example demonstrates BotID integration:</p>
+              <p>{t("botid.example.description")}</p>
               <ul className="list-disc list-inside mt-2 space-y-1">
-                <li>Invisible bot detection</li>
-                <li>No user interaction required</li>
-                <li>Advanced ML-based protection</li>
-                <li>Risk scoring and analysis</li>
-                <li>Automatic on Vercel deployment</li>
+                <li>{t("botid.example.features.invisible")}</li>
+                <li>{t("botid.example.features.noInteraction")}</li>
+                <li>{t("botid.example.features.mlProtection")}</li>
+                <li>{t("botid.example.features.riskScoring")}</li>
+                <li>{t("botid.example.features.automatic")}</li>
               </ul>
             </div>
 
             <div className="space-y-2">
               <div className="text-sm">
-                <strong>BotID Status:</strong>{" "}
+                <strong>{t("botid.example.status.label")}</strong>{" "}
                 <span className="text-green-600">
-                  Active (Official Implementation)
+                  {t("botid.example.status.active")}
                 </span>
               </div>
 
               <div className="text-xs text-gray-500 font-mono bg-gray-100 dark:bg-gray-800 p-2 rounded">
-                No tokens required - automatic detection
+                {t("botid.example.status.message")}
               </div>
             </div>
 
@@ -79,7 +83,9 @@ export default function BotIdExample() {
               disabled={isSubmitting}
               className="w-full"
             >
-              {isSubmitting ? "Verifying..." : "Test BotID Verification"}
+              {isSubmitting
+                ? t("botid.example.button.verifying")
+                : t("botid.example.button.test")}
             </Button>
 
             {result && (
@@ -100,16 +106,16 @@ export default function BotIdExample() {
 
             <div className="text-xs text-gray-500 dark:text-gray-400">
               <p>
-                <strong>Development Mode:</strong> BotID is disabled in
-                development and will always return success.
+                <strong>{t("botid.example.modes.development.label")}</strong>{" "}
+                {t("botid.example.modes.development.description")}
               </p>
               <p>
-                <strong>Production Mode:</strong> BotID automatically activates
-                when deployed to Vercel.
+                <strong>{t("botid.example.modes.production.label")}</strong>{" "}
+                {t("botid.example.modes.production.description")}
               </p>
               <p>
-                <strong>No Configuration:</strong> No environment variables or
-                API keys needed!
+                <strong>{t("botid.example.modes.noConfig.label")}</strong>{" "}
+                {t("botid.example.modes.noConfig.description")}
               </p>
             </div>
           </div>
