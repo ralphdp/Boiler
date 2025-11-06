@@ -1,0 +1,205 @@
+# Boilerplate Project - Cursor Development Guidelines
+
+## Project Overview
+Next.js 16 application with WordPress-like core/theme architecture, Prisma, PostgreSQL, Redis, Passport.js authentication, MFA, Stripe, i18n, and AI capabilities.
+
+## Architecture Principles
+
+### Core vs Custom/Theme Separation
+- **Never modify core files** - Core files are in `app/core/`, `components/core/`, `lib/core/`
+- **Always use custom/theme files for modifications** - Use `components/custom/`, `lib/custom/`, `themes/`
+- Module resolution: Check theme first, then core, then custom
+- Core updates should not overwrite custom implementations
+
+### Directory Structure
+```
+app/core/          - Core pages, layouts, API routes (DO NOT MODIFY)
+app/[locale]/      - Locale-specific routing
+components/core/   - Core reusable components (DO NOT MODIFY)
+components/custom/ - Custom user components (SAFE TO MODIFY)
+lib/core/          - Core utilities (DO NOT MODIFY)
+lib/custom/        - Custom utilities (SAFE TO MODIFY)
+themes/            - Theme files (SAFE TO MODIFY)
+prisma/            - Database schema and migrations
+```
+
+## Coding Standards
+
+### TypeScript
+- Use strict mode
+- Define proper types, avoid `any`
+- Use Zod for runtime validation
+- Import aliases: `@/` for root, `@/lib/core/` for core libs
+- Use interface over type for object shapes
+- Use type for unions, intersections, and primitives
+
+### React/Next.js
+- Use React Server Components by default
+- Add 'use client' only when necessary (hooks, browser APIs, event handlers)
+- Prefer server-side data fetching
+- Use App Router conventions
+- Implement proper error boundaries
+- Use metadata API for SEO
+
+### Components
+- Make components theme-aware
+- Support i18n (use next-intl)
+- Ensure accessibility (WCAG compliance)
+- Support RTL languages
+- Validate props with Zod
+- Use shadcn/ui components when applicable
+
+### Authentication
+- Always check authentication status
+- Implement MFA checks after password verification
+- Use protected route middleware for sensitive pages
+- Hash passwords with bcrypt
+- Validate email verification status
+- Rate limit auth endpoints
+
+### Database
+- Use Prisma for all database operations
+- Always use transactions for multi-step operations
+- Implement proper error handling
+- Use proper indexes for performance
+- Never expose raw SQL errors to clients
+
+### Caching & Performance
+- Use Redis for caching API responses
+- Cache Stripe API calls
+- Cache database query results when appropriate
+- Implement rate limiting on all API endpoints
+- Use proper cache invalidation strategies
+
+### Security
+- Validate all inputs with Zod
+- Sanitize user-generated content
+- Use CSRF protection
+- Implement proper CORS
+- Set secure session cookies (HttpOnly, Secure, SameSite)
+- Use Content Security Policy headers
+- Rate limit sensitive endpoints
+
+### i18n
+- Support multiple languages (en, es, ar minimum)
+- Support RTL languages
+- Use translation keys, not hardcoded strings
+- Provide translations for all user-facing text
+- Make email templates multilingual
+
+### Error Handling
+- Use proper error boundaries
+- Log errors appropriately
+- Never expose stack traces to users
+- Return user-friendly error messages
+- Support i18n for error messages
+
+### Testing
+- Write E2E tests with Playwright
+- Test authentication flows including MFA
+- Test theme switching
+- Test API endpoints
+- Use test fixtures for common scenarios
+
+## API Route Conventions
+
+### Standard Response Format
+```typescript
+// Success
+{ data: T, success: true }
+
+// Error
+{ error: string, success: false, code?: string }
+```
+
+### Rate Limiting
+Always implement rate limiting on:
+- Authentication endpoints
+- Password reset
+- Email verification
+- MFA code requests
+- AI chat endpoints
+
+### Validation
+- Use Zod schemas for request validation
+- Return 400 for validation errors
+- Include field-specific error messages
+
+## Theme Development
+
+### Creating Custom Themes
+1. Create directory in `themes/[theme-name]/`
+2. Add `theme.json` with configuration
+3. Override pages in `themes/[theme-name]/app/`
+4. Override components in `themes/[theme-name]/components/`
+5. Add custom styles in `themes/[theme-name]/styles/`
+
+### Theme Configuration
+```json
+{
+  "name": "theme-name",
+  "version": "1.0.0",
+  "author": "Author Name",
+  "description": "Theme description",
+  "isCore": false
+}
+```
+
+## Common Patterns
+
+### Protected Routes
+```typescript
+import { AuthGuard } from '@/components/core/auth/auth-guard';
+
+export default function Page() {
+  return <AuthGuard><YourContent /></AuthGuard>;
+}
+```
+
+### Rate Limiting
+```typescript
+import { rateLimiter } from '@/lib/core/rate-limit/rate-limit';
+
+const result = await rateLimiter.check(identifier, {
+  interval: 60,
+  maxRequests: 10,
+});
+```
+
+### Caching
+```typescript
+import { cache } from '@/lib/core/cache/cache';
+
+const data = await cache.get('key');
+await cache.set('key', value, 3600);
+```
+
+### Database Queries
+```typescript
+import prisma from '@/lib/core/prisma';
+
+const user = await prisma.user.findUnique({
+  where: { email },
+});
+```
+
+## GDPR Compliance
+- Implement cookie consent banner
+- Provide data export functionality
+- Implement account deletion with full data cleanup
+- Get explicit consent for data processing
+- Support right to be forgotten
+
+## Performance Targets
+- First Contentful Paint < 1.5s
+- Time to Interactive < 3s
+- Lighthouse score > 90
+- Core Web Vitals: all green
+
+## Deployment (Vercel)
+- Configure environment variables
+- Set up Prisma postinstall hook
+- Configure Redis for serverless
+- Enable BotID protection
+- Set up edge functions for critical routes
+

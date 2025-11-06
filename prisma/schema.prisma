@@ -1,0 +1,87 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Email verification
+  isVerified             Boolean   @default(false)
+  verificationToken      String?   @unique
+  verificationTokenExpiry DateTime?
+
+  // MFA fields
+  mfaEnabled      Boolean @default(false)
+  mfaMethod       String? // email, authenticator, sms
+  mfaSecret       String? // Encrypted TOTP secret
+  mfaPhoneNumber  String? // Encrypted phone number for SMS MFA
+  mfaBackupCodes  String? // Encrypted backup codes (JSON array)
+  mfaVerified     Boolean @default(false)
+
+  // Relations
+  verificationTokens VerificationToken[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model VerificationToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model SiteSettings {
+  id       String @id @default(cuid())
+  key      String @unique
+  value    String
+  category String? // general, email, payment, theme, etc.
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+}
+
+model Theme {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  version     String
+  author      String?
+  description String?
+  isActive    Boolean  @default(false)
+  isCore      Boolean  @default(false)
+  config      String?  // JSON configuration
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+

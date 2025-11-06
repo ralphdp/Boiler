@@ -1,0 +1,17 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "author": "Boilerplate",
+  "description": "Core default theme",
+  "isCore": true,
+  "settings": {
+    "colors": {
+      "primary": "oklch(0.205 0 0)",
+      "secondary": "oklch(0.97 0 0)"
+    },
+    "typography": {
+      "fontFamily": "var(--font-geist-sans)"
+    }
+  }
+}
+
