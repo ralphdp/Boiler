@@ -5,12 +5,14 @@ A comprehensive Next.js 16 boilerplate with enterprise-grade features including 
 ## Features
 
 ### Architecture
+
 - 🏗️ **WordPress-like Core/Theme System** - Separate core functionality from custom implementations
 - 🎨 **Theme Support** - Full theming system with easy customization
 - 🌍 **Internationalization** - Multi-language support with RTL capabilities
 - 🌓 **Dark Mode** - Built-in dark/light theme toggle
 
 ### Authentication & Security
+
 - 🔐 **Passport.js Authentication** - Robust authentication with email verification
 - 🛡️ **Multi-Factor Authentication** - Email, TOTP (Google Authenticator), and SMS via Twilio
 - 🔑 **Session Management** - Redis-backed sessions for scalability
@@ -18,17 +20,20 @@ A comprehensive Next.js 16 boilerplate with enterprise-grade features including 
 - 🍪 **GDPR Compliance** - Cookie consent, account deletion, data export
 
 ### Database & Caching
+
 - 🗄️ **Prisma** - Type-safe database access
 - 🐘 **PostgreSQL** - Powerful relational database
 - ⚡ **Redis** - Caching and session storage
 - 📊 **Health Checks** - Monitor database and Redis connectivity
 
 ### Payments & AI
+
 - 💳 **Stripe Integration** - Complete payment processing
 - 🤖 **AI Chat API** - OpenAI/Anthropic integration with caching
 - 📧 **Resend Email** - Transactional emails with templates
 
 ### Development Experience
+
 - 📝 **TypeScript** - Full type safety
 - 🎭 **Playwright** - E2E testing
 - 🎨 **shadcn/ui** - Beautiful UI components
@@ -38,49 +43,70 @@ A comprehensive Next.js 16 boilerplate with enterprise-grade features including 
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ and npm
-- PostgreSQL database
+- PostgreSQL database or Prisma Accelerate
 - Redis instance
 - Resend API key (for emails)
 - Stripe account (for payments)
 - Twilio account (for SMS MFA, optional)
 
+**Note**: This project is configured to work with **Prisma Accelerate**. If you're using regular PostgreSQL, remove the `directUrl` from `prisma/schema.prisma`.
+
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/ralphdp/Boiler.git
 cd Boiler
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env
 ```
 
 Edit `.env` with your configuration:
-- `DATABASE_URL` - PostgreSQL connection string
+
+**For Prisma Accelerate users:**
+
+- `DATABASE_URL` - Prisma Accelerate URL (prisma://accelerate.prisma-data.net/...)
+- `DIRECT_DATABASE_URL` - Direct PostgreSQL connection string (postgresql://...)
+
+**For regular PostgreSQL users:**
+
+- Remove `directUrl` from `prisma/schema.prisma`
+- `DATABASE_URL` - Direct PostgreSQL connection string
+
+**Other required variables:**
+
 - `REDIS_URL` - Redis connection string
 - `RESEND_API_KEY` - Resend API key
 - `STRIPE_SECRET_KEY` - Stripe secret key
 - And more...
 
 4. Run database migrations:
+
 ```bash
 npx prisma migrate dev
 ```
 
 5. Generate Prisma client:
+
 ```bash
 npx prisma generate
 ```
 
 6. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -125,6 +151,7 @@ This boilerplate uses a WordPress-inspired architecture:
 - **Themes** (`themes/`) allow you to override any core component or page
 
 This separation allows you to:
+
 - Update the core framework without losing customizations
 - Create multiple themes for different use cases
 - Keep your custom code organized and maintainable
@@ -143,12 +170,14 @@ This separation allows you to:
 ## API Endpoints
 
 ### Health Checks
+
 - `GET /api/health` - Basic health check
 - `GET /api/health/database` - Database connectivity
 - `GET /api/health/redis` - Redis connectivity
 - `GET /api/health/full` - Comprehensive health check
 
 ### Authentication (Coming Soon)
+
 - `POST /api/auth/register` - User registration
 - `POST /api/auth/login` - User login
 - `POST /api/auth/logout` - User logout
@@ -157,6 +186,7 @@ This separation allows you to:
 - `POST /api/auth/reset-password` - Reset password
 
 ### MFA (Coming Soon)
+
 - `POST /api/auth/mfa/setup` - Setup MFA
 - `POST /api/auth/mfa/verify` - Verify MFA code
 - `POST /api/auth/mfa/enable` - Enable MFA
@@ -167,6 +197,7 @@ This separation allows you to:
 See `.env.example` for all required environment variables.
 
 ### Required
+
 - `DATABASE_URL` - PostgreSQL connection string
 - `REDIS_URL` - Redis connection string
 - `SESSION_SECRET` - Session encryption secret
@@ -175,6 +206,7 @@ See `.env.example` for all required environment variables.
 - `APP_URL` - Application URL
 
 ### Optional
+
 - `STRIPE_SECRET_KEY` - Stripe secret key
 - `TWILIO_ACCOUNT_SID` - Twilio account SID (for SMS MFA)
 - `OPENAI_API_KEY` - OpenAI API key (for AI features)
@@ -182,12 +214,14 @@ See `.env.example` for all required environment variables.
 ## Deployment
 
 ### Vercel (Recommended)
+
 1. Push code to GitHub
 2. Import repository in Vercel
 3. Configure environment variables
 4. Deploy
 
 The project is pre-configured for Vercel deployment with:
+
 - Automatic Prisma client generation
 - Redis compatibility for serverless
 - Optimized build settings
